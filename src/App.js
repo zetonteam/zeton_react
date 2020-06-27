@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './images/icons/LOGO.svg';
 import './App.css';
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           Witaj w aplikacji "Żeton"!
         </p>
       </header>
+      <Footer />
     </div>
   );
 }
