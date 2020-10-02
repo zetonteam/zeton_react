@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/zeton_react/static/css/main.7a14c0c0.chunk.css",
+    "main.js": "/zeton_react/static/js/main.6bf7b6b7.chunk.js",
+    "main.js.map": "/zeton_react/static/js/main.6bf7b6b7.chunk.js.map",
+    "runtime-main.js": "/zeton_react/static/js/runtime-main.8b1240ce.js",
+    "runtime-main.js.map": "/zeton_react/static/js/runtime-main.8b1240ce.js.map",
+    "static/js/2.413eff38.chunk.js": "/zeton_react/static/js/2.413eff38.chunk.js",
+    "static/js/2.413eff38.chunk.js.map": "/zeton_react/static/js/2.413eff38.chunk.js.map",
+    "index.html": "/zeton_react/index.html",
+    "precache-manifest.a7800ecd45f28f53276c1b8035fb405e.js": "/zeton_react/precache-manifest.a7800ecd45f28f53276c1b8035fb405e.js",
+    "service-worker.js": "/zeton_react/service-worker.js",
+    "static/css/main.7a14c0c0.chunk.css.map": "/zeton_react/static/css/main.7a14c0c0.chunk.css.map",
+    "static/js/2.413eff38.chunk.js.LICENSE.txt": "/zeton_react/static/js/2.413eff38.chunk.js.LICENSE.txt",
+    "static/media/LOGO.svg": "/zeton_react/static/media/LOGO.c1024212.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8b1240ce.js",
+    "static/js/2.413eff38.chunk.js",
+    "static/css/main.7a14c0c0.chunk.css",
+    "static/js/main.6bf7b6b7.chunk.js"
+  ]
+}
