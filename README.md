@@ -1,3 +1,15 @@
+# zeton_django
+
+Zeton is an application that  support behavioral therapy. 
+Token system for the child. 
+Allows you to earn points for your activities and exchange them for prizes.
+
+## Application goals
+
+- Developing deficit (desirable) behaviour
+- Reduction of undesired behaviour
+- Generating and maintaining therapy effects over time
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
