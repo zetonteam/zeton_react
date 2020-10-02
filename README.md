@@ -10,6 +10,8 @@ Allows you to earn points for your activities and exchange them for prizes.
 - Reduction of undesired behaviour
 - Generating and maintaining therapy effects over time
 
+## Development setup
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
