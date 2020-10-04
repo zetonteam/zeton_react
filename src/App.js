@@ -1,6 +1,9 @@
+import React, { useState } from 'react';
 import React , {useState}from 'react';
 import logo from './images/icons/LOGO.svg';
+import Login from './components/Login/Login';
 import './App.css';
+//import Footer from './components/Footer/Footer'
 import Footer from './components/Footer/Footer'
 import {Button} from '@material-ui/core';
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
@@ -41,6 +44,15 @@ function HomeIcon(props) {
 }
 
 function App() {
+  const [welcome, toggleWelcome] = useState(false)
+
+  useState(() => {
+    const timer = setTimeout(() => {
+      toggleWelcome(true)
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
 const [points, togglePoints] = useState(50)
 const [exp, toggleExp] = useState(50)
 const [child_name, toggleChild_Name] = useState("Wojtek")
@@ -62,11 +74,14 @@ return(
 }
   return (
     <div className="App">
-      <header className="App-header">
+      <aside className={welcome === false ? "welcome" : "welcome--off"}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Witaj w aplikacji "Żeton"!
         </p>
+      </aside>
+      <Login />
+      {/* <Footer /> */}
         {child_name}
         <HomeIcon color="primary" /><div>{points}</div> <br/>
         <HomeIcon color="secondary" />{exp}

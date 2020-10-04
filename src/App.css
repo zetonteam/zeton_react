@@ -2,15 +2,23 @@
   text-align: center;
 }
 
-.App-header {
+.welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #eeeeee;
   min-height: 100vh;
   display: flex;
+  opacity: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  animation: welcomeShow 2s;
+  -webkit-animation: welcomeShow 2s;
+  z-index: 99;
 }
 
 .padding{
@@ -18,3 +26,24 @@ padding: 5px;
 }
 
 
+@keyframes welcomeShow {
+  0% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+
+.welcome--off {
+  display: none;
+}
+
+.login {
+  z-index: 0;
+}
