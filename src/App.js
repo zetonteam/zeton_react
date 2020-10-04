@@ -3,7 +3,7 @@ import logo from './images/icons/LOGO.svg';
 import Login from './components/Login/Login';
 import './App.css';
 import Zeton from './components/Zeton';
-import { authorise, checkLog } from './auth'
+import { getUser } from './auth'
 //import Footer from './components/Footer/Footer'
 
 function App() {
@@ -16,6 +16,12 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const profile = () => {
+    let addUser;
+    getUser() === 'zeton' && (addUser = true)
+    return addUser;
+  }
+
   return (
     <div className="App">
       <aside className={welcome === false ? "welcome" : "welcome--off"}>
@@ -24,8 +30,8 @@ function App() {
           Witaj w aplikacji "Żeton"!
         </p>
       </aside>
-      {console.log(checkLog)}
-      {checkLog === true ? <Zeton /> : <Login />}      
+      {console.log("USER" + getUser())}
+      {profile() ? <Zeton profile={'private'} /> : <Login />}      
       {/* <Zeton /> */}
     </div>
   );

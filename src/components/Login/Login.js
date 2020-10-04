@@ -1,39 +1,31 @@
 import React, { useState } from "react";
 import { FormControl, Button, TextField } from '@material-ui/core';
-import { authorise } from '../../auth'
+import { authorise, checkLog } from '../../auth'
 
 const Login = () => {
 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-
+  //const [redirect, toggleRedirect] = useState(false);
+  
   return (
     <section className="login">
-      <FormControl onSubmit={
-          e => {
-            e.preventDefault();
-            authorise(user, password);
-            // navigate('/admin')
-          }}>
-        <label>Login</label>
-          <TextField
-            id="outlined-basic"
-            label="Username"
-            variant="outlined" 
-            onChange={e => setUser(e.target.value)}/>
-          <TextField
-            id="outlined-password-input"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-            variant="outlined"
-            onChange={e => setPassword(e.target.value)}
-          />
-        <Button variant="contained">Zaloguj</Button>
-      </FormControl>
+      <form onSubmit={
+        e => {
+          e.preventDefault();
+          authorise(user, password);
+          console.log(user, password);
+          
+        }}>
+          <label forname="username" action='/'>username</label>
+          <input type="text" id="username" name="username" required onChange={e => setUser(e.target.value)}></input>
+          <label forname="password" >password</label>
+          <input type="password" id="password" name="password" className="log__input" required onChange={e => setPassword(e.target.value)}></input>
+          <input type="submit" value="Wyślij"></input>
+      </form>
     </section>
   )
 }
 
-export default Login;
+export default withRouter(Login);
 

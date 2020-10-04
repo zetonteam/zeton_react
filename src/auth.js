@@ -9,6 +9,7 @@ export const checkLog = (logValue, item) => {
   let log = false;
   if (item === 'user') { users.map(item => { item.username === logValue && (log = true) }) }
   if (item === 'password') { users.map(item => { item.userPassword === logValue && (log = true) }) }
+  console.log(logValue, item);
   return log;
 }
 
