@@ -1,26 +1,49 @@
-import React, { Component } from 'react';
-
-import { Route, NavLink, HashRouter } from 'react-router-dom';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './Footer.css';
 
 
-class Footer extends Component {
-  render() {
-    return (
-      <HashRouter>
-        <div>
-          <ul className="navigation">
-            <li><NavLink to="/home">Home</NavLink></li>
-            <li><NavLink to="/stuff">Nagrody</NavLink></li>
-            <li><NavLink to="/contact">Konsekwencje</NavLink></li>
-            <li><NavLink to="/contact">Ustawienia</NavLink></li>
+const Footer = () => {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/about">
+            <h1>About</h1>
+          </Route>
+          <Route path="/users">
+            <h1>Dwa</h1>
+
+          </Route>
+          <Route path="/">
+            
+          </Route>
+        </Switch>
+
+
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
           </ul>
+        </nav>
 
-        </div>
-      </HashRouter>
-
-    )
-  }
+      </div>
+    </Router>
+  )
 }
+
 
 export default Footer
