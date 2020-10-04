@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from './images/icons/LOGO.svg';
+import Login from './components/Login/Login';
 import './App.css';
 //import Footer from './components/Footer/Footer'
 
@@ -9,7 +10,7 @@ function App() {
   useState(() => {
     const timer = setTimeout(() => {
       toggleWelcome(true)
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 

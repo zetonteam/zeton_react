@@ -16,8 +16,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  animation: welcomeShow 3s;
-  -webkit-animation: welcomeShow 3s;
+  animation: welcomeShow 2s;
+  -webkit-animation: welcomeShow 2s;
 }
 
 @keyframes welcomeShow {
