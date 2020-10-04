@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import React , {useState}from 'react';
 import logo from './images/icons/LOGO.svg';
 import Login from './components/Login/Login';
 import './App.css';
@@ -88,9 +87,8 @@ return(
      <ButtonPoints />
      <ButtonReward />
      <ButtonConsequence />
-      </header>
       <Footer />
-    </div>
+      </div>
   );
 }
 
