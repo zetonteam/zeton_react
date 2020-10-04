@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from './images/icons/LOGO.svg';
 import Login from './components/Login/Login';
 import './App.css';
+import Zeton from './components/Zeton';
+import { authorise, checkLog } from './auth'
 //import Footer from './components/Footer/Footer'
 
 function App() {
@@ -22,8 +24,9 @@ function App() {
           Witaj w aplikacji "Żeton"!
         </p>
       </aside>
-      <Login />
-      {/* <Footer /> */}
+      {console.log(checkLog)}
+      {checkLog === true ? <Zeton /> : <Login />}      
+      {/* <Zeton /> */}
     </div>
   );
 }
