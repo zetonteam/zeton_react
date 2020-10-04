@@ -3,13 +3,31 @@
 }
 
 .welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #eeeeee;
   min-height: 100vh;
   display: flex;
+  opacity: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  animation: welcomeShow 3s;
+  -webkit-animation: welcomeShow 3s;
 }
 
+@keyframes welcomeShow {
+  0% {opacity: 1}
+  50% {opacity: 1}
+  100% {opacity: 0}
+}
+
+.welcome--off {
+  display: none;
+}
+
+.login {}
