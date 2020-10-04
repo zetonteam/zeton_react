@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './images/icons/LOGO.svg';
+import Login from './components/Login/Login';
 import './App.css';
-import Footer from './components/Footer/Footer'
+//import Footer from './components/Footer/Footer'
 
 function App() {
+  const [welcome, toggleWelcome] = useState(false)
+
+  useState(() => {
+    const timer = setTimeout(() => {
+      toggleWelcome(true)
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
+      <aside className={welcome === false ? "welcome" : "welcome--off"}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Witaj w aplikacji "Żeton"!
         </p>
-      </header>
-      <Footer />
+      </aside>
+      <Login />
+      {/* <Footer /> */}
     </div>
   );
 }
