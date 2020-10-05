@@ -56,23 +56,23 @@ const DashboardPage = () => {
 
       <Container>
         <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <Typography variant="h3">{studentName}</Typography>
+          <Typography variant="h5">{studentName}</Typography>
         </Box>
 
         <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <HomeIcon color="primary" />
-          <Typography variant="h5">Total points: {points}</Typography>
-        </Box>
+          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
+            <HomeIcon color="primary" />
+            <Typography variant="p">{points}</Typography>
+          </Box>
+          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
+            <HomeIcon color="secondary" />
+            <Typography variant="p">{exp}</Typography>
+          </Box>
 
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <Typography variant="h5">Daily points: {dailyPoints}</Typography>
         </Box>
+      </Container>
 
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <HomeIcon color="secondary" />
-          <Typography variant="h5">Experience: {exp}</Typography>
-        </Box>
-
+      <Container>
         <BasicButton
           label="DODAJ PUNKT"
           onClick={addPoints}
