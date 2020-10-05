@@ -6,8 +6,8 @@ import apiClient                      from "../../apiClient";
 
 const DashboardPage = () => {
   const [showSplashScreen, toggleWelcome] = useState(true);
-  const [points, setPoints] = useState(50);
-  const [exp, setExp] = useState(35);
+  const [points, setPoints] = useState(0);
+  const [exp, setExp] = useState(0);
   const [studentName, setStudentName] = useState("-")
   const studentDataURL = "/api/users/students/1";
 

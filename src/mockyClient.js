@@ -3,7 +3,8 @@ export const mockyClient = (url) => {
     data: {
       first_name: "Janusz",
       last_name: "Nowak",
-      total_points: 150
+      total_points: 150,
+      exp_points: 56
     }
   }
 }
