@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
-import logo from './images/icons/LOGO.svg';
-import Login from './components/Login/Login';
+import React                                      from 'react';
 import './App.css';
-//import Footer from './components/Footer/Footer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Dashboard                                  from "./pages/Dashboard/Dashboard";
+import LoginPage                                  from "./pages/Login/Login";
 
-function App() {
-  const [welcome, toggleWelcome] = useState(false)
 
-  useState(() => {
-    const timer = setTimeout(() => {
-      toggleWelcome(true)
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="App">
-      <aside className={welcome === false ? "welcome" : "welcome--off"}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Witaj w aplikacji "Żeton"!
-        </p>
-      </aside>
-      <Login />
-      {/* <Footer /> */}
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Dashboard}/>
+        <Route path="/login" component={LoginPage}/>
+      </Switch>
+    </Router>
+  </div>
+);
 
 export default App;
