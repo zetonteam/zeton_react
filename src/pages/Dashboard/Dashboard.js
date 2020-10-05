@@ -29,6 +29,8 @@ const DashboardPage = () => {
       const result = await apiClient(studentDataURL);
 
       setStudentName(result.data.first_name);
+      setPoints(result.data.total_points);
+      setExp(result.data.exp_points);
       setIsLoading(false);
     };
 
