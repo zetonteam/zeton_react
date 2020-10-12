@@ -22,7 +22,7 @@ const Login = () => {
       </FormControl>
     </section>
   )
-}
+};
 
 export default Login;
 
