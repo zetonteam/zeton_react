@@ -21,6 +21,11 @@
   z-index: 99;
 }
 
+.padding{
+padding: 5px;
+}
+
+
 @keyframes welcomeShow {
   0% {
     opacity: 1
