@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import PublicHomePage from "./pages/PublicHomePage/PublicHomePage";
 import LoginPage from "./pages/Login/Login";
-
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   const [loggedIn, addLoggedIn] = useState(true);
@@ -15,8 +15,12 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/login" component={LoginPage} />
+          <Route exact path="/dashboard" >
+            {loggedIn ? <Dashboard /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/:id" children={<Profile/>} />
           <Route exact path="/" >
-            {loggedIn ? <Dashboard/> : <PublicHomePage />}
+            <PublicHomePage />
           </Route>
         </Switch>
       </Router>

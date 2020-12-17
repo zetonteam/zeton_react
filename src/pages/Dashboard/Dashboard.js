@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../images/icons/LOGO.svg";
 import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
 import BasicButton from "../../components/UI/Button/BasicButton";
 import apiClient from "../../apiClient";
@@ -37,13 +36,6 @@ const DashboardPage = () => {
 
   return (
     <>
-      <aside className={showSplashScreen === true ? "welcome" : "welcome--off"}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Witaj w aplikacji "Żeton"!
-        </p>
-      </aside>
-
       <Home children={children}/>
     </>
 
