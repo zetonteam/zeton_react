@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../images/icons/LOGO.svg";
 import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
-import BasicButton from "../../components/UI/Button/Button";
+import BasicButton from "../../components/UI/Button/BasicButton";
 import apiClient from "../../apiClient";
 import Profile from "../../components/Profile/Profile";
 import Home from "../../components/Home/HomeCaregiver";

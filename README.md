@@ -51,6 +51,22 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+------------------------------------------
+
+## Project UI
+
+For styling we use [Material UI](https://material-ui.com) with Material Icons.
+
+Install the package of Material UI in your project directory with:
+
+`npm install @material-ui/core`
+
+And next Install the package of Material Icons:
+
+`npm install @material-ui/icons`
+
+------------------------------------------
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**

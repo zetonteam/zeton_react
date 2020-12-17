@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
-import BasicButton from "../../components/UI/Button/Button";
+import BasicButton from "../UI/Button/BasicButton";
 import apiClient from "../../apiClient";
 import { Box, Container, Typography } from '@material-ui/core';
 
