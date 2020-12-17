@@ -1,0 +1,7 @@
+.dashboard {
+  height: 90vh;
+  max-height: 680px;
+  max-width: 500px;
+  background-color: white;
+  padding: 20px;
+}

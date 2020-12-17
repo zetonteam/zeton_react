@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getUsersAction } from "../../api/action";
 import apiClient from "../../apiClient";
+import './Dashboard.css';
 import Profile from "../../components/Profile/Profile";
 import Home from "../../components/Home/HomeCaregiver";
 
@@ -29,9 +30,9 @@ const DashboardPage = (props) => {
   }, [studentDataURL]);
 
   return (
-    <>
+    <section className="dashboard">
       <Home data={props.users && props.users} />
-    </>
+    </section>
 
   );
 };
