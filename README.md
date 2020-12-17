@@ -61,9 +61,27 @@ Install the package of Material UI in your project directory with:
 
 `npm install @material-ui/core`
 
-And next Install the package of Material Icons:
+And next install the package of Material Icons:
 
 `npm install @material-ui/icons`
+
+------------------------------------------
+
+## Store container
+
+For keeping state we use [Redux](https://material-ui.com).
+
+Install Redux Toolkit in your project directory with:
+
+`npm install @reduxjs/toolkit`
+
+Next install Redux core library:
+
+`npm install redux`
+
+And..
+
+`npm install react-redux`
 
 ------------------------------------------
 
