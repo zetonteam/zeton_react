@@ -1,11 +1,11 @@
 import React from "react";
 import { Button } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
 
 const AddButton = ({ label, onClick }) => {
   return (
     <div className="padding">
-      <Button onClick={onClick} color="primary" size="large" startIcon={<DeleteIcon />}>
+      <Button onClick={onClick} color="primary" size="large" startIcon={<AddIcon />}>
         {label}
       </Button>
     </div>

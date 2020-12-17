@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Box, Container, Typography } from '@material-ui/core';
-import BasicButton from "../UI/Button/BasicButton";
+import { Box, Container, Typography, List } from '@material-ui/core';
+import ChildItem from "../UI/List/ChildItem";
 import AddButton from "../UI/Button/AddButton";
 
 const Home = ({ children }) => {
@@ -13,7 +13,9 @@ const Home = ({ children }) => {
       </Box>
 
       <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-        <Typography variant="h5"></Typography>
+        <List component="nav">
+          {children && children.map(item => <ChildItem data={item}/>)}
+        </List>
       </Box>
 
       <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" padding={1}>
