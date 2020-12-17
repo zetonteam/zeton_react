@@ -1,5 +1,5 @@
 const initialState = {
-  users: [],
+  users: null,
 };
 
 const userReducer = (state = initialState, { payload, type }) => {
@@ -7,7 +7,7 @@ const userReducer = (state = initialState, { payload, type }) => {
     case "GET_USERS": {
       return {
         ...state,
-        users: [...state.users, payload.users]
+        users: payload.users
       };
     }
     default:

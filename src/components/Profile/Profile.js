@@ -55,11 +55,11 @@ const Profile = () => {
         <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
           <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
             <HomeIcon color="primary" />
-            <Typography variant="p">{points}</Typography>
+            <Typography variant="body1">{points}</Typography>
           </Box>
           <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
             <HomeIcon color="secondary" />
-            <Typography variant="p">{exp}</Typography>
+            <Typography variant="body1">{exp}</Typography>
           </Box>
 
         </Box>

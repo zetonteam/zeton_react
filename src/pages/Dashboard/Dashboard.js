@@ -1,45 +1,53 @@
 import React, { useEffect, useState } from "react";
-import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
-import BasicButton from "../../components/UI/Button/BasicButton";
+import { connect } from "react-redux";
+import { getUsersAction } from "../../api/action";
 import apiClient from "../../apiClient";
 import Profile from "../../components/Profile/Profile";
 import Home from "../../components/Home/HomeCaregiver";
-import { Box, Container, Typography } from '@material-ui/core';
 
-const DashboardPage = () => {
-  const [showSplashScreen, toggleWelcome] = useState(true);
+const DashboardPage = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [children, setChildren] = useState([]);
+  const [children, setChildren] = useState();
   const studentDataURL = "/api/users/students/";
 
-  useEffect(() => {
-    if (showSplashScreen) {
-      const timer = setTimeout(() => {
-        toggleWelcome(false)
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [showSplashScreen]);
+  // useEffect(() => {
+  //   console.log(children)
+  // }, []);
 
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-
       const result = await apiClient(studentDataURL);
-      setChildren(result.data)
+      //setChildren(result.data)
+      props.getData(result.data)
       setIsLoading(false);
     };
 
     fetchData();
+
   }, [studentDataURL]);
 
   return (
     <>
-      <Home children={children}/>
+      <Home data={props.users && props.users} />
     </>
 
   );
 };
 
-export default DashboardPage;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    //hej: console.log(state.users)
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getData: (data) => dispatch(getUsersAction(data)),
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

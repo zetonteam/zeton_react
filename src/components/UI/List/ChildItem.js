@@ -3,13 +3,15 @@ import { ListItem, ListItemText, ListItemAvatar, Avatar } from '@material-ui/cor
 
 
 const AddButton = ({ data }) => {
+  console.log(data)
+
 
   function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
   }
 
   return (
-    <ListItemLink href={data.first_name}>
+    <ListItemLink href={data.username}>
       <ListItemAvatar>
         <Avatar alt={data.first_name} src={data.photo} />
       </ListItemAvatar>
