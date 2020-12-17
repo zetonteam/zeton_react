@@ -8,7 +8,7 @@ const Home = ({ data }) => {
   return (
     <Container>
       <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" padding={1}>
-        <Typography variant="h4">Cześć Marku</Typography>
+        <Typography variant="h5">Cześć Marku</Typography>
         <Typography variant="body1">wybierz podopiecznego</Typography>
       </Box>
 
