@@ -5,4 +5,11 @@ const getUsersAction = (data) => ({
   },
 });
 
-export { getUsersAction };
+const chooseUserAction = (data) => ({
+  type: "CHOOSEN_USER",
+  payload: {
+    user: data,
+  },
+});
+
+export { getUsersAction, chooseUserAction };

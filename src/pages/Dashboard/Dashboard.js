@@ -3,17 +3,18 @@ import { connect } from "react-redux";
 import { getUsersAction } from "../../api/action";
 import apiClient from "../../apiClient";
 import './Dashboard.css';
-import Profile from "../../components/Profile/Profile";
 import Home from "../../components/Home/HomeCaregiver";
+import Profile from "../../components/Profile/Profile";
 
 const DashboardPage = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [children, setChildren] = useState();
+  const [choosenUser, setChoosenUser] = useState(props.user);
   const studentDataURL = "/api/users/students/";
 
-  // useEffect(() => {
-  //   console.log(children)
-  // }, []);
+  useEffect(() => {
+    setChoosenUser(props.user);
+  //   console.log(choosenUser)
+  }, [props]);
 
 
   useEffect(() => {
@@ -31,7 +32,9 @@ const DashboardPage = (props) => {
 
   return (
     <section className="dashboard">
-      <Home data={props.users && props.users} />
+      {
+        choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
+      }
     </section>
 
   );
@@ -40,7 +43,8 @@ const DashboardPage = (props) => {
 const mapStateToProps = (state) => {
   return {
     users: state.users,
-    //hej: console.log(state.users)
+    user: state.user,
+    hej: console.log(state.user)
   };
 };
 

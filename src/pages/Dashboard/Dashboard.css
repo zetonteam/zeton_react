@@ -2,8 +2,10 @@
   height: 90vh;
   max-height: 680px;
   max-width: 500px;
+  min-width: 320px;
   background-color: white;
   padding: 20px;
   display: flex;
   align-items: stretch;
+  flex-direction: column;
 }
