@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import store from '../../api/store';
-
+import './Profile.css';
+import Footer from '../Footer/Footer';
 import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
 import BasicButton from "../UI/Button/BasicButton";
 import apiClient from "../../apiClient";
-import { Box, Container, Typography } from '@material-ui/core';
+import { Container, Box, Typography, Avatar } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 
-const Profile = ({ data, ...props}) => {
+const useStyles = makeStyles({
+  large: {
+    height: 60,
+    width: 60,
+  },
+});
+
+const Profile = ({ data, ...props }) => {
+  const classes = useStyles();
   const [points, setPoints] = useState(0);
   const [dailyPoints, setDailyPoints] = useState(0);
   const [exp, setExp] = useState(0);
   const [studentName, setStudentName] = useState("-")
- // const studentDataURL = "/api/users/students/1";
+  // const studentDataURL = "/api/users/students/1";
 
   // const [isLoading, setIsLoading] = useState(false);
 
@@ -42,45 +51,46 @@ const Profile = ({ data, ...props}) => {
   // useEffect(() => {
 
   //   findUser(props.users)
-      
+
   // }, [props])
 
 
   return (
     <>
 
+      <section className="profile__header">
 
-      <Container>
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <Typography variant="h5">{data.first_name}</Typography>
-        </Box>
+        <Avatar src="/broken-image.jpg" className={classes.large} />
 
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
+        <Container display="flex" flexDirection="column">
+          <Typography variant="h5" align="left">{data.first_name}</Typography>
+          <Box display="flex" flexDirection="row" alignItems="center">
             <HomeIcon color="primary" />
             <Typography variant="body1">{data.total_points}</Typography>
-          </Box>
-          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
             <HomeIcon color="secondary" />
             <Typography variant="body1">{"exp"}</Typography>
           </Box>
+        </Container>
 
-        </Box>
-      </Container>
-
-      <Container>
-        <BasicButton
-          label="DODAJ PUNKT"
+      </section>
+      <section className="profile__main">
+        <Container>
+          <BasicButton
+            label="DODAJ PUNKT"
           // onClick={addPoints}
-        />
+          />
 
-        <BasicButton
-          label="PRZYZNAJ NAGRODĘ"
-        />
-        <BasicButton
-          label="DAJ KONSEKWENCJĘ"
-        />
-      </Container>
+          <BasicButton
+            label="PRZYZNAJ NAGRODĘ"
+          />
+          <BasicButton
+            label="DAJ KONSEKWENCJĘ"
+          />
+        </Container>
+
+      </section>
+
+      <Footer/>
     </>
 
   );

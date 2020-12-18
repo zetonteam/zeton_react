@@ -1,47 +1,20 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import './Footer.css';
-
+import { ButtonGroup, Button } from '@material-ui/core';
+import SettingsIcon from '@material-ui/icons/Settings';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 
 const Footer = () => {
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
-          <Route path="/users">
-            <h1>Dwa</h1>
-
-          </Route>
-          <Route path="/">
-            
-          </Route>
-        </Switch>
-
-
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-      </div>
-    </Router>
+    <footer className="profiel__footer">
+      <ButtonGroup disableElevation variant="contained" color="primary" aria-label="text primary button group">
+        <Button size="large">Home</Button>
+        <Button ><EmojiEventsIcon /></Button>
+        <Button ><SentimentDissatisfiedIcon /></Button>
+        <Button>Info</Button>
+        <Button ><SettingsIcon /></Button>
+      </ButtonGroup>
+    </footer>
   )
 }
 
