@@ -1,22 +1,42 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { removeChoosenUserAction } from "../../api/action";
-import { ButtonGroup, Button } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import './Footer.css';
+
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles({
+  bgcolors: {
+    backgroundColor: '#555',
+  },
+  colors: {
+    color: 'white',
+    minWidth: 55,
+  },
+});
 
 const Footer = (props) => {
+  const classes = useStyles();
+
   return (
-    <footer className="profiel__footer">
-      <ButtonGroup disableElevation variant="contained" color="primary" aria-label="text primary button group">
-        <Button onClick={() => props.removeUser()}><HomeIcon/></Button>
-        <Button ><EmojiEventsIcon /></Button>
-        <Button ><SentimentDissatisfiedIcon /></Button>
-        <Button>Info</Button>
-        <Button ><SettingsIcon /></Button>
-      </ButtonGroup>
+    <footer className="profile__footer">
+      <BottomNavigation
+        showLabels
+        color="primary"
+        className={classes.bgcolors}
+      >
+        <BottomNavigationAction onClick={() => props.removeUser()} className={classes.colors} label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Nagrody" className={classes.colors} icon={<EmojiEventsIcon />} />
+        <BottomNavigationAction label="Konsek..." className={classes.colors} icon={<SentimentDissatisfiedIcon />} />
+        <BottomNavigationAction label="Info" className={classes.colors} icon={<PersonIcon />} />
+        <BottomNavigationAction label="Ustawienia" className={classes.colors} icon={<SettingsIcon />} />
+      </BottomNavigation>
     </footer>
   )
 }
