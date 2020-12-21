@@ -4,15 +4,23 @@ import './Profile.css';
 import Footer from '../Footer/Footer';
 import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
 import BasicButton from "../UI/Button/BasicButton";
+import SecondButton from "../UI/Button/SecondButton";
 import apiClient from "../../apiClient";
 import { Container, Box, Typography, Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 
 const useStyles = makeStyles({
   large: {
     height: 60,
     width: 60,
   },
+  labelStyle: {
+    paddingRight: 15,
+    paddingLeft: 4,
+    height: 24,
+    lineHeight: 1.6,
+  }
 });
 
 const Profile = ({ data, ...props }) => {
@@ -66,9 +74,9 @@ const Profile = ({ data, ...props }) => {
           <Typography variant="h5" align="left">{data.first_name}</Typography>
           <Box display="flex" flexDirection="row" alignItems="center">
             <HomeIcon color="primary" />
-            <Typography variant="body1">{data.total_points}</Typography>
-            <HomeIcon color="secondary" />
-            <Typography variant="body1">{"exp"}</Typography>
+            <Typography variant="body1"className={classes.labelStyle}>{data.total_points}</Typography>
+            <LocalLibraryIcon color="primary" />
+            <Typography variant="body1" className={classes.labelStyle}>{"exp"}</Typography>
           </Box>
         </Container>
 
@@ -76,14 +84,14 @@ const Profile = ({ data, ...props }) => {
       <section className="profile__main">
         <Container>
           <BasicButton
-            label="DODAJ PUNKT"
+            label="DODAJ PUNKTY"
           // onClick={addPoints}
           />
 
-          <BasicButton
+          <SecondButton
             label="PRZYZNAJ NAGRODĘ"
           />
-          <BasicButton
+          <SecondButton
             label="DAJ KONSEKWENCJĘ"
           />
         </Container>

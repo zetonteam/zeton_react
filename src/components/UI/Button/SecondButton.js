@@ -9,16 +9,16 @@ const useStyles = makeStyles({
   },
 });
 
-const BasicButton = ({label, onClick}) => {
+const SecondButton = ({label, onClick}) => {
   const classes = useStyles();
 
   return (
     <div className="padding">
-      <Button onClick={onClick} variant="contained" color="primary" size="large" className={classes.width}>
+      <Button onClick={onClick} variant="outlined" color="primary" size="large" className={classes.width}>
         {label}
       </Button>
     </div>
   )
 };
 
-export default BasicButton;
+export default SecondButton;
