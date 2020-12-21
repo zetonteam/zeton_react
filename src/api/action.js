@@ -6,10 +6,17 @@ const getUsersAction = (data) => ({
 });
 
 const chooseUserAction = (data) => ({
-  type: "CHOOSEN_USER",
+  type: "ADD_CHOOSEN_USER",
   payload: {
     user: data,
   },
 });
 
-export { getUsersAction, chooseUserAction };
+const removeChoosenUserAction = () => ({
+  type: "REMOVE_CHOOSEN_USER",
+  payload: {
+    user: null,
+  },
+});
+
+export { getUsersAction, chooseUserAction, removeChoosenUserAction };

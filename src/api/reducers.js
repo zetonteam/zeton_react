@@ -11,7 +11,13 @@ const userReducer = (state = initialState, { payload, type }) => {
         users: [...payload.users]
       };
     }
-    case "CHOOSEN_USER": {
+    case "ADD_CHOOSEN_USER": {
+      return {
+        ...state,
+        user: payload.user
+      };
+    }
+    case "REMOVE_CHOOSEN_USER": {
       return {
         ...state,
         user: payload.user
