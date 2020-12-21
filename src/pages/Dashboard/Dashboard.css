@@ -8,3 +8,11 @@
   align-items: stretch;
   flex-direction: column;
 }
+
+.dashboard  > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+}
