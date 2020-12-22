@@ -1,3 +1,11 @@
+.profile__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+}
+
 .profile__header {
   display: flex;
   padding: 30px 20px 30px;
@@ -7,7 +15,7 @@
   border-bottom: solid 2px royalblue;
 }
 
-.profile__main {
+.profile__body {
   height: 100%;
   display: flex;
   align-items: center;
