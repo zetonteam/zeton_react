@@ -1,49 +1,51 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { connect } from "react-redux";
+import { removeChoosenUserAction } from "../../api/action";
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import SettingsIcon from '@material-ui/icons/Settings';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
 import './Footer.css';
 
+import { makeStyles } from '@material-ui/styles';
 
-const Footer = () => {
+const useStyles = makeStyles({
+  bgcolors: {
+    backgroundColor: '#555',
+  },
+  colors: {
+    color: 'white',
+    minWidth: 55,
+  },
+});
+
+const Footer = (props) => {
+  const classes = useStyles();
+
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
-          <Route path="/users">
-            <h1>Dwa</h1>
-
-          </Route>
-          <Route path="/">
-            
-          </Route>
-        </Switch>
-
-
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-      </div>
-    </Router>
+    <footer className="profile__footer">
+      <BottomNavigation
+        showLabels
+        color="primary"
+        className={classes.bgcolors}
+      >
+        <BottomNavigationAction onClick={() => props.removeUser()} className={classes.colors} label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Nagrody" className={classes.colors} icon={<EmojiEventsIcon />} />
+        <BottomNavigationAction label="Konsek..." className={classes.colors} icon={<SentimentDissatisfiedIcon />} />
+        <BottomNavigationAction label="Info" className={classes.colors} icon={<PersonIcon />} />
+        <BottomNavigationAction label="Ustawienia" className={classes.colors} icon={<SettingsIcon />} />
+      </BottomNavigation>
+    </footer>
   )
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeUser: () => dispatch(removeChoosenUserAction()),
+  };
+};
 
-export default Footer
+
+export default connect(null, mapDispatchToProps)(Footer)

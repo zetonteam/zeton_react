@@ -51,6 +51,40 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+------------------------------------------
+
+## Project UI
+
+For styling we use [Material UI](https://material-ui.com) with Material Icons.
+
+Install the package of Material UI in your project directory with:
+
+`npm install @material-ui/core`
+
+And next install the package of Material Icons:
+
+`npm install @material-ui/icons`
+
+------------------------------------------
+
+## Store container
+
+For keeping state we use [Redux](https://material-ui.com).
+
+Install Redux Toolkit in your project directory with:
+
+`npm install @reduxjs/toolkit`
+
+Next install Redux core library:
+
+`npm install redux`
+
+And..
+
+`npm install react-redux`
+
+------------------------------------------
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**

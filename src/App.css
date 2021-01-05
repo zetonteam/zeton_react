@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: aliceblue;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome {

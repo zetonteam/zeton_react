@@ -1,93 +1,58 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../images/icons/LOGO.svg";
-import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
-import BasicButton from "../../components/UI/Button/Button";
+import { connect } from "react-redux";
+import { getUsersAction } from "../../api/action";
 import apiClient from "../../apiClient";
-import { Box, Container, Typography } from '@material-ui/core';
+import './Dashboard.css';
+import Home from "../../components/Home/HomeCaregiver";
+import Profile from "../../components/Profile/Profile";
 
-const DashboardPage = () => {
-  const [showSplashScreen, toggleWelcome] = useState(true);
-  const [points, setPoints] = useState(0);
-  const [dailyPoints, setDailyPoints] = useState(0);
-  const [exp, setExp] = useState(0);
-  const [studentName, setStudentName] = useState("-")
-  const studentDataURL = "/api/users/students/1";
+const DashboardPage = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [choosenUser, setChoosenUser] = useState(props.user);
+  const studentDataURL = "/api/users/students/";
 
   useEffect(() => {
-    if (showSplashScreen) {
-      const timer = setTimeout(() => {
-        toggleWelcome(false)
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [showSplashScreen]);
+    setChoosenUser(props.user);
+  //   console.log(choosenUser)
+  }, [props]);
 
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-
       const result = await apiClient(studentDataURL);
-
-      setStudentName(result.data.first_name);
-      setPoints(result.data.total_points);
-      setDailyPoints(result.data.daily_points);
-      setExp(result.data.exp_points);
+      //setChildren(result.data)
+      props.getData(result.data)
       setIsLoading(false);
     };
 
     fetchData();
+
   }, [studentDataURL]);
 
-  const addPoints = () => {
-    setPoints(points + 1);
-    setDailyPoints(dailyPoints + 1);
-  };
-
   return (
-    <>
-      <aside className={showSplashScreen === true ? "welcome" : "welcome--off"}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Witaj w aplikacji "Żeton"!
-        </p>
-      </aside>
-
-      <Container>
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <Typography variant="h5">{studentName}</Typography>
-        </Box>
-
-        <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-            <HomeIcon color="primary" />
-            <Typography variant="p">{points}</Typography>
-          </Box>
-          <Box display="flex" flexDirection="row" justifyContent="center" alignItems="center" padding={1}>
-            <HomeIcon color="secondary" />
-            <Typography variant="p">{exp}</Typography>
-          </Box>
-
-        </Box>
-      </Container>
-
-      <Container>
-        <BasicButton
-          label="DODAJ PUNKT"
-          onClick={addPoints}
-        />
-
-        <BasicButton
-          label="PRZYZNAJ NAGRODĘ"
-        />
-        <BasicButton
-          label="DAJ KONSEKWENCJĘ"
-        />
-      </Container>
-    </>
+    <section className="dashboard">
+      {
+        choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
+      }
+    </section>
 
   );
 };
 
-export default DashboardPage;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    user: state.user,
+    hej: console.log(state.user)
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getData: (data) => dispatch(getUsersAction(data)),
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
