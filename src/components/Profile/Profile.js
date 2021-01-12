@@ -4,6 +4,7 @@ import './Profile.css';
 import apiClient from "../../apiClient";
 import ProfileMain from './ProfileMain';
 import ProfilePoints from './ProfilePoints';
+import ProfileConsequences from './ProfileConsequences';
 import Footer from '../Footer/Footer';
 
 
@@ -18,10 +19,13 @@ const Profile = ({ data, ...props }) => {
   const panelSwitcher = (nmbr) => {
     switch (nmbr) {
       case '0':
-        return <ProfileMain data={data} handlePanel={handlePanel}/>;
+        return <ProfileMain data={data} handlePanel={handlePanel} />;
         break;
       case '1':
-        return <ProfilePoints data={data} handlePanel={handlePanel}/>;
+        return <ProfilePoints data={data} handlePanel={handlePanel} />;
+        break;
+      case '3':
+        return <ProfileConsequences data={data} handlePanel={handlePanel} />;
         break;
       default:
         return <ProfileMain data={data} />;

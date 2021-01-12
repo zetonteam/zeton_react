@@ -47,10 +47,10 @@ const ProfileMain = ({ data, handlePanel, ...props }) => {
 
           <SecondButton
             label="PRZYZNAJ NAGRODĘ"
-            onClick={() => handlePanel("2")}
-          />
+            />
           <SecondButton
             label="DAJ KONSEKWENCJĘ"
+            onClick={() => handlePanel("3")}
           />
         </Container>
 

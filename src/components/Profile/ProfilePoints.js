@@ -6,7 +6,7 @@ const ProfilePoints = ({ data, handlePanel, ...props }) => {
 
   return (
     <section className="profile__main">
-      <PanelHeader text="Dodaj punkty" panelNumber="0" handlePanel={handlePanel}/>
+      <PanelHeader text="Dodaj punkty" handlePanel={handlePanel}/>
     </section>)
 }
 
