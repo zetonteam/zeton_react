@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Footer = (props) => {
+const Footer = ({handlePanel, ...props}) => {
   const classes = useStyles();
 
   return (
@@ -29,11 +29,11 @@ const Footer = (props) => {
         color="primary"
         className={classes.bgcolors}
       >
-        <BottomNavigationAction className={classes.colors} label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Nagrody" className={classes.colors} icon={<EmojiEventsIcon />} />
-        <BottomNavigationAction label="Konsek..." className={classes.colors} icon={<SentimentDissatisfiedIcon />} />
-        <BottomNavigationAction label="Info" className={classes.colors} icon={<PersonIcon />} />
-        <BottomNavigationAction label="Ustawienia" className={classes.colors} icon={<SettingsIcon />} />
+        <BottomNavigationAction onClick={() => handlePanel("0")} className={classes.colors} label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction onClick={() => handlePanel("1")} label="Nagrody" className={classes.colors} icon={<EmojiEventsIcon />} />
+        <BottomNavigationAction onClick={() => handlePanel("2")} label="Konsek..." className={classes.colors} icon={<SentimentDissatisfiedIcon />} />
+        <BottomNavigationAction onClick={() => handlePanel("3")} label="Info" className={classes.colors} icon={<PersonIcon />} />
+        <BottomNavigationAction onClick={() => handlePanel("4")} label="Ustawienia" className={classes.colors} icon={<SettingsIcon />} />
       </BottomNavigation>
     </footer>
   )

@@ -7,7 +7,10 @@ import ProfilePoints from './ProfilePoints';
 import ProfileConsequences from './ProfileConsequences';
 import Footer from '../Footer/Footer';
 import ProfileAwards from "./ProfileAwards";
-
+import Awards from "../Awards/Awards";
+import Info from "../Info/Info";
+import Consequences from "../Consequences/Consequences";
+import Settings from "../Settings/Settings";
 
 const Profile = ({ data, ...props }) => {
   const [points, setPoints] = useState(0);
@@ -22,14 +25,26 @@ const Profile = ({ data, ...props }) => {
       case '0':
         return <ProfileMain data={data} handlePanel={handlePanel} />;
         break;
-      case '1':
+      case '01':
         return <ProfilePoints data={data} handlePanel={handlePanel} />;
         break;
-      case '2':
+      case '02':
         return <ProfileAwards data={data} handlePanel={handlePanel} />;
         break;
-      case '3':
+      case '03':
         return <ProfileConsequences data={data} handlePanel={handlePanel} />;
+        break;
+      case '1':
+        return <Awards handlePanel={handlePanel} />;
+        break;
+      case '2':
+        return <Consequences handlePanel={handlePanel} />;
+        break;
+      case '3':
+        return <Info handlePanel={handlePanel} />;
+        break;
+      case '4':
+        return <Settings handlePanel={handlePanel} />;
         break;
       default:
         return <ProfileMain data={data} />;
@@ -39,7 +54,7 @@ const Profile = ({ data, ...props }) => {
   return (
     <>
       {panelSwitcher(panel)}
-      <Footer />
+      <Footer handlePanel={handlePanel} />
     </>
 
   );

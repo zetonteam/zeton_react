@@ -53,15 +53,15 @@ const ProfileMain = ({ data, handlePanel, ...props }) => {
         <Container>
           <BasicButton
             label="DODAJ PUNKTY"
-            onClick={() => handlePanel("1")}
+            onClick={() => handlePanel("01")}
           />
           <SecondButton
             label="PRZYZNAJ NAGRODĘ"
-            onClick={() => handlePanel("2")}
+            onClick={() => handlePanel("02")}
           />
           <SecondButton
             label="DAJ KONSEKWENCJĘ"
-            onClick={() => handlePanel("3")}
+            onClick={() => handlePanel("03")}
           />
         </Container>
 
