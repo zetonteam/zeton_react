@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { removeChoosenUserAction } from "../../api/action";
 import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
 import BasicButton from "../UI/Button/BasicButton";
 import SecondButton from "../UI/Button/SecondButton";
 import { Container, Box, Typography, Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
+import IconButton from '@material-ui/core/IconButton';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles({
   large: {
@@ -16,6 +20,9 @@ const useStyles = makeStyles({
     paddingLeft: 4,
     height: 24,
     lineHeight: 1.6,
+  },
+  paddingNull: {
+    padding: 0,
   }
 });
 const ProfileMain = ({ data, handlePanel, ...props }) => {
@@ -37,6 +44,10 @@ const ProfileMain = ({ data, handlePanel, ...props }) => {
           </Box>
         </Container>
 
+        <IconButton aria-label="back" onClick={() => props.removeUser()} className={classes.paddingNull}>
+          <ExitToAppIcon />
+        </IconButton>
+
       </article>
       <article className="profile__body">
         <Container>
@@ -47,7 +58,7 @@ const ProfileMain = ({ data, handlePanel, ...props }) => {
           <SecondButton
             label="PRZYZNAJ NAGRODĘ"
             onClick={() => handlePanel("2")}
-            />
+          />
           <SecondButton
             label="DAJ KONSEKWENCJĘ"
             onClick={() => handlePanel("3")}
@@ -58,4 +69,10 @@ const ProfileMain = ({ data, handlePanel, ...props }) => {
     </section>)
 }
 
-export default ProfileMain;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeUser: () => dispatch(removeChoosenUserAction()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProfileMain);

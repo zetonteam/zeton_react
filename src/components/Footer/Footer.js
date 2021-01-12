@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { removeChoosenUserAction } from "../../api/action";
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
@@ -31,7 +29,7 @@ const Footer = (props) => {
         color="primary"
         className={classes.bgcolors}
       >
-        <BottomNavigationAction onClick={() => props.removeUser()} className={classes.colors} label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction className={classes.colors} label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction label="Nagrody" className={classes.colors} icon={<EmojiEventsIcon />} />
         <BottomNavigationAction label="Konsek..." className={classes.colors} icon={<SentimentDissatisfiedIcon />} />
         <BottomNavigationAction label="Info" className={classes.colors} icon={<PersonIcon />} />
@@ -41,11 +39,4 @@ const Footer = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeUser: () => dispatch(removeChoosenUserAction()),
-  };
-};
-
-
-export default connect(null, mapDispatchToProps)(Footer)
+export default Footer;
