@@ -44,9 +44,9 @@ const ProfileMain = ({ data, handlePanel, ...props }) => {
             label="DODAJ PUNKTY"
             onClick={() => handlePanel("1")}
           />
-
           <SecondButton
             label="PRZYZNAJ NAGRODĘ"
+            onClick={() => handlePanel("2")}
             />
           <SecondButton
             label="DAJ KONSEKWENCJĘ"

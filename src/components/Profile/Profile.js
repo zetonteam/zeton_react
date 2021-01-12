@@ -6,6 +6,7 @@ import ProfileMain from './ProfileMain';
 import ProfilePoints from './ProfilePoints';
 import ProfileConsequences from './ProfileConsequences';
 import Footer from '../Footer/Footer';
+import ProfileAwards from "./ProfileAwards";
 
 
 const Profile = ({ data, ...props }) => {
@@ -23,6 +24,9 @@ const Profile = ({ data, ...props }) => {
         break;
       case '1':
         return <ProfilePoints data={data} handlePanel={handlePanel} />;
+        break;
+      case '2':
+        return <ProfileAwards data={data} handlePanel={handlePanel} />;
         break;
       case '3':
         return <ProfileConsequences data={data} handlePanel={handlePanel} />;
