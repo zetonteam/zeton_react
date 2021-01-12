@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import PanelHeader from "../Header/PanelHeader";
 
-const ProfilePoints = ({ data, ...props }) => {
+const ProfilePoints = ({ data, handlePanel, ...props }) => {
 
 
   return (
     <section className="profile__main">
-      <h1>Points</h1>
+      <PanelHeader text="Dodaj punkty" panelNumber="0" handlePanel={handlePanel}/>
     </section>)
 }
 

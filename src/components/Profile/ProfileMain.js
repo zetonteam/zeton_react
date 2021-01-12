@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     lineHeight: 1.6,
   }
 });
-const ProfileMain = ({ data, ...props }) => {
+const ProfileMain = ({ data, handlePanel, ...props }) => {
   const classes = useStyles();
 
   return (
@@ -27,7 +27,7 @@ const ProfileMain = ({ data, ...props }) => {
 
         <Avatar src="/broken-image.jpg" className={classes.large} />
 
-        <Container display="flex" flexDirection="column">
+        <Container >
           <Typography variant="h5" align="left">{data.first_name}</Typography>
           <Box display="flex" flexDirection="row" alignItems="center">
             <HomeIcon color="primary" />
@@ -42,11 +42,12 @@ const ProfileMain = ({ data, ...props }) => {
         <Container>
           <BasicButton
             label="DODAJ PUNKTY"
-          // onClick={addPoints}
+            onClick={() => handlePanel("1")}
           />
 
           <SecondButton
             label="PRZYZNAJ NAGRODĘ"
+            onClick={() => handlePanel("2")}
           />
           <SecondButton
             label="DAJ KONSEKWENCJĘ"

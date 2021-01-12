@@ -11,13 +11,17 @@ const Profile = ({ data, ...props }) => {
   const [points, setPoints] = useState(0);
   const [panel, setPanel] = useState('0');
 
+  const handlePanel = (nmbr) => {
+    setPanel(nmbr)
+  }
+
   const panelSwitcher = (nmbr) => {
     switch (nmbr) {
       case '0':
-        return <ProfileMain data={data} />;
+        return <ProfileMain data={data} handlePanel={handlePanel}/>;
         break;
       case '1':
-        return <ProfilePoints data={data} />;
+        return <ProfilePoints data={data} handlePanel={handlePanel}/>;
         break;
       default:
         return <ProfileMain data={data} />;
