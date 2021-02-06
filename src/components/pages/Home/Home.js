@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getUsersAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
-import './Dashboard.css';
-import Home from "../../structures/Home/HomeCaregiver";
-import Profile from "../../structures/Profile/Profile";
 
-const DashboardPage = (props) => {
+const Home = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [choosenUser, setChoosenUser] = useState(props.user);
   const studentDataURL = "/api/users/students/";
@@ -31,11 +28,12 @@ const DashboardPage = (props) => {
   }, [studentDataURL]);
 
   return (
-    <section className="dashboard">
-      {
+    <div>
+      <h1>Hej</h1>
+      {/* {
         choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
-      }
-    </section>
+      } */}
+    </div>
 
   );
 };
@@ -55,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
