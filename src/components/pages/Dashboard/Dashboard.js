@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { getUsersAction } from "../../api/action";
-import apiClient from "../../apiClient";
+import { getUsersAction } from "../../../api/action";
+import apiClient from "../../../apiClient";
 import './Dashboard.css';
-import Home from "../../components/Home/HomeCaregiver";
-import Profile from "../../components/Profile/Profile";
+import Home from "../../structures/Home/HomeCaregiver";
+import Profile from "../../structures/Profile/Profile";
 
 const DashboardPage = (props) => {
   const [isLoading, setIsLoading] = useState(false);

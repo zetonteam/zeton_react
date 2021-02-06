@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import PanelHeader from "../Header/PanelHeader";
 import { Container, Box, Typography, Avatar } from '@material-ui/core';
 import SecondButton from "../../atoms/Button/SecondButton";
-import "../structures/Profile/Profile.css";
+import "../Profile/Profile.css";
 
-const Consequences = ({ data, handlePanel, ...props }) => {
+const Settings = ({ data, handlePanel, ...props }) => {
 
   return (
     <section className="profile__main">
-      <PanelHeader text="Konsekwencje" />
+      <PanelHeader text="Ustawienia" />
       <article className="profile__body">
         <Box>
 
@@ -20,4 +20,4 @@ const Consequences = ({ data, handlePanel, ...props }) => {
     </section>)
 }
 
-export default Consequences;
+export default Settings;

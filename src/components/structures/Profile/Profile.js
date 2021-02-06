@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import './Profile.css';
-import apiClient from "../../apiClient";
+import apiClient from "../../../apiClient";
 import ProfileMain from './ProfileMain';
 import ProfilePoints from './ProfilePoints';
 import ProfileConsequences from './ProfileConsequences';
 import Footer from '../Footer/Footer';
 import ProfileAwards from "./ProfileAwards";
-import Awards from "../Awards/Awards";
+import Awards from "../Consequences/Awards/Awards";
 import Info from "../Info/Info";
 import Consequences from "../Consequences/Consequences";
 import Settings from "../Settings/Settings";

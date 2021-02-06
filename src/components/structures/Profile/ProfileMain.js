@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { removeChoosenUserAction } from "../../api/action";
-import HomeIcon from "../../components/UI/HomeIcon/HomeIcon";
-import BasicButton from "../UI/Button/BasicButton";
-import SecondButton from "../UI/Button/SecondButton";
+import { removeChoosenUserAction } from "../../../api/action";
+import HomeIcon from "../../atoms/HomeIcon/HomeIcon";
+import BasicButton from "../../atoms/Button/BasicButton";
+import SecondButton from "../../atoms/Button/SecondButton";
 import { Container, Box, Typography, Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';

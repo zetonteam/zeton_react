@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import PanelHeader from "../Header/PanelHeader";
+import PanelHeader from "../../Header/PanelHeader";
 import { Container, Box, Typography, Avatar } from '@material-ui/core';
-import SecondButton from "../UI/Button/SecondButton";
-import "../Profile/Profile.css";
+import SecondButton from "../../atoms/Button/SecondButton";
+import "../structures/Profile/Profile.css";
 
 const Info = ({ data, handlePanel, ...props }) => {
 
