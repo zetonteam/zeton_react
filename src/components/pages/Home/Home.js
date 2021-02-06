@@ -3,12 +3,14 @@ import { connect } from "react-redux";
 import { getUsersAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
 import Heading from "../../atoms/Heading/Heading";
+import AddButton from "../../atoms/Button/AddButton";
 import styled from "styled-components";
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 `;
 
 const Home = ({ caregiver, user, users, getData }) => {
@@ -39,6 +41,7 @@ const Home = ({ caregiver, user, users, getData }) => {
         <Heading big>{caregiver ? caregiver : "Nieznajomy"}</Heading>
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
+      <AddButton>+ Dodaj podopiecznego</AddButton>
       {/* {
         choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
       } */}

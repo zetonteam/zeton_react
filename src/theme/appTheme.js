@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export const theme = {
-  bgAppColor: "#ffffff",
-  primaryAppColor: "#0069D9",
+  background: "#ffffff",
+  primary: "#0069D9",
   regular: "300",
   bold: "700",
   fontSize: {

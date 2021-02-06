@@ -4,7 +4,7 @@ const Heading = styled.h1`
   font-size: ${({ theme, big }) =>
     big ? theme.fontSize.xl : theme.fontSize.lg};
   font-weight: ${({ theme }) => theme.bold};
-  margin: 10px 0;
+  margin: 0 0 10px;
 `;
 
 export default Heading;
