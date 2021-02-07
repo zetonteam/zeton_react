@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export const theme = {
   background: "#ffffff",
-  grey: "#cecece",
+  grey: "#d8d8d8",
   primary: "#4169e1",
   regular: "300",
   bold: "700",

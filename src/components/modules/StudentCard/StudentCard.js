@@ -5,6 +5,7 @@ import styled from "styled-components";
 import DEFAULT_IMAGE from "../../../images/icons/profile-user.svg";
 
 const StyledStudentCard = styled.a`
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -12,6 +13,8 @@ const StyledStudentCard = styled.a`
   margin: 5px 0;
   border: solid 1px ${({ theme }) => theme.grey};
   border-radius: 5px;
+  transition: 0.2s;
+  cursor: pointer;
 `;
 
 const StyledName = styled(Paragraph)`

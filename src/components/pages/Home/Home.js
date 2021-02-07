@@ -54,7 +54,7 @@ const Home = ({ caregiver, user, users, getData }) => {
         <Heading big>Cześć, {caregiver ? caregiver : "Nieznajomy"}</Heading>
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
-      <StyledUsersWrapper>
+      <StyledUsersWrapper as="section">
         {users && (
           <>
             {users.map((item) => (
@@ -63,7 +63,7 @@ const Home = ({ caregiver, user, users, getData }) => {
           </>
         )}
       </StyledUsersWrapper>
-      <AddButton>+ Dodaj podopiecznego</AddButton>
+      <AddButton>Dodaj podopiecznego</AddButton>
       {/* {
         choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
       } */}
