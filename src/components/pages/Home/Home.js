@@ -6,6 +6,7 @@ import Heading from "../../atoms/Heading/Heading";
 import AddButton from "../../atoms/Buttons/AddButton";
 import StudentCard from "../../modules/StudentCard/StudentCard";
 import styled from "styled-components";
+import HomeTemplate from "../../templates/HomeTemplate";
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -15,16 +16,6 @@ const StyledHeadingWrapper = styled.header`
 `;
 
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
-
-const StyledContainer = styled.div`
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-  margin: 0 auto;
-`;
 
 const Home = ({ caregiver, users, getData }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +34,7 @@ const Home = ({ caregiver, users, getData }) => {
   }, [studentDataURL]);
 
   return (
-    <StyledContainer>
+    <HomeTemplate>
       <StyledHeadingWrapper>
         <Heading big>Cześć, {caregiver ? caregiver : "Nieznajomy"}</Heading>
         <Heading>wybierz podopiecznego</Heading>
@@ -65,7 +56,7 @@ const Home = ({ caregiver, users, getData }) => {
       {/* {
         choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
       } */}
-    </StyledContainer>
+    </HomeTemplate>
   );
 };
 
