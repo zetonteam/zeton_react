@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../atoms/Buttons/Button";
+import StudentHeader from "../structures/StudentHeader/StudentHeader";
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -8,9 +9,9 @@ const StyledButtonsGroup = styled.div`
   align-items: center;
 `;
 
-const StudentTemplate = ({ name }) => (
+const StudentTemplate = ({ name, points }) => (
   <>
-    <h1>{name}</h1>
+    <StudentHeader name={name} points={points} />
     {/* add StudentHeader, StudentButtonsGroup, StudentNavbar */}
     <StyledButtonsGroup>
       <Button>Dodaj punkty</Button>

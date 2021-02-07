@@ -6,7 +6,8 @@ import BottomNavbar from "../../structures/BottomNavbar/BottomNavbar";
 
 const Student = ({ student }) => (
   <HomeTemplate>
-    <StudentTemplate name={student.first_name} />
+    <StudentTemplate name={student.first_name} points={student.total_points} />
+    {console.log(student)}
     <BottomNavbar />
   </HomeTemplate>
 );
