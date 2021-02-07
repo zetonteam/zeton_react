@@ -4,6 +4,7 @@ import { getUsersAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
 import Heading from "../../atoms/Heading/Heading";
 import AddButton from "../../atoms/Button/AddButton";
+import StudentCard from "../../modules/StudentCard/StudentCard";
 import styled from "styled-components";
 
 const StyledHeadingWrapper = styled.header`
@@ -11,6 +12,18 @@ const StyledHeadingWrapper = styled.header`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+`;
+
+const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
+
+const StyledContainer = styled.div`
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
 `;
 
 const Home = ({ caregiver, user, users, getData }) => {
@@ -36,16 +49,25 @@ const Home = ({ caregiver, user, users, getData }) => {
   }, [studentDataURL]);
 
   return (
-    <div>
+    <StyledContainer>
       <StyledHeadingWrapper>
-        <Heading big>{caregiver ? caregiver : "Nieznajomy"}</Heading>
+        <Heading big>Cześć, {caregiver ? caregiver : "Nieznajomy"}</Heading>
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
+      <StyledUsersWrapper>
+        {users && (
+          <>
+            {users.map((item) => (
+              <StudentCard name={item.username} key={item.username} />
+            ))}
+          </>
+        )}
+      </StyledUsersWrapper>
       <AddButton>+ Dodaj podopiecznego</AddButton>
       {/* {
         choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
       } */}
-    </div>
+    </StyledContainer>
   );
 };
 
@@ -54,7 +76,7 @@ const mapStateToProps = (state) => {
     caregiver: "Roman",
     users: state.users,
     user: state.user,
-    //hej: console.log(state.user),
+    hej: console.log(state.users),
   };
 };
 
