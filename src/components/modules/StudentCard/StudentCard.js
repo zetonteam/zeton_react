@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Paragraph from "../../atoms/Paragraph/Paragraph";
 import ProfileImage from "../../atoms/ProfileImage/ProfileImage";
 import styled from "styled-components";
 import DEFAULT_IMAGE from "../../../images/icons/profile-user.svg";
 
-const StyledStudentCard = styled.a`
+const StyledStudentCard = styled(Link)`
   position: relative;
   width: 100%;
   display: flex;
@@ -15,15 +16,17 @@ const StyledStudentCard = styled.a`
   border-radius: 5px;
   transition: 0.2s;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 const StyledName = styled(Paragraph)`
   text-transform: capitalize;
   margin: 0;
+  color: black;
 `;
 
 const StudentCard = ({ name, image }) => (
-  <StyledStudentCard>
+  <StyledStudentCard to={name}>
     <ProfileImage src={image ? image : DEFAULT_IMAGE} />
     <StyledName big>{name}</StyledName>
   </StyledStudentCard>

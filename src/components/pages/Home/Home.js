@@ -58,7 +58,7 @@ const Home = ({ caregiver, user, users, getData }) => {
         {users && (
           <>
             {users.map((item) => (
-              <StudentCard name={item.username} key={item.username} />
+              <StudentCard key={item.username} name={item.username} />
             ))}
           </>
         )}

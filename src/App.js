@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import MainTemplate from "./components/templates/MainTemplate";
 import Home from "./components/pages/Home/Home";
+import Student from "./components/pages/Student/Student";
 
 const App = () => {
   // const [loggedIn, addLoggedIn] = useState(true);
@@ -22,7 +23,9 @@ const App = () => {
             </Route>
             <Route exact path="/home">
               <Home />
-              {/* <Route path="/:id" children={<Profile />} /> */}
+            </Route>
+            <Route exact path="/:id">
+              <Student />
             </Route>
           </Switch>
         </MainTemplate>
