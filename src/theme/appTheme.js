@@ -3,6 +3,8 @@ export const theme = {
   background: "#ffffff",
   grey: "#d8d8d8",
   primary: "#4169e1",
+  radius: "4px",
+  spacing: "1.25px",
   regular: "300",
   bold: "700",
   fontSize: {

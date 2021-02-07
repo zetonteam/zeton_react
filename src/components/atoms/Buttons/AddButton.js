@@ -3,7 +3,7 @@ import PLUS_ICON from "../../../images/icons/plus.svg";
 
 const AddButton = styled.button`
   color: ${({ theme }) => theme.primary};
-  font-size: ${({ theme }) => theme.fontSize.sm};
+  font-size: ${({ theme }) => theme.fontSize.xs};
   text-transform: uppercase;
   background-color: transparent;
   border: none;
@@ -12,10 +12,11 @@ const AddButton = styled.button`
   height: 46px;
   line-height: 30px;
   background-image: url(${PLUS_ICON});
-  background-size: 28px;
+  background-size: 20px;
   background-position: 10px center;
   background-repeat: no-repeat;
-  border-radius: 5px;
+  border-radius: ${({ theme }) => theme.radius};
+  letter-spacing: ${({ theme }) => theme.spacing};
   transition: 0.2s;
 
   &:hover {
@@ -24,15 +25,3 @@ const AddButton = styled.button`
 `;
 
 export default AddButton;
-
-// const AddButton = ({ label, onClick }) => {
-//   return (
-//     <div className="padding">
-//       <Button onClick={onClick} color="primary" size="large" startIcon={<AddIcon />}>
-//         {label}
-//       </Button>
-//     </div>
-//   )
-// };
-
-// export default AddButton;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getUsersAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
 import Heading from "../../atoms/Heading/Heading";
-import AddButton from "../../atoms/Button/AddButton";
+import AddButton from "../../atoms/Buttons/AddButton";
 import StudentCard from "../../modules/StudentCard/StudentCard";
 import styled from "styled-components";
 
@@ -26,15 +26,9 @@ const StyledContainer = styled.div`
   margin: 0 auto;
 `;
 
-const Home = ({ caregiver, user, users, getData }) => {
+const Home = ({ caregiver, users, getData }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [choosenUser, setChoosenUser] = useState(user);
   const studentDataURL = "/api/users/students/";
-
-  useEffect(() => {
-    setChoosenUser(user);
-    //console.log(props.users);
-  }, [user]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,7 +52,11 @@ const Home = ({ caregiver, user, users, getData }) => {
         {users && (
           <>
             {users.map((item) => (
-              <StudentCard key={item.username} name={item.username} />
+              <StudentCard
+                key={item.first_name}
+                name={item.first_name}
+                studentData={item}
+              />
             ))}
           </>
         )}
@@ -75,8 +73,6 @@ const mapStateToProps = (state) => {
   return {
     caregiver: "Roman",
     users: state.users,
-    user: state.user,
-    hej: console.log(state.users),
   };
 };
 
