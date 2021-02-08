@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import HomeTemplate from "../../templates/HomeTemplate";
 import Navbar from "../../structures/Navbar/Navbar";
 
-const Settings = ({ student }) => (
+const Consequences = ({ student }) => (
   <HomeTemplate>
-    <div>Settings</div>
+    <div>Consequences</div>
     <Navbar />
   </HomeTemplate>
 );
@@ -16,4 +16,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Settings);
+export default connect(mapStateToProps)(Consequences);
