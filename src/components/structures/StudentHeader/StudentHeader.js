@@ -31,9 +31,13 @@ const StyledData = styled.div`
   flex-direction: column;
 `;
 
-const StyledPoints = styled(StyledData)`
+const StyledPointsGroup = styled(StyledData)`
   flex-direction: row;
   padding: 10px 0;
+`;
+
+const StyledPoints = styled(Paragraph)`
+  margin: 0;
 `;
 
 const StyledIcon = styled.img`
@@ -49,10 +53,10 @@ const StudentHeader = ({ name, points, image }) => {
       <ProfileImage src={image ? image : DEFAULT_IMAGE} />
       <StyledData>
         <StyledName big>{name}</StyledName>
-        <StyledPoints>
+        <StyledPointsGroup>
           <StyledIcon src={STAR_ICON}></StyledIcon>
-          <Paragraph>{points}</Paragraph>
-        </StyledPoints>
+          <StyledPoints>{points}</StyledPoints>
+        </StyledPointsGroup>
       </StyledData>
     </StyledStudentHeader>
   );
