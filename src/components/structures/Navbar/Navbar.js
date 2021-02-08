@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavButton from "../../modules/NavButton/NavButton";
+import HOME_ICON from "../../../images/icons/home-24px.svg";
+import INFO_ICON from "../../../images/icons/person-24px.svg";
+import CONSEQUENCES_ICON from "../../../images/icons/sentiment_very_dissatisfied-24px.svg";
+import SETTINGS_ICON from "../../../images/icons/settings-24px.svg";
+import AWARD_ICON from "../../../images/icons/trophy.svg";
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -28,11 +33,19 @@ const Navbar = () => {
   console.log(`${id}`);
   return (
     <StyledNavbar>
-      <NavButton link={`/${id}`} text="Home" />
-      <NavButton link={`/${id}/awards`} text="Nagrody" />
-      <NavButton link={`/${id}/consequences`} text="Konsekwencje" />
-      <NavButton link={`/${id}/info`} text="Info" />
-      <NavButton link={`/${id}/settings`} text="Ustawienia" />
+      <NavButton link={`/${id}`} text="Home" image={HOME_ICON} />
+      <NavButton link={`/${id}/awards`} text="Nagrody" image={AWARD_ICON} />
+      <NavButton
+        link={`/${id}/consequences`}
+        text="Konsekwencje"
+        image={CONSEQUENCES_ICON}
+      />
+      <NavButton link={`/${id}/info`} text="Info" image={INFO_ICON} />
+      <NavButton
+        link={`/${id}/settings`}
+        text="Ustawienia"
+        image={SETTINGS_ICON}
+      />
     </StyledNavbar>
   );
 };
