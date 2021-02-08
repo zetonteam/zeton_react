@@ -11,16 +11,17 @@ const StyledButtonsGroup = styled.div`
   height: 60vh;
 `;
 
-const StudentTemplate = ({ name, points }) => (
-  <>
-    <StudentHeader name={name} points={points} />
-    {/* add StudentHeader, StudentButtonsGroup, StudentNavbar */}
-    <StyledButtonsGroup>
-      <Button>Dodaj punkty</Button>
-      <Button outline>Przyznaj nagrodę</Button>
-      <Button outline>Daj konsekwencję</Button>
-    </StyledButtonsGroup>
-  </>
-);
+const StudentTemplate = ({ name, points, handlePanel }) => {
+  return (
+    <>
+      <StudentHeader name={name} points={points} />
+      <StyledButtonsGroup>
+        <Button onClick={() => handlePanel("points")}>Dodaj punkty</Button>
+        <Button outline>Przyznaj nagrodę</Button>
+        <Button outline>Daj konsekwencję</Button>
+      </StyledButtonsGroup>
+    </>
+  );
+};
 
 export default StudentTemplate;
