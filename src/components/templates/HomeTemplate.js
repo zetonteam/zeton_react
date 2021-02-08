@@ -11,6 +11,11 @@ const StyledContainer = styled.div`
   align-items: center;
   padding: 40px;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${({ theme }) =>
+  theme.mediaMaxSize.xs}) {
+    padding: 30px;
+  }
 `;
 
 const HomeTemplate = ({ children }) => (

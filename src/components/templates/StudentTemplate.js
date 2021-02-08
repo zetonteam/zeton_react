@@ -7,7 +7,8 @@ const StyledButtonsGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  justify-content: center;
+  height: 60vh;
 `;
 
 const StudentTemplate = ({ name, points }) => (
