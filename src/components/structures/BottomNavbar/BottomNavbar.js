@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink, useParams } from "react-router-dom";
 
 const StyledNavbar = styled.div`
   position: fixed;
@@ -12,15 +13,19 @@ const StyledNavbar = styled.div`
   align-items: center;
 `;
 
-const BottomNavbar = () => (
-  <StyledNavbar>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-  </StyledNavbar>
-);
+const BottomNavbar = () => {
+  let { id } = useParams();
+  console.log(`${id}`)
+  return (
+    <StyledNavbar>
+      <NavLink to={`/${id}`}>Home</NavLink>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <NavLink to={`/${id}/settings`}>Ustawienia</NavLink>1
+    </StyledNavbar>
+  );
+};
 
 export default BottomNavbar;

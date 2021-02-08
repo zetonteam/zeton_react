@@ -8,6 +8,7 @@ import {
 import MainTemplate from "./components/templates/MainTemplate";
 import Home from "./components/pages/Home/Home";
 import Student from "./components/pages/Student/Student";
+import Settings from "./components/pages/Settings/Settings";
 
 const App = () => {
   // const [loggedIn, addLoggedIn] = useState(true);
@@ -26,6 +27,9 @@ const App = () => {
             </Route>
             <Route exact path="/:id">
               <Student />
+            </Route>
+            <Route exact path="/:id/settings">
+              <Settings />
             </Route>
           </Switch>
         </MainTemplate>
