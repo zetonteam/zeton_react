@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Router>
+      <Router >
         <MainTemplate>
           <Switch>
             <Route exact path="/">

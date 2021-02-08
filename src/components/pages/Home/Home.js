@@ -13,6 +13,11 @@ const StyledHeadingWrapper = styled.header`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+
+  @media only screen and (max-width: ${({ theme }) =>
+  theme.mediaMaxSize.xs}) {
+    margin-bottom: 30px;
+  }
 `;
 
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;

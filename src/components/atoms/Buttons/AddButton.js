@@ -10,7 +10,7 @@ const AddButton = styled.button`
   padding: 10px 15px;
   padding-left: 48px;
   height: 46px;
-  line-height: 30px;
+  line-height: 20px;
   background-image: url(${PLUS_ICON});
   background-size: 20px;
   background-position: 10px center;
@@ -21,6 +21,12 @@ const AddButton = styled.button`
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  @media only screen and (max-width: ${({ theme }) =>
+  theme.mediaMaxSize.xs}) {
+    font-size: ${({ theme }) => theme.fontSize.xxs};
+    padding-left: 40px;
   }
 `;
 

@@ -15,4 +15,7 @@ export const theme = {
     lg: "2.4rem",
     xl: "3rem",
   },
+  mediaMaxSize: {
+    xs: "599.9px",
+  },
 };
