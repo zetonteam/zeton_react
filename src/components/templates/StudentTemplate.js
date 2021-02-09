@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../atoms/Buttons/Button";
 import StudentHeader from "../structures/StudentHeader/StudentHeader";
+import Points from "../structures/Points/Points";
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -11,7 +12,13 @@ const StyledButtonsGroup = styled.div`
   height: 60vh;
 `;
 
-const StudentTemplate = ({ name, points, handlePanel }) => {
+const StudentTemplate = ({ name, points }) => {
+  const [actualPanel, setActualPanel] = useState("none");
+
+  const handlePanel = (event) => {
+    setActualPanel(event);
+  };
+
   return (
     <>
       <StudentHeader name={name} points={points} />
@@ -20,6 +27,7 @@ const StudentTemplate = ({ name, points, handlePanel }) => {
         <Button outline>Przyznaj nagrodę</Button>
         <Button outline>Daj konsekwencję</Button>
       </StyledButtonsGroup>
+      <Points panel={actualPanel} handlePanel={handlePanel} />
     </>
   );
 };

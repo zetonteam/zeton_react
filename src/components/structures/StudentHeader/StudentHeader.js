@@ -44,7 +44,7 @@ const StyledIcon = styled.img`
   height: 20px;
   width: 20px;
   margin-right: 10%;
-  z-index: 99;
+  z-index: 2;
 `;
 
 const StudentHeader = ({ name, points, image }) => {
