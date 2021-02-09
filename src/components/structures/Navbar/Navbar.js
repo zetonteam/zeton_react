@@ -18,6 +18,7 @@ const StyledNavbar = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 99;
 
   @media only screen and (max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
     top: auto;

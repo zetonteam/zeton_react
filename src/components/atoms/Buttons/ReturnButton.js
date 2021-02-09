@@ -9,7 +9,7 @@ const ReturnButton = styled.button`
   transition: 0.2s;
   background-image: url(${ARROW_ICON});
   background-size: 100%;
-  background-position: 10px center;
+  background-position: center;
   background-repeat: no-repeat;
 
   @media only screen and (max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {

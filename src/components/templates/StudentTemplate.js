@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../atoms/Buttons/Button";
 import StudentHeader from "../structures/StudentHeader/StudentHeader";
-import Points from "../structures/Points/Points";
+import PointsBar from "../structures/PointsBar/PointsBar";
+import AwardsBar from "../structures/AwardsBar/AwardsBar";
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -24,10 +25,13 @@ const StudentTemplate = ({ name, points }) => {
       <StudentHeader name={name} points={points} />
       <StyledButtonsGroup>
         <Button onClick={() => handlePanel("points")}>Dodaj punkty</Button>
-        <Button outline>Przyznaj nagrodę</Button>
+        <Button outline onClick={() => handlePanel("awards")}>
+          Przyznaj nagrodę
+        </Button>
         <Button outline>Daj konsekwencję</Button>
       </StyledButtonsGroup>
-      <Points panel={actualPanel} handlePanel={handlePanel} />
+      <PointsBar panel={actualPanel} handlePanel={handlePanel} />
+      <AwardsBar panel={actualPanel} handlePanel={handlePanel} />
     </>
   );
 };

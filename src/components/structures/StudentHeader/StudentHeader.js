@@ -13,7 +13,7 @@ const StyledStudentHeader = styled.header`
   padding: 10px;
   margin: 5px 0;
   border-bottom: solid 1px ${({ theme }) => theme.primary};
-  border-radius: ${({ theme }) => theme.radius};
+  //border-radius: ${({ theme }) => theme.radius};
   transition: 0.2s;
   cursor: pointer;
   text-decoration: none;
