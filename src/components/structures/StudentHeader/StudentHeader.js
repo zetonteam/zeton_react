@@ -68,7 +68,7 @@ const StudentHeader = ({ name, points, image }) => {
           </StyledPointsGroup>
         </StyledData>
       </StyledMainGroup>
-      <ReturnButton exit as={NavLink} to="/home"/>
+      <ReturnButton exit="true" as={NavLink} to="/home"/>
     </StyledStudentHeader>
   );
 };

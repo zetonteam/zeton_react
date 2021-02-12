@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -12,6 +12,7 @@ import Info from "./components/pages/Info/Info";
 import Awards from "./components/pages/Awards/Awards";
 import Consequences from "./components/pages/Consequences/Consequences";
 import Settings from "./components/pages/Settings/Settings";
+import Head from "./Head";
 
 const App = () => {
   // const [loggedIn, addLoggedIn] = useState(true);
@@ -19,7 +20,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Router >
+      <Head />
+
+      <Router>
         <MainTemplate>
           <Switch>
             <Route exact path="/">

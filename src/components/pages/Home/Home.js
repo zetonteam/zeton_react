@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getUsersAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
@@ -23,20 +23,20 @@ const StyledHeadingWrapper = styled.header`
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
 
 const Home = ({ caregiver, users, getData }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const studentDataURL = "/api/users/students/";
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
+      // setIsLoading(true);
       const result = await apiClient(studentDataURL);
       //setChildren(result.data)
       getData(result.data);
-      setIsLoading(false);
+      // setIsLoading(false);
     };
 
     fetchData();
-  }, [studentDataURL]);
+  }, [studentDataURL, getData]);
 
   return (
     <HomeTemplate>
