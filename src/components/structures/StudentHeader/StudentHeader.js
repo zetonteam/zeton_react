@@ -4,19 +4,27 @@ import Paragraph from "../../atoms/Paragraph/Paragraph";
 import ProfileImage from "../../atoms/ProfileImage/ProfileImage";
 import DEFAULT_IMAGE from "../../../images/icons/profile-user.svg";
 import STAR_ICON from "../../../images/icons/star.svg";
+import ReturnButton from "../../atoms/Buttons/ReturnButton";
+import { NavLink } from "react-router-dom";
 
 const StyledStudentHeader = styled.header`
   position: relative;
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   margin: 5px 0;
   border-bottom: solid 1px ${({ theme }) => theme.primary};
   //border-radius: ${({ theme }) => theme.radius};
   transition: 0.2s;
-  cursor: pointer;
   text-decoration: none;
+`;
+
+const StyledMainGroup = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 const StyledName = styled(Paragraph)`
@@ -27,8 +35,8 @@ const StyledName = styled(Paragraph)`
 
 const StyledData = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
+  justify-content: start;
 `;
 
 const StyledPointsGroup = styled(StyledData)`
@@ -50,14 +58,17 @@ const StyledIcon = styled.img`
 const StudentHeader = ({ name, points, image }) => {
   return (
     <StyledStudentHeader>
-      <ProfileImage src={image ? image : DEFAULT_IMAGE} />
-      <StyledData>
-        <StyledName big>{name}</StyledName>
-        <StyledPointsGroup>
-          <StyledIcon src={STAR_ICON}></StyledIcon>
-          <StyledPoints>{points}</StyledPoints>
-        </StyledPointsGroup>
-      </StyledData>
+      <StyledMainGroup>
+        <ProfileImage src={image ? image : DEFAULT_IMAGE} />
+        <StyledData>
+          <StyledName big>{name}</StyledName>
+          <StyledPointsGroup>
+            <StyledIcon src={STAR_ICON}></StyledIcon>
+            <StyledPoints>{points}</StyledPoints>
+          </StyledPointsGroup>
+        </StyledData>
+      </StyledMainGroup>
+      <ReturnButton exit as={NavLink} to="/home"/>
     </StyledStudentHeader>
   );
 };
