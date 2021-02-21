@@ -7,7 +7,7 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
-import './Footer.css';
+//import './Footer.css';
 
 import { makeStyles } from '@material-ui/styles';
 
