@@ -5,6 +5,8 @@ import Heading from "../../atoms/Heading/Heading";
 import ActionsTemplate from "../../templates/ActionsTemplate";
 import AddButton from "../../atoms/Buttons/AddButton";
 import Button from "../../atoms/Buttons/Button";
+import LiElement from "../../atoms/Lists/LiElement";
+import Select from "../../atoms/Accordion/Select";
 
 const StyledContainer = styled.main`
   position: relative;
@@ -43,6 +45,11 @@ const AwardsBar = ({ points, handlePanel, panel }) => {
       </StyledHeader>
       <StyledContainer>
         <div>Accordion</div>
+        <Select>
+          <option value="">Wybierz nagrodę</option>
+          <option value="1">Nagroda -1 pkt</option>
+
+        </Select>
         <AddButton>Dodaj nową nagrodę</AddButton>
         <Button>Dodaj</Button>
       </StyledContainer>
