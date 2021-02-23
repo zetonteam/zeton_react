@@ -1,6 +1,6 @@
 const initialState = {
   users: null,
-  user: null
+  user: null,
 };
 
 const userReducer = (state = initialState, { payload, type }) => {
@@ -8,19 +8,19 @@ const userReducer = (state = initialState, { payload, type }) => {
     case "GET_USERS": {
       return {
         ...state,
-        users: [...payload.users]
+        users: [...payload.users],
       };
     }
-    case "ADD_CHOOSEN_USER": {
+    case "ADD_CHOOSEN_STUDENT": {
       return {
         ...state,
-        user: payload.user
+        student: payload.student,
       };
     }
-    case "REMOVE_CHOOSEN_USER": {
+    case "REMOVE_CHOOSEN_STUDENT": {
       return {
         ...state,
-        user: payload.user
+        student: payload.student,
       };
     }
     default:
