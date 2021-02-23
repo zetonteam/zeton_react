@@ -5,18 +5,18 @@ const getUsersAction = (data) => ({
   },
 });
 
-const chooseUserAction = (data) => ({
-  type: "ADD_CHOOSEN_USER",
+const chooseStudentAction = (data) => ({
+  type: "ADD_CHOOSEN_STUDENT",
   payload: {
-    user: data,
+    student: data,
   },
 });
 
-const removeChoosenUserAction = () => ({
-  type: "REMOVE_CHOOSEN_USER",
+const removeChoosenStudentAction = () => ({
+  type: "REMOVE_CHOOSEN_STUDENT",
   payload: {
-    user: null,
+    student: null,
   },
 });
 
-export { getUsersAction, chooseUserAction, removeChoosenUserAction };
+export { getUsersAction, chooseStudentAction, removeChoosenStudentAction };
