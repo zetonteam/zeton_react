@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Select = styled.select`
-    width: 400px;
+    max-width: 400px;
     height: 50px;
     background: white;
     color: grey;
@@ -13,7 +13,7 @@ const Select = styled.select`
         color: black;
         background: white;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between
 
     }
 `
