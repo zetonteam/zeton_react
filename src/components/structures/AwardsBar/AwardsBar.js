@@ -36,6 +36,8 @@ const AwardsBar = ({ points, handlePanel, panel }) => {
     setActivePanel(panel);
   }, [panel]);
 
+  
+
   return (
     <ActionsTemplate action={activePanel === "awards" ? "true" : "false"}>
       <StyledHeader>

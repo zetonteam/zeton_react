@@ -64,14 +64,14 @@ const SelectHeader = styled.div`
 }
 `;
 const CustomArrow = styled.span`
-position: absolute;
-top: 0;
-right: 0;
-display: block;
-background: transparent;
-height: 100%;
-width: 4rem;
-pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background: transparent;
+    height: 100%;
+    width: 4rem;
+    pointer-events: none;
     &::before, 
     &::after {
     --size: 0.65rem;
@@ -105,34 +105,34 @@ const DropdownListContainer = styled.div`
 `;
 
 const DropdownList = styled.ul`
-padding: 0;
-margin: 0;
-background: white;
-color: black;
-font-size: 1.25rem;
-border-radius: ${({ theme }) => theme.radius};
-position: relative;
-box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-padding-bottom: 1rem;
+    padding: 0;
+    margin: 0;
+    background: white;
+    color: black;
+    font-size: 1.25rem;
+    border-radius: ${({ theme }) => theme.radius};
+    position: relative;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem;
 `;
 
 const ListItem = styled.li`
-position: relative;
-list-style: none;
-padding: 1rem 1.5rem 1rem 1.5rem;
-font-size: 1.25rem;
-border: 1px solid transparent;
-border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-&:first-child {    
-    border-top: 1px solid rgba(0, 0, 0, 0.2);}
+    position: relative;
+    list-style: none;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    font-size: 1.25rem;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &:first-child {    
+        border-top: 1px solid rgba(0, 0, 0, 0.2);}
 
-&:hover, 
-&:focus {
-    cursor: pointer;
-    border: 1px solid ${({ theme }) => theme.primary};
+    &:hover, 
+    &:focus {
+        cursor: pointer;
+        border: 1px solid ${({ theme }) => theme.primary};
 }
 
 `;
@@ -142,6 +142,7 @@ const CustomSelect = () => {
     const [selectedOption, setSelectedOption] = useState([]);
     const [selectedHeader, setSelectedHeader] = useState(["Wybierz nagrodę",])
     const [prizeState, setPrizeState] = useState("")
+    const [disabled, setDisabled] = useState(true)
 
     const options = [
         { id: 1, text: "Paczka czipsów", points: 5 },
@@ -154,17 +155,22 @@ const CustomSelect = () => {
 
     const onOptionClicked = (value) => () => {
         if (!value) return;
-
         setSelectedOption(value);
         console.log(selectedOption)
         setIsOpen(false);
         setSelectedHeader(`${value.text} -${value.points}pkt`)
+        if (prizeState.text !== "Wybierz nagrodę") {
+            setDisabled(false)
+        } else {
+            setDisabled(true)
+        }
     }
 
     const prizeChosen = () => {
         setPrizeState(selectedOption)
         console.log(selectedOption.points)
         setSelectedHeader(["Wybierz nagrodę",])
+        setDisabled(true)
     }
 
 
@@ -203,7 +209,9 @@ const CustomSelect = () => {
                 )}
             </DropdownContainer>
 
-            <Button onClick={prizeChosen}>Przyznaj nagrodę</Button>
+            <Button
+                disabled={disabled}
+                onClick={prizeChosen}>Przyznaj nagrodę</Button>
 
         </MainBox>
 
