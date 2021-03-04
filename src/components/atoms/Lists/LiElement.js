@@ -12,8 +12,8 @@ const LiElement = (props) => {
     return (
         <div>
             <StyledLiElement>
-                <div>{props.liElement.text}</div>
-                {props.liElement.points}
+                <div>{props.award.text}</div>
+                {props.award.value}
             </StyledLiElement>
         </div>
     )
