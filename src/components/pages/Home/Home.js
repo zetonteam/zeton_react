@@ -5,6 +5,7 @@ import apiClient from "../../../apiClient";
 import { urlStudentsList } from "../../../const/url";
 import Heading from "../../atoms/Heading/Heading";
 import AddButton from "../../atoms/Buttons/AddButton";
+import Loading from "../../atoms/Loading/Loading";
 import StudentCard from "../../modules/StudentCard/StudentCard";
 import styled from "styled-components";
 import HomeTemplate from "../../templates/HomeTemplate";
@@ -45,7 +46,7 @@ const Home = ({ caregiver, students, getData }) => {
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
       <StyledUsersWrapper as="section">{
-        isLoading ? <p>Loading...</p> : 
+        isLoading ? <Loading/> : 
 
         students && (
           <>
