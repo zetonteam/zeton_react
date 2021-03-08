@@ -1,0 +1,1 @@
+export const urlStudentsList = "/api/users/students/";

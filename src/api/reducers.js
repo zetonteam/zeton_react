@@ -1,14 +1,14 @@
 const initialState = {
-  users: null,
+  students: null,
   user: null,
 };
 
 const userReducer = (state = initialState, { payload, type }) => {
   switch (type) {
-    case "GET_USERS": {
+    case "GET_STUDENTS": {
       return {
         ...state,
-        users: [...payload.users],
+        students: [...payload.students],
       };
     }
     case "ADD_CHOOSEN_STUDENT": {

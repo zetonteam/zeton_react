@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getStudentsListAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
+import { urlStudentsList } from "../../../const/url";
 import Heading from "../../atoms/Heading/Heading";
 import AddButton from "../../atoms/Buttons/AddButton";
 import StudentCard from "../../modules/StudentCard/StudentCard";
@@ -22,21 +23,20 @@ const StyledHeadingWrapper = styled.header`
 
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
 
-const Home = ({ caregiver, users, getData }) => {
-  // const [isLoading, setIsLoading] = useState(false);
-  const studentDataURL = "/api/users/students/";
+const Home = ({ caregiver, students, getData }) => {
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      // setIsLoading(true);
-      const result = await apiClient(studentDataURL);
+      setIsLoading(true);
+      const result = await apiClient(urlStudentsList);
       //setChildren(result.data)
       getData(result.data);
-      // setIsLoading(false);
+      setIsLoading(false);
     };
 
     fetchData();
-  }, [studentDataURL, getData]);
+  }, [urlStudentsList, getData]);
 
   return (
     <HomeTemplate>
@@ -44,10 +44,12 @@ const Home = ({ caregiver, users, getData }) => {
         <Heading big>Cześć, {caregiver ? caregiver : "Nieznajomy"}</Heading>
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
-      <StyledUsersWrapper as="section">
-        {users && (
+      <StyledUsersWrapper as="section">{
+        isLoading ? <p>Loading...</p> : 
+
+        students && (
           <>
-            {users.map((item) => (
+            {students.map((item) => (
               <StudentCard
                 key={item.first_name}
                 name={item.first_name}
@@ -68,7 +70,7 @@ const Home = ({ caregiver, users, getData }) => {
 const mapStateToProps = (state) => {
   return {
     caregiver: "Roman",
-    users: state.users,
+    students: state.students,
   };
 };
 
