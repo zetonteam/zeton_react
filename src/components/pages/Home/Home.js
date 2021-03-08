@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getUsersAction } from "../../../api/action";
+import { getStudentsListAction } from "../../../api/action";
 import apiClient from "../../../apiClient";
 import Heading from "../../atoms/Heading/Heading";
 import AddButton from "../../atoms/Buttons/AddButton";
@@ -74,7 +74,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getData: (data) => dispatch(getUsersAction(data)),
+    getData: (data) => dispatch(getStudentsListAction(data)),
   };
 };
 

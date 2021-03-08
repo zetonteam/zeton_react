@@ -1,4 +1,4 @@
-const getUsersAction = (data) => ({
+const getStudentsListAction = (data) => ({
   type: "GET_USERS",
   payload: {
     users: data,
