@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { mockyClient } from './mockyClient'
+//import { mockyClient } from './mockyClient'
 
 const apiClient = axios.create({});
 
