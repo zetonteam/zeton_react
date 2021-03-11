@@ -1,28 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Buttons/Button'
-
-const MainBox = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 50vh;
-    justify-content: space-around;
-    margin: 0 5%;
-    margin-bottom: 40px;
-    
-    max-width: 500px;
-    position: relative;
+import SelectHeader from '../../atoms/Heading/SelectHeader'
+import CustomArrow from '../../atoms/Buttons/CustomArrow'
+import MainBox from '../../atoms/Sections/MainBox'
 
 
-@media only screen and(max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
-    font-size: ${({ theme }) =>
-        theme.fontSize.xxs
-    };
-    margin: 0 auto;
-    padding: 1rem 2rem 1rem 1rem;
-}
-`;
 
 const DropdownContainer = styled.div`
     margin: 0 auto;
@@ -35,73 +18,10 @@ const DropdownHeader = styled.div`
     width: 100%;
 `;
 
-const SelectHeader = styled.div`
-    width: 100%;
-    margin:0 auto;
-    background: white;
-    color: black;
-    padding: 1rem 5rem 1rem 1.5rem;
-    font-size: 1.25rem;
-    border-radius:  ${({ theme }) => theme.radius};
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-    outline: transparent;
-    border: none;
-    line-height: 1.5;
-       
-    &:hover,
-    &:focus {
-    cursor: pointer;
-    border: 1px solid ${({ theme }) => theme.primary};
-}
-
-
-@media only screen and(max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
-    font-size: ${({ theme }) =>
-        theme.fontSize.xxs
-    };
-    margin: 0 auto;
-    padding: 1rem 2rem 1rem 1rem;
-}
-`;
-const CustomArrow = styled.span`
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    background: transparent;
-    height: 100%;
-    width: 4rem;
-    pointer-events: none;
-    &::before, 
-    &::after {
-    --size: 0.65rem;
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 50%;
-    top: 50%;
-    transform: translate(-30%, -50%);
-}
-
-    &::before {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-top: var(--size) solid black;
-}
-@media only screen and(max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
-        &::before, 
-        &::after {
-        --size: 0.5rem;
-    }
-}
-`;
-
 const DropdownListContainer = styled.div`
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); 
     position: absolute;
-    width: 100%;
-  
+    width: 100%;  
 `;
 
 const DropdownList = styled.ul`
@@ -137,10 +57,10 @@ const ListItem = styled.li`
 
 `;
 
-const CustomSelect = () => {
+const CustomSelect = ({ data }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState([]);
-    const [selectedHeader, setSelectedHeader] = useState(["Wybierz nagrodę",])
+    const [selectedHeader, setSelectedHeader] = useState([{data},])
     const [prizeState, setPrizeState] = useState("")
     const [disabled, setDisabled] = useState(true)
 
@@ -153,13 +73,13 @@ const CustomSelect = () => {
     const toggling = () =>
         setIsOpen(!isOpen)
 
-    const onOptionClicked = (value) => () => {
+    const onOptionClicked = (value, data) => () => {
         if (!value) return;
         setSelectedOption(value);
         console.log(selectedOption)
         setIsOpen(false);
         setSelectedHeader(`${value.text} -${value.points}pkt`)
-        if (prizeState.text !== "Wybierz nagrodę") {
+        if (prizeState.text !== data) {
             setDisabled(false)
         } else {
             setDisabled(true)
@@ -185,7 +105,7 @@ const CustomSelect = () => {
                     tabindex="0"
                     aria-haspopup="listbox"
                 >
-                    <SelectHeader>{selectedHeader}</SelectHeader>
+                    <SelectHeader text={data} />
                     <CustomArrow />
                 </DropdownHeader>
                 {isOpen && (
@@ -197,7 +117,7 @@ const CustomSelect = () => {
 
                                 <ListItem
                                     tabindex="0"
-                                    onClick={onOptionClicked(option)}
+                                    onClick={onOptionClicked(option, data)}
                                     key={option.id}
                                     role="option">
                                     {option.text} <span>{option.points} pkt</span>

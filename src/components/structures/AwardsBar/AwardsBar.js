@@ -47,7 +47,7 @@ const AwardsBar = ({ points, handlePanel, panel }) => {
       <StyledContainer>
 
         
-          <CustomSelect />
+          <CustomSelect data="Wybierz nagrodę" />
 
 
         <AddButton>Dodaj nową nagrodę</AddButton>
