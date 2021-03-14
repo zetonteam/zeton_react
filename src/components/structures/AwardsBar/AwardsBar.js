@@ -28,15 +28,24 @@ const StyledHeading = styled(Heading)`
   margin: 0 0 0 20px;
 `;
 
+
+
+
+
 const AwardsBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
-
+  const data = [
+    { id: 1, text: "Paczka czipsów", points: 5 },
+    { id: 2, text: "Wyjście do kina", points: 20 },
+    { id: 3, text: "Godzina gry komputerowej", points: 10 }
+  ]
+ 
 
   useEffect(() => {
     setActivePanel(panel);
   }, [panel]);
 
-  
+
 
   return (
     <ActionsTemplate action={activePanel === "awards" ? "true" : "false"}>
@@ -45,11 +54,7 @@ const AwardsBar = ({ points, handlePanel, panel }) => {
         <StyledHeading big>Przyznaj nagrodę</StyledHeading>
       </StyledHeader>
       <StyledContainer>
-
-        
-          <CustomSelect data="Wybierz nagrodę" />
-
-
+        <CustomSelect title="Wybierz nagrodę" data={data} btnTitle="Przyznaj nagrodę" />
         <AddButton>Dodaj nową nagrodę</AddButton>
 
       </StyledContainer>

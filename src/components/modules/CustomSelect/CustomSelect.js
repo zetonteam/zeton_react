@@ -57,46 +57,42 @@ const ListItem = styled.li`
 
 `;
 
-const CustomSelect = ({ data }) => {
+const CustomSelect = ({ title, data, btnTitle }) => {
+    
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState([]);
-    const [selectedHeader, setSelectedHeader] = useState([{data},])
-    const [prizeState, setPrizeState] = useState("")
+    const [selectedHeader, setSelectedHeader] = useState([title,])
+    const [elemState, setElemState] = useState("")
     const [disabled, setDisabled] = useState(true)
 
-    const options = [
-        { id: 1, text: "Paczka czipsów", points: 5 },
-        { id: 2, text: "Wyjście do kina", points: 20 },
-        { id: 3, text: "Godzina gry komputerowej", points: 10 }
-    ]
 
     const toggling = () =>
         setIsOpen(!isOpen)
 
-    const onOptionClicked = (value, data) => () => {
+    const onOptionClicked = (value, title) => () => {
         if (!value) return;
         setSelectedOption(value);
         console.log(selectedOption)
         setIsOpen(false);
         setSelectedHeader(`${value.text} -${value.points}pkt`)
-        if (prizeState.text !== data) {
+        if (elemState.text !== title) {
             setDisabled(false)
         } else {
             setDisabled(true)
         }
     }
 
-    const prizeChosen = () => {
-        setPrizeState(selectedOption)
+    const elemChosen = () => {
+        setElemState(selectedOption)
         console.log(selectedOption.points)
-        setSelectedHeader(["Wybierz nagrodę",])
+        setSelectedHeader([title,])
         setDisabled(true)
     }
 
 
     return (
         <MainBox>
-            {prizeState.text}   {prizeState.points}
+            {elemState.text}   {elemState.points}
             <DropdownContainer>
                 <DropdownHeader
                     onClick={toggling}
@@ -105,7 +101,7 @@ const CustomSelect = ({ data }) => {
                     tabindex="0"
                     aria-haspopup="listbox"
                 >
-                    <SelectHeader text={data} />
+                    <SelectHeader text={selectedHeader} />
                     <CustomArrow />
                 </DropdownHeader>
                 {isOpen && (
@@ -113,11 +109,11 @@ const CustomSelect = ({ data }) => {
                         role="listbox"
                     >
                         <DropdownList>
-                            {(options || []).map(option => (
+                            {(data || []).map(option => (
 
                                 <ListItem
                                     tabindex="0"
-                                    onClick={onOptionClicked(option, data)}
+                                    onClick={onOptionClicked(option, title)}
                                     key={option.id}
                                     role="option">
                                     {option.text} <span>{option.points} pkt</span>
@@ -131,7 +127,7 @@ const CustomSelect = ({ data }) => {
 
             <Button
                 disabled={disabled}
-                onClick={prizeChosen}>Przyznaj nagrodę</Button>
+                onClick={elemChosen}>{btnTitle}</Button>
 
         </MainBox>
 
