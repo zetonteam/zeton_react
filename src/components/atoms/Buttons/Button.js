@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: ${({ theme, outline }) =>
-    outline ? "transparent" : theme.primary};
+  background-color: ${({ theme, outline, disabled }) => {
+  if (outline === true) {return "transparent"} 
+  else if (disabled === true) { return theme.grey} 
+  else {return theme.primary}
+}};
+    // outline ? "transparent" : theme.primary};
   font-size: ${({ theme }) => theme.fontSize.xs};
   text-transform: uppercase;
   color: ${({ theme, outline }) => (outline ? theme.primary : "white")};
