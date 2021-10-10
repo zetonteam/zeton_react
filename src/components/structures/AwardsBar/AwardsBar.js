@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import ReturnButton from "../../atoms/Buttons/ReturnButton";
-import Heading from "../../atoms/Heading/Heading";
-import ActionsTemplate from "../../templates/ActionsTemplate";
-import AddButton from "../../atoms/Buttons/AddButton";
-import CustomSelect from '../../modules/CustomSelect/CustomSelect'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import ReturnButton from '../../atoms/Buttons/ReturnButton';
+import { Heading } from '../../atoms/Heading/Heading';
+import ActionsTemplate from '../../templates/ActionsTemplate';
+import CustomSelect from '../../modules/CustomSelect/CustomSelect';
+import { AddButton } from '../../atoms/Buttons/LightButtons';
 
 const StyledContainer = styled.main`
   position: relative;
@@ -28,35 +28,31 @@ const StyledHeading = styled(Heading)`
   margin: 0 0 0 20px;
 `;
 
-
-
-
-
 const AwardsBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
   const data = [
-    { id: 1, text: "Paczka czipsów", points: 5 },
-    { id: 2, text: "Wyjście do kina", points: 20 },
-    { id: 3, text: "Godzina gry komputerowej", points: 10 }
-  ]
- 
+    { id: 1, text: 'Paczka czipsów', points: 5 },
+    { id: 2, text: 'Wyjście do kina', points: 20 },
+    { id: 3, text: 'Godzina gry komputerowej', points: 10 },
+  ];
 
   useEffect(() => {
     setActivePanel(panel);
   }, [panel]);
 
-
-
   return (
-    <ActionsTemplate action={activePanel === "awards" ? "true" : "false"}>
+    <ActionsTemplate action={activePanel === 'awards' ? 'true' : 'false'}>
       <StyledHeader>
-        <ReturnButton onClick={() => handlePanel("none")} />
+        <ReturnButton onClick={() => handlePanel('none')} />
         <StyledHeading big>Przyznaj nagrodę</StyledHeading>
       </StyledHeader>
       <StyledContainer>
-        <CustomSelect title="Wybierz nagrodę" data={data} btnTitle="Przyznaj nagrodę" />
+        <CustomSelect
+          title="Wybierz nagrodę"
+          data={data}
+          btnTitle="Przyznaj nagrodę"
+        />
         <AddButton>Dodaj nową nagrodę</AddButton>
-
       </StyledContainer>
     </ActionsTemplate>
   );

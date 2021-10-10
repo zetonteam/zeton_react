@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import PLUS_ICON from "../../../images/icons/plus.svg";
+import styled from 'styled-components';
+import PLUS_ICON from '../../../images/icons/plus.svg';
 
-const AddButton = styled.button`
+const LightButton = styled.button`
   color: ${({ theme }) => theme.primary};
   font-size: ${({ theme }) => theme.fontSize.xs};
   text-transform: uppercase;
@@ -10,7 +10,6 @@ const AddButton = styled.button`
   padding: 10px 15px;
   padding-left: 48px;
   line-height: 26px;
-  background-image: url(${PLUS_ICON});
   background-size: 20px;
   background-position: 10px center;
   background-repeat: no-repeat;
@@ -29,4 +28,10 @@ const AddButton = styled.button`
   }
 `;
 
-export default AddButton;
+export const UseButton = styled(LightButton)`
+  padding-left: 15px;
+`;
+
+export const AddButton = styled(LightButton)`
+  background-image: url(${PLUS_ICON});
+`;
