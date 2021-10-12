@@ -39,6 +39,8 @@ const ButtonRow = styled(TextRow)`
 `;
 
 const LiElement = (props) => {
+  console.log(props);
+
   return (
     <StyledLiElement>
       <TextRow>

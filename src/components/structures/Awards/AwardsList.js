@@ -10,6 +10,8 @@ import LiElement from '../../atoms/Lists/Lists';
 import { LiDateElem } from '../../atoms/Lists/Lists';
 import { StyledArticle } from '../../atoms/Sections/Article';
 import { AddButton } from '../../atoms/Buttons/LightButtons';
+import { data } from '../../../mockyClient';
+import AddPrizeForm from './AddPrizeForm';
 
 const StyledUl = styled.ul`
   padding-left: 0;
@@ -22,26 +24,45 @@ const StyledDate = styled.span`
 `;
 
 const AwardsList = () => {
-  const data = [
-    { id: 1, text: 'Paczka czipsów', points: 5 },
-    { id: 2, text: 'Wyjście do kina', points: 20 },
-    { id: 3, text: 'Godzina gry komputerowej', points: 10 },
-  ];
+  const [prizes, setPrizes] = useState(data);
+  const [flag, setFlag] = useState(false);
+
+  const addPrize = (prize) => {
+    prize.id = prizes.length + 1;
+    setPrizes([...prizes, prize]);
+  };
+  const deletePrize = (id) => {
+    setPrizes(prizes.filter((prize) => prize.id !== id));
+  };
+
   return (
     <MainBox>
       <StyledArticle>
         <Heading>Lista nagród</Heading>
         {data && (
           <StyledUl>
-            {data.map((el) => {
+            {prizes.map((el) => {
               const { text, points, id } = el;
-              return <LiElement text={text} points={points} key={id} />;
+              return (
+                <LiElement
+                  text={text}
+                  points={points}
+                  key={id}
+                  prize={el}
+                  deletePrize={deletePrize}
+                />
+              );
             })}
           </StyledUl>
         )}
       </StyledArticle>
       <StyledArticle>
-        <AddButton>Dodaj nową nagrodę</AddButton>
+        {flag && <AddPrizeForm addPrize={addPrize} />}
+        {!flag && (
+          <AddButton onClick={() => setFlag(!flag)}>
+            Dodaj nową nagrodę
+          </AddButton>
+        )}
       </StyledArticle>
 
       <StyledArticle>
