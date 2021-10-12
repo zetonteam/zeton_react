@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import ReturnButton from '../../atoms/Buttons/ReturnButton';
 import { Heading } from '../../atoms/Heading/Heading';
 import ActionsTemplate from '../../templates/ActionsTemplate';
-import { AddButton } from '../../atoms/Buttons/LightButtons';
-import Button from '../../atoms/Buttons/Button';
+import CustomSelect from '../../modules/CustomSelect/CustomSelect';
+import { data } from '../../../mockyClient';
 
-const StyledContainer = styled.main`
+export const StyledContainer = styled.main`
   position: relative;
   width: 100%;
   display: flex;
@@ -28,7 +28,7 @@ const StyledHeading = styled(Heading)`
   margin: 0 0 0 20px;
 `;
 
-const PointsBar = ({ points, handlePanel, panel }) => {
+const AwardsBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
 
   useEffect(() => {
@@ -36,18 +36,20 @@ const PointsBar = ({ points, handlePanel, panel }) => {
   }, [panel]);
 
   return (
-    <ActionsTemplate action={activePanel === 'points' ? 'true' : 'false'}>
+    <ActionsTemplate action={activePanel === 'awards' ? 'true' : 'false'}>
       <StyledHeader>
         <ReturnButton onClick={() => handlePanel('none')} />
-        <StyledHeading big>Dodaj punkty</StyledHeading>
+        <StyledHeading big>Przyznaj nagrodę</StyledHeading>
       </StyledHeader>
       <StyledContainer>
-        <div>Accordion</div>
-        <AddButton>Dodaj nowe zachowanie</AddButton>
-        <Button>Dodaj</Button>
+        <CustomSelect
+          title="Wybierz nagrodę"
+          data={data}
+          btnTitle="Przyznaj nagrodę"
+        />
       </StyledContainer>
     </ActionsTemplate>
   );
 };
 
-export default PointsBar;
+export default AwardsBar;

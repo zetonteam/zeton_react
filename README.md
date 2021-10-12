@@ -51,29 +51,25 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-------------------------------------------
+---
 
 ## Project UI
 
-For styling we use [Material UI](https://material-ui.com) with Material Icons.
+For styling we use [Styled Components](https://styled-components.com/)
 
-Install the package of Material UI in your project directory with:
+Install the package of styled-components in your project directory with:
 
-`npm install @material-ui/core`
+`npm install --save styled-components`
 
-And next install the package of Material Icons:
-
-`npm install @material-ui/icons`
-
-------------------------------------------
+---
 
 ## Store container
 
-For keeping state we use [Redux](https://material-ui.com).
+For keeping state we use [Redux](https://redux.js.org/).
 
-Install Redux Toolkit in your project directory with:
+<!-- Install Redux Toolkit in your project directory with:
 
-`npm install @reduxjs/toolkit`
+`npm install @reduxjs/toolkit` -->
 
 Next install Redux core library:
 
@@ -83,7 +79,7 @@ And..
 
 `npm install react-redux`
 
-------------------------------------------
+---
 
 ### `npm run eject`
 
@@ -124,3 +120,26 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### How it works
+
+#### Prizes
+
+1. Pick a prize:
+
+![pick a prize](readme-images/Screenshot-pick-a-prize.png)
+
+There are two places to get to this mode.
+
+- Click on the `Nagrody` button in the navbar. (After adding all pages it should work from every page)
+- Or in Student's panel click on `Przyznaj nagrodę` button.
+
+![student's panel](readme-images/Screenshot-student-panel.png)
+
+2. Prizes - edition mode
+
+- Go to `Ustawienia` in the Navbar
+  ![settings](readme-images/Screenshot-settings.png)
+
+- Click the first bar: `Nagrody`
+  ![all prizes edition mode](readme-images/Screenshot-all-prizes-edition-mode.png)

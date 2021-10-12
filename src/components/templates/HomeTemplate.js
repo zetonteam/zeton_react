@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   position: relative;
   min-height: 100vh;
   width: 100%;

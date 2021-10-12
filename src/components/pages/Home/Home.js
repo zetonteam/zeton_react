@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { getStudentsListAction } from "../../../api/action";
-import apiClient from "../../../apiClient";
-import { urlStudentsList } from "../../../const/url";
-import Heading from "../../atoms/Heading/Heading";
-import AddButton from "../../atoms/Buttons/AddButton";
-import Loading from "../../atoms/Loading/Loading";
-import StudentCard from "../../modules/StudentCard/StudentCard";
-import styled from "styled-components";
-import HomeTemplate from "../../templates/HomeTemplate";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getStudentsListAction } from '../../../api/action';
+import apiClient from '../../../apiClient';
+import { urlStudentsList } from '../../../const/url';
+import { Heading } from '../../atoms/Heading/Heading';
+import { AddButton } from '../../atoms/Buttons/LightButtons';
+import Loading from '../../atoms/Loading/Loading';
+import StudentCard from '../../modules/StudentCard/StudentCard';
+import styled from 'styled-components';
+import HomeTemplate from '../../templates/HomeTemplate';
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -42,22 +42,24 @@ const Home = ({ caregiver, students, getData }) => {
   return (
     <HomeTemplate>
       <StyledHeadingWrapper>
-        <Heading big>Cześć, {caregiver ? caregiver : "Nieznajomy"}</Heading>
+        <Heading big>Cześć, {caregiver ? caregiver : 'Nieznajomy'}</Heading>
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
-      <StyledUsersWrapper as="section">{
-        isLoading ? <Loading/> : 
-
-        students && (
-          <>
-            {students.map((item) => (
-              <StudentCard
-                key={item.first_name}
-                name={item.first_name}
-                studentData={item}
-              />
-            ))}
-          </>
+      <StyledUsersWrapper as="section">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          students && (
+            <React.Fragment>
+              {students.map((item) => (
+                <StudentCard
+                  key={item.first_name}
+                  name={item.first_name}
+                  studentData={item}
+                />
+              ))}
+            </React.Fragment>
+          )
         )}
       </StyledUsersWrapper>
       <AddButton>Dodaj podopiecznego</AddButton>
@@ -70,7 +72,7 @@ const Home = ({ caregiver, students, getData }) => {
 
 const mapStateToProps = (state) => {
   return {
-    caregiver: "Roman",
+    caregiver: 'Roman',
     students: state.students,
   };
 };

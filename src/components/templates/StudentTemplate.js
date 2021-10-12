@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Button from "../atoms/Buttons/Button";
-import StudentHeader from "../structures/StudentHeader/StudentHeader";
-import PointsBar from "../structures/PointsBar/PointsBar";
-import AwardsBar from "../structures/AwardsBar/AwardsBar";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Button from '../atoms/Buttons/Button';
+import StudentHeader from '../structures/StudentHeader/StudentHeader';
+import PointsBar from '../structures/PointsBar/PointsBar';
+import AwardsBar from '../structures/Awards/AwardsBar';
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -14,25 +14,25 @@ const StyledButtonsGroup = styled.div`
 `;
 
 const StudentTemplate = ({ name, points }) => {
-  const [actualPanel, setActualPanel] = useState("none");
+  const [actualPanel, setActualPanel] = useState('none');
 
   const handlePanel = (event) => {
     setActualPanel(event);
   };
 
   return (
-    <>
+    <React.Fragment>
       <StudentHeader name={name} points={points} />
       <StyledButtonsGroup>
-        <Button onClick={() => handlePanel("points")}>Dodaj punkty</Button>
-        <Button outline onClick={() => handlePanel("awards")}>
+        <Button onClick={() => handlePanel('points')}>Dodaj punkty</Button>
+        <Button outline onClick={() => handlePanel('awards')}>
           Przyznaj nagrodę
         </Button>
         <Button outline>Daj konsekwencję</Button>
       </StyledButtonsGroup>
       <PointsBar panel={actualPanel} handlePanel={handlePanel} />
       <AwardsBar panel={actualPanel} handlePanel={handlePanel} />
-    </>
+    </React.Fragment>
   );
 };
 
