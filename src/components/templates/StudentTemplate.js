@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../atoms/Buttons/Button';
 import StudentHeader from '../structures/StudentHeader/StudentHeader';
 import PointsBar from '../structures/PointsBar/PointsBar';
-import AwardsBar from '../structures/AwardsBar/AwardsBar';
+import AwardsBar from '../structures/Awards/AwardsBar';
 
 const StyledButtonsGroup = styled.div`
   display: flex;

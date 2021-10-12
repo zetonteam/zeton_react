@@ -4,7 +4,6 @@ import ReturnButton from '../../atoms/Buttons/ReturnButton';
 import { Heading } from '../../atoms/Heading/Heading';
 import ActionsTemplate from '../../templates/ActionsTemplate';
 import CustomSelect from '../../modules/CustomSelect/CustomSelect';
-import { AddButton } from '../../atoms/Buttons/LightButtons';
 
 const StyledContainer = styled.main`
   position: relative;
@@ -52,7 +51,6 @@ const AwardsBar = ({ points, handlePanel, panel }) => {
           data={data}
           btnTitle="Przyznaj nagrodę"
         />
-        <AddButton>Dodaj nową nagrodę</AddButton>
       </StyledContainer>
     </ActionsTemplate>
   );
