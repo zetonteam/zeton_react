@@ -23,6 +23,7 @@ const Button = styled.button`
   border-radius: ${({ theme }) => theme.radius};
   letter-spacing: ${({ theme }) => theme.spacing};
   transition: 0.2s;
+  cursor: pointer;
 
   @media only screen and (max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
     font-size: ${({ theme }) => theme.fontSize.xxs};

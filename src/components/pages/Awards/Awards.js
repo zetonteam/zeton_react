@@ -4,15 +4,22 @@ import HomeTemplate from '../../templates/HomeTemplate';
 import StudentHeader from '../../structures/StudentHeader/StudentHeader';
 import MainBox from '../../atoms/Sections/MainBox';
 import Navbar from '../../structures/Navbar/Navbar';
-import AwardsBar from '../../structures/Awards/AwardsBar';
+import { StyledContainer } from '../../structures/Awards/AwardsBar';
+import CustomSelect from '../../modules/CustomSelect/CustomSelect';
+import { data } from '../../../mockyClient';
 
-const Awards = ({ name, points, handlePanel, panel }) => {
-  console.log(handlePanel);
+const Awards = ({ name, points }) => {
   return (
     <HomeTemplate>
       <StudentHeader name={name} points={points} />
       <MainBox>
-        <AwardsBar panel={panel} handlePanel={handlePanel} />
+        <StyledContainer>
+          <CustomSelect
+            title="Wybierz nagrodę"
+            data={data}
+            btnTitle="Przyznaj nagrodę"
+          />
+        </StyledContainer>
       </MainBox>
       <Navbar />
     </HomeTemplate>

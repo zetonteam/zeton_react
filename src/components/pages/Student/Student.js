@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import StudentTemplate from "../../templates/StudentTemplate";
-import HomeTemplate from "../../templates/HomeTemplate";
-import Navbar from "../../structures/Navbar/Navbar";
+import React from 'react';
+import { connect } from 'react-redux';
+import StudentTemplate from '../../templates/StudentTemplate';
+import HomeTemplate from '../../templates/HomeTemplate';
+import Navbar from '../../structures/Navbar/Navbar';
 
 const Student = ({ student }) => {
   return (

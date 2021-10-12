@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { UseButton } from '../Buttons/LightButtons';
+import { DeleteButton, EditButton } from '../Buttons/LightButtons';
 
 export const StyledLiElement = styled.li`
   position: relative;
@@ -32,6 +32,11 @@ export const LiDateElem = styled(StyledLiElement)`
   text-align: left;
   align-items: stretch;
 `;
+const ButtonRow = styled(TextRow)`
+  width: 30%;
+  justify-content: space-around;
+  margin-left: 0.5rem;
+`;
 
 const LiElement = (props) => {
   return (
@@ -39,7 +44,10 @@ const LiElement = (props) => {
       <TextRow>
         {props.text} <span>-{props.points}</span>
       </TextRow>
-      <UseButton>Wykorzystaj</UseButton>
+      <ButtonRow>
+        <EditButton />
+        <DeleteButton />
+      </ButtonRow>
     </StyledLiElement>
   );
 };

@@ -9,7 +9,7 @@ import MainTemplate from './components/templates/MainTemplate';
 import Home from './components/pages/Home/Home';
 import Student from './components/pages/Student/Student';
 import Info from './components/pages/Info/Info';
-import AwardsBar from './components/structures/Awards/AwardsBar';
+import Awards from './components/pages/Awards/Awards';
 import Consequences from './components/pages/Consequences/Consequences';
 import Settings from './components/pages/Settings/Settings';
 import Head from './Head';
@@ -35,7 +35,7 @@ const App = () => {
               <Student />
             </Route>
             <Route exact path="/:id/awards">
-              <AwardsBar />
+              <Awards />
             </Route>
             <Route exact path="/:id/consequences">
               <Consequences />

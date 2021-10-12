@@ -5,7 +5,7 @@ import CustomArrow from '../../atoms/Buttons/CustomArrow';
 
 const StyledBlueArrow = styled(CustomArrow)`
   &::before {
-    border-top: var(--size) solid blue;
+    border-top: var(--size) solid #4169e1;
   }
 `;
 
@@ -23,10 +23,10 @@ const StyledButtonBar = styled(Button)`
   cursor: pointer;
 `;
 
-const ButtonBar = (props) => {
+const ButtonBar = ({ text, onClick }) => {
   return (
-    <StyledButtonBar>
-      {props.text} <StyledBlueArrow />
+    <StyledButtonBar onClick={onClick}>
+      {text} <StyledBlueArrow />
     </StyledButtonBar>
   );
 };

@@ -4,8 +4,9 @@ import ReturnButton from '../../atoms/Buttons/ReturnButton';
 import { Heading } from '../../atoms/Heading/Heading';
 import ActionsTemplate from '../../templates/ActionsTemplate';
 import CustomSelect from '../../modules/CustomSelect/CustomSelect';
+import { data } from '../../../mockyClient';
 
-const StyledContainer = styled.main`
+export const StyledContainer = styled.main`
   position: relative;
   width: 100%;
   display: flex;
@@ -29,11 +30,6 @@ const StyledHeading = styled(Heading)`
 
 const AwardsBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
-  const data = [
-    { id: 1, text: 'Paczka czipsów', points: 5 },
-    { id: 2, text: 'Wyjście do kina', points: 20 },
-    { id: 3, text: 'Godzina gry komputerowej', points: 10 },
-  ];
 
   useEffect(() => {
     setActivePanel(panel);
