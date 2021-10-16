@@ -8,7 +8,6 @@ import MainBox from '../../atoms/Sections/MainBox';
 import LiElement from '../../atoms/Lists/Lists';
 import { LiDateElem } from '../../atoms/Lists/Lists';
 import { StyledArticle } from '../../atoms/Sections/Article';
-import { AddButton } from '../../atoms/Buttons/LightButtons';
 import { data } from '../../../mockyClient';
 import AddPrizeForm from './AddPrizeForm';
 import EditPrizeForm from './EditPrizeForm';
@@ -17,9 +16,8 @@ import { StyledUl, StyledDate } from '../../atoms/Lists/Lists';
 const AwardsList = () => {
   const [prizes, setPrizes] = useState(data);
   const [editing, setEditing] = useState(false);
-  const [flag, setFlag] = useState(false);
 
-  const initialFormState = { id: null, text: '', points: '' };
+  const initialFormState = { id: null, name: '', value: '' };
   const [currentPrize, setCurrentPrize] = useState(initialFormState);
 
   const addPrize = (prize) => {
@@ -39,7 +37,7 @@ const AwardsList = () => {
   const editPrize = (prize) => {
     console.log(prize);
     setEditing(true);
-    setCurrentPrize({ id: prize.id, text: prize.text, points: prize.points });
+    setCurrentPrize({ id: prize.id, name: prize.text, value: prize.points });
   };
 
   return (
@@ -49,11 +47,11 @@ const AwardsList = () => {
         {data && (
           <StyledUl>
             {prizes.map((el) => {
-              const { text, points, id } = el;
+              const { name, value, id } = el;
               return (
                 <LiElement
-                  text={text}
-                  points={`-${points}`}
+                  text={name}
+                  points={`-${value}`}
                   key={id}
                   id={id}
                   delete={deletePrize}
@@ -72,7 +70,6 @@ const AwardsList = () => {
               setEditing={setEditing}
               currentPrize={currentPrize}
               updatePrize={updatePrize}
-              flag={flag}
             />
           </div>
         ) : (

@@ -29,15 +29,15 @@ const EditPrizeForm = (props) => {
       <StyledLabel>Nagroda</StyledLabel>
       <StyledInput
         type="text"
-        name="text"
-        value={prize.text}
+        name="name"
+        value={prize.name}
         onChange={handleInputChange}
       />
       <StyledLabel>Punkty</StyledLabel>
       <StyledInput
         type="number"
-        name="points"
-        value={prize.points}
+        name="value"
+        value={prize.value}
         onChange={handleInputChange}
       />
       <StyledRow>

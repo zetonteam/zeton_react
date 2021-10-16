@@ -4,7 +4,7 @@ import HomeTemplate from '../../templates/HomeTemplate';
 import StudentHeader from '../../structures/StudentHeader/StudentHeader';
 import MainBox from '../../atoms/Sections/MainBox';
 import Navbar from '../../structures/Navbar/Navbar';
-import { StyledContainer } from '../../structures/Awards/AwardsBar';
+import { StyledContainer } from '../../atoms/Sections/Containers';
 import CustomSelect from '../../modules/CustomSelect/CustomSelect';
 import { data } from '../../../mockyClient';
 

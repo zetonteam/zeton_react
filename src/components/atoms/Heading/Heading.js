@@ -18,3 +18,14 @@ export const Subheading = styled.h2`
   font-weight: ${({ theme }) => theme.regular};
   margin: 0 0 10px;
 `;
+
+export const StyledHeader = styled.header`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`;
+
+export const StyledHeading = styled(Heading)`
+  margin: 0 0 0 20px;
+`;

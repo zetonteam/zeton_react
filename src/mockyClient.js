@@ -22,9 +22,9 @@ export const mockyClient = (url) => {
 };
 
 export const data = [
-  { id: 1, text: 'Paczka czipsów', points: 5 },
-  { id: 2, text: 'Wyjście do kina', points: 20 },
-  { id: 3, text: 'Godzina gry komputerowej', points: 10 },
+  { id: 1, name: 'Paczka czipsów', value: 5 },
+  { id: 2, name: 'Wyjście do kina', value: 20 },
+  { id: 3, name: 'Godzina gry komputerowej', value: 10 },
 ];
 
 export const tasksData = [
