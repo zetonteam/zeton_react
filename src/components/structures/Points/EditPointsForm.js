@@ -1,47 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { AddButton, DeleteButtonText } from '../../atoms/Buttons/LightButtons';
 import {
-  StyledForm,
   StyledInput,
+  StyledForm,
   StyledLabel,
   StyledRow,
 } from '../../atoms/Form/Form';
 
-const EditPrizeForm = (props) => {
-  const [prize, setPrize] = useState(props.currentPrize);
+const EditPointsForm = (props) => {
+  const [task, setTask] = useState(props.currentTask);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setPrize({ ...prize, [name]: value });
+    setTask({ ...task, [name]: value });
   };
 
   useEffect(() => {
-    setPrize(props.currentPrize);
+    setTask(props.currentTask);
   }, [props]);
 
   return (
     <StyledForm
       onSubmit={(event) => {
         event.preventDefault();
-        props.updatePrize(prize.id, prize);
+        props.updateTask(task.id, task);
       }}
     >
-      <StyledLabel>Nagroda</StyledLabel>
+      <StyledLabel>Zachowanie</StyledLabel>
       <StyledInput
         type="text"
-        name="text"
-        value={prize.text}
+        name="name"
+        value={task.name}
         onChange={handleInputChange}
       />
       <StyledLabel>Punkty</StyledLabel>
       <StyledInput
-        type="number"
-        name="points"
-        value={prize.points}
+        type="nubmer"
+        name="value"
+        value={task.value}
         onChange={handleInputChange}
       />
       <StyledRow>
-        <AddButton>Edytuj nagrodę</AddButton>
+        <AddButton>Edytuj zachowanie</AddButton>
         <DeleteButtonText onClick={() => props.setEditing(false)}>
           Anuluj
         </DeleteButtonText>
@@ -50,4 +50,4 @@ const EditPrizeForm = (props) => {
   );
 };
 
-export default EditPrizeForm;
+export default EditPointsForm;

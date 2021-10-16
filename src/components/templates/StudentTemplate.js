@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../atoms/Buttons/Button';
 import StudentHeader from '../structures/StudentHeader/StudentHeader';
-import PointsBar from '../structures/PointsBar/PointsBar';
+import PointsBar from '../structures/Points/PointsBar';
 import AwardsBar from '../structures/Awards/AwardsBar';
 
 const StyledButtonsGroup = styled.div`

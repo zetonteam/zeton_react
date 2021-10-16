@@ -26,3 +26,9 @@ export const data = [
   { id: 2, text: 'Wyjście do kina', points: 20 },
   { id: 3, text: 'Godzina gry komputerowej', points: 10 },
 ];
+
+export const tasksData = [
+  { id: 1, name: 'Sprzątnięcie biurka', value: 5 },
+  { id: 2, name: 'Odkurzenie mieszkania', value: 20 },
+  { id: 3, name: 'Wyrzucenie śmieci', value: 10 },
+];
