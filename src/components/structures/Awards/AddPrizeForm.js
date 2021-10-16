@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { AddButton } from '../../atoms/Buttons/LightButtons';
+import { StyledForm, StyledInput, StyledLabel } from '../../modules/From/Form';
 
 const AddPrizeForm = (props) => {
   const initialFormState = { id: null, text: '', points: '' };
   const [prize, setPrize] = useState(initialFormState);
-  const [flag, setFlag] = useState(true);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -14,7 +14,7 @@ const AddPrizeForm = (props) => {
 
   return (
     <React.Fragment>
-      <form
+      <StyledForm
         style={{ display: 'flex', flexDirection: 'column' }}
         onSubmit={(event) => {
           event.preventDefault();
@@ -24,23 +24,25 @@ const AddPrizeForm = (props) => {
           setPrize(initialFormState);
         }}
       >
-        <label>Nagroda</label>
-        <input
+        <StyledLabel>Nagroda</StyledLabel>
+        <StyledInput
           type="text"
           name="text"
           value={prize.text}
           onChange={handleInputChange}
+          required
         />
 
-        <label>Punkty</label>
-        <input
+        <StyledLabel>Punkty</StyledLabel>
+        <StyledInput
           type="number"
           name="points"
           value={prize.points}
           onChange={handleInputChange}
+          required
         />
         <AddButton>Dodaj nową nagrodę</AddButton>
-      </form>
+      </StyledForm>
     </React.Fragment>
   );
 };

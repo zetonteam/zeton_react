@@ -39,16 +39,14 @@ const ButtonRow = styled(TextRow)`
 `;
 
 const LiElement = (props) => {
-  console.log(props);
-
   return (
     <StyledLiElement>
       <TextRow>
         {props.text} <span>-{props.points}</span>
       </TextRow>
       <ButtonRow>
-        <EditButton />
-        <DeleteButton />
+        <EditButton onClick={() => props.editPrize(props)} />
+        <DeleteButton onClick={() => props.deletePrize(props.id)} />
       </ButtonRow>
     </StyledLiElement>
   );
