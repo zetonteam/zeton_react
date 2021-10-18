@@ -15,6 +15,7 @@ const AddPrizeForm = (props) => {
   return (
     <React.Fragment>
       <StyledForm
+        style={{ display: 'flex', flexDirection: 'column' }}
         onSubmit={(event) => {
           event.preventDefault();
           if (!prize.text || !prize.points) return;
