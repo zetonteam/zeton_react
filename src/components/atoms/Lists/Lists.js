@@ -55,13 +55,8 @@ const LiElement = (props) => {
         {props.text} <span>{props.points}</span>
       </TextRow>
       <ButtonRow>
-<<<<<<< HEAD
         <EditButton onClick={() => props.edit(props)} />
         <DeleteButton onClick={() => props.delete(props.id)} />
-=======
-        <EditButton onClick={() => props.editPrize(props)} />
-        <DeleteButton onClick={() => props.deletePrize(props.id)} />
->>>>>>> develop
       </ButtonRow>
     </StyledLiElement>
   );
