@@ -162,11 +162,12 @@ Here you can see all the tasks and points, add new ones, edit existing or delete
 
 - now you can see all the tasks and points that student can receive for completing the task by clicking `Wybierz zachowanie` on the select bar/button
 
-[!choose a behaviour](readme-images/Screenshot-choose-behoviour.png)
+  [!choose a behaviour](readme-images/Screenshot-choose-behoviour.png)
 
 - you can see a list of behaviours/tasks and points
+
   [!tasks list to choose from](readme-images/Screenshot-tasks-select-list.png)
 
 - after selecting the task/behaviour you can click `Przyznaj punkty` button to add points for compliting the task.
 
-[!add points](readme-images/Screenshot-add-points.png)
+  [!add points](readme-images/Screenshot-add-points.png)
