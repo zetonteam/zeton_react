@@ -45,8 +45,8 @@ const LiElement = (props) => {
         {props.text} <span>-{props.points}</span>
       </TextRow>
       <ButtonRow>
-        <EditButton />
-        <DeleteButton />
+        <EditButton onClick={() => props.editPrize(props)} />
+        <DeleteButton onClick={() => props.deletePrize(props.id)} />
       </ButtonRow>
     </StyledLiElement>
   );

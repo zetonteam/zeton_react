@@ -35,6 +35,10 @@ export const AddButton = styled(LightButton)`
   background-image: url(${PLUS_ICON});
 `;
 
+export const DeleteButtonText = styled(LightButton)`
+  background-image: url(${DELETE_ICON});
+`;
+
 export const DeleteButton = styled(LightButton)`
   background-image: url(${DELETE_ICON});
   padding-left: 15px;
