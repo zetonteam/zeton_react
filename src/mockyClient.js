@@ -22,13 +22,13 @@ export const mockyClient = (url) => {
 };
 
 export const data = [
-  { id: 1, name: 'Paczka czipsów', value: 5 },
-  { id: 2, name: 'Wyjście do kina', value: 20 },
-  { id: 3, name: 'Godzina gry komputerowej', value: 10 },
+  { id: 1, text: 'Paczka czipsów', points: 5, student: 1 },
+  { id: 2, text: 'Wyjście do kina', points: 20, student: 1 },
+  { id: 3, text: 'Godzina gry komputerowej', points: 10, student: 2 },
 ];
 
 export const tasksData = [
-  { id: 1, name: 'Sprzątnięcie biurka', value: 5 },
-  { id: 2, name: 'Odkurzenie mieszkania', value: 20 },
-  { id: 3, name: 'Wyrzucenie śmieci', value: 10 },
+  { id: 1, name: 'Sprzątnięcie biurka', value: 5, student: 2 },
+  { id: 2, name: 'Odkurzenie mieszkania', value: 20, student: 1 },
+  { id: 3, name: 'Wyrzucenie śmieci', value: 10, student: 2 },
 ];
