@@ -51,7 +51,7 @@ const AwardsList = () => {
               return (
                 <LiElement
                   text={name}
-                  points={`-${value}`}
+                  points={value}
                   key={id}
                   id={id}
                   delete={deletePrize}
