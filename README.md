@@ -153,7 +153,7 @@ There are two places to get to this mode.
 - To delete prize, click x icon
 
 3. Tasks and points settings - click on Ustawienie in the sidebar (footer on mobile) and go to Zachowania
-   [!tasks list](readme-images/Screenshot-tasks-list.png)
+   ![tasks list](readme-images/Screenshot-tasks-list.png)
 
 Here you can see all the tasks and points, add new ones, edit existing or delete them in the same way as it was shown in "Prizes" section.
 
