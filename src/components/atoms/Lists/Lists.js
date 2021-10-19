@@ -2,6 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { DeleteButton, EditButton } from '../Buttons/LightButtons';
 
+export const StyledUl = styled.ul`
+  padding-left: 0;
+`;
+
+export const StyledDate = styled.span`
+  font-size: ${({ theme }) => theme.fontSize.xxs};
+  color: rgba(0 0 0 0.8);
+  margin-bottom: 0;
+`;
+
 export const StyledLiElement = styled.li`
   position: relative;
   list-style: none;
@@ -42,11 +52,11 @@ const LiElement = (props) => {
   return (
     <StyledLiElement>
       <TextRow>
-        {props.text} <span>-{props.points}</span>
+        {props.text} <span>{props.points}</span>
       </TextRow>
       <ButtonRow>
-        <EditButton onClick={() => props.editPrize(props)} />
-        <DeleteButton onClick={() => props.deletePrize(props.id)} />
+        <EditButton onClick={() => props.edit(props)} />
+        <DeleteButton onClick={() => props.delete(props.id)} />
       </ButtonRow>
     </StyledLiElement>
   );

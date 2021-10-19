@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 // import Navbar from '../Navbar/Navbar';
 import { Heading, Subheading } from '../../atoms/Heading/Heading';
 import MainBox from '../../atoms/Sections/MainBox';
-import styled from 'styled-components';
 import LiElement from '../../atoms/Lists/Lists';
 import { LiDateElem } from '../../atoms/Lists/Lists';
 import { StyledArticle } from '../../atoms/Sections/Article';
@@ -13,16 +12,7 @@ import { AddButton } from '../../atoms/Buttons/LightButtons';
 import { data } from '../../../mockyClient';
 import AddPrizeForm from './AddPrizeForm';
 import EditPrizeForm from './EditPrizeForm';
-
-const StyledUl = styled.ul`
-  padding-left: 0;
-`;
-
-const StyledDate = styled.span`
-  font-size: ${({ theme }) => theme.fontSize.xxs};
-  color: rgba(0 0 0 0.8);
-  margin-bottom: 0;
-`;
+import { StyledUl, StyledDate } from '../../atoms/Lists/Lists';
 
 const AwardsList = () => {
   const [prizes, setPrizes] = useState(data);
@@ -63,11 +53,11 @@ const AwardsList = () => {
               return (
                 <LiElement
                   text={text}
-                  points={points}
+                  points={`-${points}`}
                   key={id}
                   id={id}
-                  deletePrize={deletePrize}
-                  editPrize={editPrize}
+                  delete={deletePrize}
+                  edit={editPrize}
                 />
               );
             })}

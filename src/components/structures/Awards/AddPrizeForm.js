@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AddButton } from '../../atoms/Buttons/LightButtons';
-import { StyledForm, StyledInput, StyledLabel } from '../../modules/From/Form';
+import { StyledForm, StyledInput, StyledLabel } from '../../atoms/Form/Form';
 
 const AddPrizeForm = (props) => {
   const initialFormState = { id: null, text: '', points: '' };
@@ -15,7 +15,6 @@ const AddPrizeForm = (props) => {
   return (
     <React.Fragment>
       <StyledForm
-        style={{ display: 'flex', flexDirection: 'column' }}
         onSubmit={(event) => {
           event.preventDefault();
           if (!prize.text || !prize.points) return;
