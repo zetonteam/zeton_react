@@ -3,7 +3,7 @@ import { AddButton } from '../../atoms/Buttons/LightButtons';
 import { StyledForm, StyledInput, StyledLabel } from '../../atoms/Form/Form';
 
 const AddPrizeForm = (props) => {
-  const initialFormState = { id: null, text: '', points: '' };
+  const initialFormState = { id: null, name: '', value: '' };
   const [prize, setPrize] = useState(initialFormState);
 
   const handleInputChange = (event) => {
@@ -17,7 +17,7 @@ const AddPrizeForm = (props) => {
       <StyledForm
         onSubmit={(event) => {
           event.preventDefault();
-          if (!prize.text || !prize.points) return;
+          if (!prize.name || !prize.value) return;
 
           props.addPrize(prize);
           setPrize(initialFormState);
@@ -26,8 +26,8 @@ const AddPrizeForm = (props) => {
         <StyledLabel>Nagroda</StyledLabel>
         <StyledInput
           type="text"
-          name="text"
-          value={prize.text}
+          name="name"
+          value={prize.name}
           onChange={handleInputChange}
           required
         />
@@ -35,8 +35,8 @@ const AddPrizeForm = (props) => {
         <StyledLabel>Punkty</StyledLabel>
         <StyledInput
           type="number"
-          name="points"
-          value={prize.points}
+          name="value"
+          value={prize.value}
           onChange={handleInputChange}
           required
         />

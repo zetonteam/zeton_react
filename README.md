@@ -143,3 +143,31 @@ There are two places to get to this mode.
 
 - Click the first bar: `Nagrody`
   ![all prizes edition mode](readme-images/Screenshot-all-prizes-edition-mode.png)
+
+- To add new prize fill in the form: `Dodaj nową nagrodę`
+  ![add new przie](readme-images/Screenshot-add-new-prize.png)
+
+- To edit prize, click pen icon and fill the form below:
+  ![add new prize](readme-images/Screenshot-edit-prize.png)
+
+- To delete prize, click x icon
+
+3. Tasks and points settings - click on Ustawienie in the sidebar (footer on mobile) and go to Zachowania
+   ![tasks list](readme-images/Screenshot-tasks-list.png)
+
+Here you can see all the tasks and points, add new ones, edit existing or delete them in the same way as it was shown in "Prizes" section.
+
+4. Add points section - go to student's panel and choose `Dodaj punkty` button
+   ![student's panel](readme-images/Screenshot-student-panel.png)
+
+- now you can see all the tasks and points that student can receive for completing the task by clicking `Wybierz zachowanie` on the select bar/button
+
+  ![choose a behaviour](readme-images/Screenshot-choose-behoviour.png)
+
+- you can see a list of behaviours/tasks and points
+
+  ![tasks list to choose from](readme-images/Screenshot-tasks-select-list.png)
+
+- after selecting the task/behaviour you can click `Przyznaj punkty` button to add points for compliting the task.
+
+  ![add points](readme-images/Screenshot-add-points.png)
