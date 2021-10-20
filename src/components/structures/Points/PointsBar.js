@@ -13,6 +13,10 @@ import { tasksData } from '../../../mockyClient';
 const PointsBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
 
+  const handlePointsSelect = (points) => {
+    console.log(points);
+  };
+
   useEffect(() => {
     setActivePanel(panel);
   }, [panel]);
@@ -29,6 +33,7 @@ const PointsBar = ({ points, handlePanel, panel }) => {
           title="Wybierz zachowanie"
           data={tasksData}
           btnTitle="Przyznaj punkty"
+          onSelect={handlePointsSelect}
         />
       </StyledContainer>
     </ActionsTemplate>
