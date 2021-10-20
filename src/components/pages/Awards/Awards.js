@@ -14,7 +14,7 @@ const Awards = ({ name, points }) => {
 
     // po wybraniu nagrody chcemy ja zapisac do bazy
     // mozemy to zrobic za pomoca:
-    fetch("/api/foo", { method: "POST", body: JSON.stringify(award )});
+    fetch("/api/foo", { method: "POST", body: JSON.stringify(award )}); // dodajcie prawdziwą ściezke api + sprawdzie czy dobre dane sa wysylane
   };
 
   return (
