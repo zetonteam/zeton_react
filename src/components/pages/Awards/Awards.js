@@ -9,6 +9,14 @@ import CustomSelect from '../../modules/CustomSelect/CustomSelect';
 import { data } from '../../../mockyClient';
 
 const Awards = ({ name, points }) => {
+  const handleAwardSelect = (award) => {
+    console.log("Awards", award);
+
+    // po wybraniu nagrody chcemy ja zapisac do bazy
+    // mozemy to zrobic za pomoca:
+    fetch("/api/foo", { method: "POST", body: JSON.stringify(award )}); // dodajcie prawdziwą ściezke api + sprawdzie czy dobre dane sa wysylane
+  };
+
   return (
     <HomeTemplate>
       <StudentHeader name={name} points={points} />
@@ -18,6 +26,7 @@ const Awards = ({ name, points }) => {
             title="Wybierz nagrodę"
             data={data}
             btnTitle="Przyznaj nagrodę"
+            onSelect={handleAwardSelect}
           />
         </StyledContainer>
       </MainBox>

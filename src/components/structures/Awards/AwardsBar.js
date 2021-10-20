@@ -13,6 +13,14 @@ import { data } from '../../../mockyClient';
 const AwardsBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
 
+  const handleAwardSelect = (award) => {
+    console.log("AwardsBar", award);
+
+    // po wybraniu nagrody chcemy ja zapisac do bazy
+    // mozemy to zrobic za pomoca:
+    fetch("/api/foo", { method: "POST", body: JSON.stringify(award)}); // dodajcie prawdziwą ściezke api + sprawdzie czy dobre dane sa wysylane
+  };
+
   useEffect(() => {
     setActivePanel(panel);
   }, [panel]);
@@ -29,6 +37,7 @@ const AwardsBar = ({ points, handlePanel, panel }) => {
           title="Wybierz nagrodę"
           data={data}
           btnTitle="Przyznaj nagrodę"
+          onSelect={handleAwardSelect}
         />
       </StyledContainer>
     </ActionsTemplate>

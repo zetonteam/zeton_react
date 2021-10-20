@@ -56,7 +56,7 @@ const ListItem = styled.li`
   }
 `;
 
-const CustomSelect = ({ title, data, btnTitle }) => {
+const CustomSelect = ({ title, data, btnTitle, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState([]);
   const [selectedHeader, setSelectedHeader] = useState([title]);
@@ -81,6 +81,10 @@ const CustomSelect = ({ title, data, btnTitle }) => {
     setElemState(selectedOption);
     setSelectedHeader([title]);
     setDisabled(true);
+
+    if(onSelect && typeof onSelect === "function") {
+      onSelect(selectedOption);
+    }
   };
 
   return (

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getStudentsListAction } from '../../../api/action';
-import apiClient from '../../../apiClient';
+import React from 'react';
+import useSWR from 'swr'
 import { urlStudentsList } from '../../../const/url';
 import { Heading } from '../../atoms/Heading/Heading';
 import { AddButton } from '../../atoms/Buttons/LightButtons';
@@ -9,6 +7,7 @@ import Loading from '../../atoms/Loading/Loading';
 import StudentCard from '../../modules/StudentCard/StudentCard';
 import styled from 'styled-components';
 import HomeTemplate from '../../templates/HomeTemplate';
+import { fetcher } from "../../../apiClient";
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -24,20 +23,9 @@ const StyledHeadingWrapper = styled.header`
 
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
 
-const Home = ({ caregiver, students, getData }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const result = await apiClient(urlStudentsList);
-      //setChildren(result.data)
-      getData(result.data);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, [urlStudentsList, getData]);
+const Home = () => {
+  const caregiver = "Jan"; // TODO pobierz z api
+  const { data: students, error } = useSWR(urlStudentsList, fetcher);
 
   return (
     <HomeTemplate>
@@ -46,7 +34,13 @@ const Home = ({ caregiver, students, getData }) => {
         <Heading>wybierz podopiecznego</Heading>
       </StyledHeadingWrapper>
       <StyledUsersWrapper as="section">
-        {isLoading ? (
+        {error && (
+          <div>
+            Niestety wystąpił problem podczas pobierania danych, spróbuj ponownie później.
+          </div>
+        )}
+
+        {!students && !error ? (
           <Loading />
         ) : (
           students && (
@@ -64,23 +58,10 @@ const Home = ({ caregiver, students, getData }) => {
       </StyledUsersWrapper>
       <AddButton>Dodaj podopiecznego</AddButton>
       {/* {
-        choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
+        choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} />
       } */}
     </HomeTemplate>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    caregiver: 'Roman',
-    students: state.students,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getData: (data) => dispatch(getStudentsListAction(data)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;
