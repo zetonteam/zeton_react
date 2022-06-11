@@ -1,8 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 //import { mockyClient } from './mockyClient'
 
 const apiClient = axios.create({});
-
 
 if (process.env.REACT_APP_API_URL) {
   apiClient.defaults.baseURL = process.env.REACT_APP_API_URL;
@@ -11,6 +10,3 @@ if (process.env.REACT_APP_API_URL) {
 }
 
 // export default mockyClient;
-
-
-export default apiClient;
