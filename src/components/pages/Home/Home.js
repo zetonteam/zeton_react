@@ -56,11 +56,11 @@ const Home = () => {
             ) : (
               students && (
                 <React.Fragment>
-                  {students.map((item) => (
+                  {students.map((student) => (
                     <StudentCard
-                      key={item.first_name}
-                      name={item.first_name}
-                      studentData={item}
+                      key={student.first_name}
+                      name={student.first_name}
+                      studentId={student.pk}
                     />
                   ))}
                 </React.Fragment>

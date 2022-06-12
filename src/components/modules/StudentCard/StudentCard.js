@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { chooseStudentAction } from "../../../api/action";
 import Paragraph from "../../atoms/Paragraph/Paragraph";
 import ProfileImage from "../../atoms/ProfileImage/ProfileImage";
 import styled from "styled-components";
@@ -27,19 +25,13 @@ const StyledName = styled(Paragraph)`
   color: black;
 `;
 
-const StudentCard = ({ name, image, studentData, getStudent }) => {
+const StudentCard = ({ name, studentId, image }) => {
   return (
-    <StyledStudentCard onClick={() => getStudent(studentData)} to={name}>
+    <StyledStudentCard to={studentId}>
       <ProfileImage src={image ? image : DEFAULT_IMAGE} />
       <StyledName big>{name}</StyledName>
     </StyledStudentCard>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getStudent: (data) => dispatch(chooseStudentAction(data)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(StudentCard);
+export default StudentCard;
