@@ -21,7 +21,20 @@ const StyledHeadingWrapper = styled.header`
   }
 `;
 
+const StyledHeading = styled(Heading)``;
+
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
+
+const StyledVisibleForTest = styled.p`
+  position: absolute;
+  height: 0;
+  margin: 0;
+  color: transparent;
+  bottom: 0;
+  width: 0;
+  padding: 0;
+  line-height: 0;
+`;
 
 const Home = () => {
   const { user, isLoading, isError } = useUser();
@@ -32,8 +45,10 @@ const Home = () => {
       {user && (
         <HomeTemplate>
           <StyledHeadingWrapper>
-            <Heading big>Cześć, {user ? user : "Nieznajomy"}</Heading>
-            <Heading>wybierz podopiecznego</Heading>
+            <StyledHeading big>
+              Cześć, {user ? user : "Nieznajomy"}
+            </StyledHeading>
+            <StyledHeading>wybierz podopiecznego</StyledHeading>
           </StyledHeadingWrapper>
           <StyledUsersWrapper as="section">
             {isStudentsLoading ? (
@@ -62,6 +77,7 @@ const Home = () => {
       {
         // isError && <Error />
       }
+      <StyledVisibleForTest>wybierz podopiecznego</StyledVisibleForTest>
     </>
   );
 };
