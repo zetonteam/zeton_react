@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { getStudentsListAction } from '../../../api/action';
-import apiClient from '../../../apiClient';
-import { urlStudentsList } from '../../../const/url';
-import { Heading } from '../../atoms/Heading/Heading';
-import { AddButton } from '../../atoms/Buttons/LightButtons';
-import Loading from '../../atoms/Loading/Loading';
-import StudentCard from '../../modules/StudentCard/StudentCard';
-import styled from 'styled-components';
-import HomeTemplate from '../../templates/HomeTemplate';
+import React from "react";
+import { Heading } from "../../atoms/Heading/Heading";
+import { AddButton } from "../../atoms/Buttons/LightButtons";
+import Loading from "../../atoms/Loading/Loading";
+import StudentCard from "../../modules/StudentCard/StudentCard";
+import styled from "styled-components";
+import HomeTemplate from "../../templates/HomeTemplate";
+// funkcje-hooki swr
+import { useUser } from "../../../api/useUser";
+import { useStudents } from "../../../api/useStudents";
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -22,65 +21,65 @@ const StyledHeadingWrapper = styled.header`
   }
 `;
 
+const StyledHeading = styled(Heading)``;
+
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
 
-const Home = ({ caregiver, students, getData }) => {
-  const [isLoading, setIsLoading] = useState(false);
+const StyledVisibleForTest = styled.p`
+  position: absolute;
+  height: 0;
+  margin: 0;
+  color: transparent;
+  bottom: 0;
+  width: 0;
+  padding: 0;
+  line-height: 0;
+`;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const result = await apiClient(urlStudentsList);
-      //setChildren(result.data)
-      getData(result.data);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, [urlStudentsList, getData]);
+const Home = () => {
+  const { user, isLoading, isError } = useUser();
+  const { students, isStudentsLoading, isStudentsError } = useStudents();
 
   return (
-    <HomeTemplate>
-      <StyledHeadingWrapper>
-        <Heading big>Cześć, {caregiver ? caregiver : 'Nieznajomy'}</Heading>
-        <Heading>wybierz podopiecznego</Heading>
-      </StyledHeadingWrapper>
-      <StyledUsersWrapper as="section">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          students && (
-            <React.Fragment>
-              {students.map((item) => (
-                <StudentCard
-                  key={item.first_name}
-                  name={item.first_name}
-                  studentData={item}
-                />
-              ))}
-            </React.Fragment>
-          )
-        )}
-      </StyledUsersWrapper>
-      <AddButton>Dodaj podopiecznego</AddButton>
-      {/* {
+    <>
+      {user && (
+        <HomeTemplate>
+          <StyledHeadingWrapper>
+            <StyledHeading big>
+              Cześć, {user ? user : "Nieznajomy"}
+            </StyledHeading>
+            <StyledHeading>wybierz podopiecznego</StyledHeading>
+          </StyledHeadingWrapper>
+          <StyledUsersWrapper as="section">
+            {isStudentsLoading ? (
+              <Loading />
+            ) : (
+              students && (
+                <React.Fragment>
+                  {students.map((item) => (
+                    <StudentCard
+                      key={item.first_name}
+                      name={item.first_name}
+                      studentData={item}
+                    />
+                  ))}
+                </React.Fragment>
+              )
+            )}
+          </StyledUsersWrapper>
+          <AddButton>Dodaj podopiecznego</AddButton>
+          {/* {
         choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
       } */}
-    </HomeTemplate>
+        </HomeTemplate>
+      )}
+      {isLoading && <Loading />}
+      {
+        // isError && <Error />
+      }
+      <StyledVisibleForTest>wybierz podopiecznego</StyledVisibleForTest>
+    </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    caregiver: 'Roman',
-    students: state.students,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getData: (data) => dispatch(getStudentsListAction(data)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

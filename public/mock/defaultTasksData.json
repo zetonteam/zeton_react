@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Sprzątnięcie biurka",
+      "value": 5,
+      "student": 1
+    },
+    {
+      "id": 2,
+      "name": "Odkurzenie mieszkania",
+      "value": 20,
+      "student": 1
+    },
+    {
+      "id": 3,
+      "name": "Wyrzucenie śmieci",
+      "value": 10,
+      "student": 2
+    }
+  ]
+}
