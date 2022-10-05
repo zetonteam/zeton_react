@@ -6,10 +6,10 @@ import {
   Redirect,
 } from 'react-router-dom';
 import MainTemplate from './components/templates/MainTemplate';
-import Home from './components/pages/Home/Home';
+import Home from './views/Home/Home';
 import Student from './components/pages/Student/Student';
 import Info from './components/pages/Info/Info';
-import Awards from './components/pages/Awards/Awards';
+import Awards from './views/Awards/Awards';
 import Consequences from './components/pages/Consequences/Consequences';
 import Settings from './components/pages/Settings/Settings';
 import Head from './Head';
