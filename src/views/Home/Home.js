@@ -1,13 +1,13 @@
 import React from "react";
-import { Heading } from "../../atoms/Heading/Heading";
-import { AddButton } from "../../atoms/Buttons/LightButtons";
-import Loading from "../../atoms/Loading/Loading";
-import StudentCard from "../../modules/StudentCard/StudentCard";
+import { Heading } from "../../components/atoms/Heading/Heading";
+import { AddButton } from "../../components/atoms/Buttons/LightButtons";
+import Loading from "../../components/atoms/Loading/Loading";
+import StudentCard from "../../components/modules/StudentCard/StudentCard";
 import styled from "styled-components";
-import HomeTemplate from "../../templates/HomeTemplate";
+import HomeTemplate from "../../components/templates/HomeTemplate";
 // funkcje-hooki swr
-import { useUser } from "../../../api/useUser";
-import { useStudents } from "../../../api/useStudents";
+import { useUser } from "../../api/useUser";
+import { useStudents } from "../../api/useStudents";
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -51,21 +51,20 @@ const Home = () => {
             <StyledHeading>wybierz podopiecznego</StyledHeading>
           </StyledHeadingWrapper>
           <StyledUsersWrapper as="section">
-            {isStudentsLoading ? (
-              <Loading />
-            ) : (
+            {isStudentsLoading && !isStudentsError && <Loading />}
+            {!isStudentsLoading && !isStudentsError && 
               students && (
                 <React.Fragment>
-                  {students.map((item) => (
+                  {students.map((student) => (
                     <StudentCard
-                      key={item.first_name}
-                      name={item.first_name}
-                      studentData={item}
+                      key={student.first_name}
+                      name={student.first_name}
+                      studentId={student.pk}
                     />
                   ))}
                 </React.Fragment>
               )
-            )}
+            }
           </StyledUsersWrapper>
           <AddButton>Dodaj podopiecznego</AddButton>
           {/* {

@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "pk": 1,
+      "pk": "1",
       "email": "wojtek-zeton@mailinator.com",
       "username": "wojtek",
       "first_name": "Wojtek",
@@ -9,7 +9,7 @@
       "total_points": 250
     },
     {
-      "pk": 2,
+      "pk": "2",
       "email": "kuba-zeton@mailinator.com",
       "username": "kuba",
       "first_name": "Kuba",

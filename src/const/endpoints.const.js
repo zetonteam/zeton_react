@@ -1,11 +1,15 @@
-export const ENDPOINTS = {
+const API_ENDPOINTS = {
   currentUser: "/api/users/current-user/",
   studentsList: "/api/users/students/",
-  prizesList: "api/users/prizes/",
+  studentId: "/api/users/students/{id}",
+  prizesList: "/api/users/prizes/",
 };
 
-export const MOCK_ENDPOINTS = {
+const MOCK_ENDPOINTS = {
   currentUser: "/mock/defaultCurrentUserData.json",
   studentsList: "/mock/defaultClientsData.json",
-  prizesList: "...",
+  studentId: "/mock/defaultClientsData.json",
+  prizesList: "/mock/defaultPrizesData.json",
 };
+
+export const ENDPOINT = process.env.REACT_APP_MOCK ? MOCK_ENDPOINTS : API_ENDPOINTS;

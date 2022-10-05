@@ -1,11 +1,11 @@
-import { MOCK_ENDPOINTS } from "../const/endpoints.const";
+import { ENDPOINT } from "../const/endpoints.const";
 import useSWR from "swr";
 
 // adding SWR
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const useUser = () => {
-  const { data, error } = useSWR(MOCK_ENDPOINTS.currentUser, fetcher);
+  const { data, error } = useSWR(ENDPOINT.currentUser, fetcher);
 
   return {
     user: data?.user,
