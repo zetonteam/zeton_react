@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import MainTemplate from './components/templates/MainTemplate';
 import Home from './views/Home/Home';
-import Student from './components/pages/Student/Student';
+import Student from './views/Student/Student';
 import Info from './components/pages/Info/Info';
 import Awards from './views/Awards/Awards';
 import Consequences from './components/pages/Consequences/Consequences';
