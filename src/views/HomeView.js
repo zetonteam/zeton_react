@@ -1,13 +1,13 @@
 import React from "react";
-import { Heading } from "../../components/atoms/Heading/Heading";
-import { AddButton } from "../../components/atoms/Buttons/LightButtons";
-import Loading from "../../components/atoms/Loading/Loading";
-import StudentCard from "../../components/modules/StudentCard/StudentCard";
+import { Heading } from "../components/atoms/Heading/Heading";
+import { AddButton } from "../components/atoms/Buttons/LightButtons";
+import Loading from "../components/atoms/Loading/Loading";
+import StudentCard from "../components/modules/StudentCard/StudentCard";
 import styled from "styled-components";
-import HomeTemplate from "../../components/templates/HomeTemplate";
+import HomeTemplate from "../components/templates/HomeTemplate";
 // funkcje-hooki swr
-import { useUser } from "../../api/useUser";
-import { useStudents } from "../../api/useStudents";
+import { useUser } from "../api/useUser";
+import { useStudents } from "../api/useStudents";
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -36,7 +36,7 @@ const StyledVisibleForTest = styled.p`
   line-height: 0;
 `;
 
-const Home = () => {
+const HomeView = () => {
   const { user, isLoading, isError } = useUser();
   const { students, isStudentsLoading, isStudentsError } = useStudents();
 
@@ -81,4 +81,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeView;

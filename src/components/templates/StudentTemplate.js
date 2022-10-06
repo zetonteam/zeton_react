@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Buttons/Button';
 import StudentHeader from '../structures/StudentHeader/StudentHeader';
-import PointsBar from '../structures/Points/PointsBar';
-import AwardsBar from '../structures/Awards/AwardsBar';
+import { ROUTE_NAME } from '../../const/routing.const';
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const StyledButtonsGroup = styled.div`
   height: 60vh;
 `;
 
-const StudentTemplate = ({ name, points }) => {
+const StudentTemplate = ({ name, points, studentId }) => {
   const [actualPanel, setActualPanel] = useState('none');
 
   const handlePanel = (event) => {
@@ -24,14 +24,18 @@ const StudentTemplate = ({ name, points }) => {
     <React.Fragment>
       <StudentHeader name={name} points={points} />
       <StyledButtonsGroup>
-        <Button onClick={() => handlePanel('points')}>Dodaj punkty</Button>
-        <Button outline onClick={() => handlePanel('awards')}>
-          Przyznaj nagrodę
-        </Button>
-        <Button outline>Daj konsekwencję</Button>
+        <Link to={ROUTE_NAME.tasks.replace(':id', studentId)}>
+          <Button onClick={() => handlePanel('tasks')}>Dodaj punkty</Button>
+        </Link>
+        <Link to={ROUTE_NAME.awards.replace(':id', studentId)}>
+          <Button outline onClick={() => handlePanel('awards')}>
+            Przyznaj nagrodę
+          </Button>
+        </Link>
+        <Link to={ROUTE_NAME.consequences.replace(':id', studentId)}>
+          <Button outline onClick={() => handlePanel('consequences')}>Daj konsekwencję</Button>
+        </Link>
       </StyledButtonsGroup>
-      <PointsBar panel={actualPanel} handlePanel={handlePanel} />
-      <AwardsBar panel={actualPanel} handlePanel={handlePanel} />
     </React.Fragment>
   );
 };

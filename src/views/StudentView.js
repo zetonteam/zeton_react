@@ -1,12 +1,12 @@
 import React from "react";
-import StudentTemplate from "../../components/templates/StudentTemplate";
-import HomeTemplate from "../../components/templates/HomeTemplate";
-import Navbar from "../../components/structures/Navbar/Navbar";
-import Loading from "../../components/atoms/Loading/Loading";
+import StudentTemplate from "../components/templates/StudentTemplate";
+import HomeTemplate from "../components/templates/HomeTemplate";
+import Navbar from "../components/structures/Navbar/Navbar";
+import Loading from "../components/atoms/Loading/Loading";
 // funkcje-hooki swr
-import { useStudentById } from "../../api/useStudentById";
+import { useStudentById } from "../api/useStudentById";
 
-const Student = () => {
+const StudentView = () => {
   const pathId = window.location.pathname.replace("/", "");
   const { student, isStudentLoading, isStudentError } = useStudentById(pathId);
   return (
@@ -17,6 +17,7 @@ const Student = () => {
         <StudentTemplate
           name={student?.first_name}
           points={student?.total_points}
+          studentId={pathId}
         />
       }
       <Navbar />
@@ -24,4 +25,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default StudentView;
