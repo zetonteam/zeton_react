@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from "react-router-dom";
 
 import HomeTemplate from '../components/templates/HomeTemplate';
 import Navbar from '../components/structures/Navbar/Navbar';
@@ -7,16 +8,29 @@ import PointsList from '../components/structures/Points/PointsList';
 import StudentHeader from '../components/structures/StudentHeader/StudentHeader';
 import ButtonBar from '../components/modules/ButtonBar/ButtonBar';
 import MainBox from '../components/atoms/Sections/MainBox';
+import { useStudentById } from '../api/useStudentById';
+import Loading from '../components/atoms/Loading/Loading';
 
 
-const SettingsView = (props) => {
+const SettingsView = () => {
+  let { id } = useParams();
+  
+  const {student, isStudentLoading, isStudentError} = useStudentById(id)
+  console.log(student)
+  
   const [showPrizes, setShowPrizes] = useState(false);
   const handlePrizes = () => setShowPrizes(!showPrizes);
   const [showPoints, setShowPoints] = useState(false);
   const handlePoints = () => setShowPoints(!showPoints);
   return (
     <HomeTemplate>
-      <StudentHeader name={props.name} points={props.points} />
+      {isStudentLoading && !isStudentError && <Loading />}
+      {!isStudentLoading && !isStudentError &&
+     <StudentHeader name={student?.first_name}
+     points={student?.total_points}
+     studentId={id} />
+      }s
+    
       <MainBox>
         <ButtonBar onClick={handlePrizes} text="Nagrody" />
         {showPrizes && <AwardsList />}
