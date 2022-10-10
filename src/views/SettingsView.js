@@ -38,10 +38,10 @@ const SettingsView = () => {
       <MainBox>
         <ButtonBar onClick={handlePrizes} text="Nagrody" />
         {isAwardsLoading && !isAwardsError && <Loading />}
-        {showPrizes && <AwardsList awards={awards} />}
+        {showPrizes && <AwardsList awards={awards} studentId={id} />}
         <ButtonBar onClick={handlePoints} text="Zachowania" />
         {isTasksLoading && !isTasksError && <Loading />}
-        {showPoints && <PointsList tasksList={tasks} />}
+        {showPoints && <PointsList tasksList={tasks} studentId={id} />}
         <ButtonBar text="Konsekwencje" />
         <ButtonBar text="Informacje o dziecku" />
         <ButtonBar text="Mój profil" />

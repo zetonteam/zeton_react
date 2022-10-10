@@ -1,4 +1,6 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
+
 import HomeTemplate from '../components/templates/HomeTemplate';
 import MainBox from '../components/atoms/Sections/MainBox';
 import Navbar from '../components/structures/Navbar/Navbar';
@@ -14,7 +16,9 @@ import {
 import { useTasks } from "../api/useTasks";
 
 const PointsView = () => {
-  const { tasks, isTasksLoading, isTasksError } = useTasks("1");
+  let { id } = useParams();
+  const { tasks, isTasksLoading, isTasksError } = useTasks(id);
+  console.log(tasks)
 
   return (
     <HomeTemplate>
@@ -28,7 +32,7 @@ const PointsView = () => {
         {!isTasksLoading && !isTasksError &&
           <CustomSelect
             title="Wybierz zachowanie"
-            data={tasks}
+            data={tasks.filter(task => task.student == id)}
             btnTitle="Przyznaj punkty"
           />
           }

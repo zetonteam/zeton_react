@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-// import { connect } from 'react-redux';
-// import HomeTemplate from '../../templates/HomeTemplate';
-// import StudentHeader from '../StudentHeader/StudentHeader';
-// import Navbar from '../Navbar/Navbar';
+import React, { useEffect, useState } from 'react';
+
 import { Heading, Subheading } from '../../atoms/Heading/Heading';
 import MainBox from '../../atoms/Sections/MainBox';
 import LiElement from '../../atoms/Lists/Lists';
@@ -12,12 +9,22 @@ import AddPrizeForm from './AddPrizeForm';
 import EditPrizeForm from './EditPrizeForm';
 import { StyledUl, StyledDate } from '../../atoms/Lists/Lists';
 
-const AwardsList = ({awards}) => {
-  const [prizes, setPrizes] = useState(awards);
-  const [editing, setEditing] = useState(false);
 
+const AwardsList = ({awards, studentId}) => {
+  const [prizes, setPrizes] = useState(awards);
+  const [editing, setEditing] = useState(false); 
+
+  const [currentStudent, setCurrentStudent] = useState(studentId)
+  
+ 
   const initialFormState = { id: null, name: '', value: '' };
-  const [currentPrize, setCurrentPrize] = useState(initialFormState);
+  const [currentPrize, setCurrentPrize] = useState(initialFormState);  
+
+ useEffect(() => {
+  const filteredPrizes = prizes.filter(prize => prize.student == currentStudent)
+  setPrizes(filteredPrizes)
+}, []) 
+ 
 
   const addPrize = (prize) => {
     prize.id = prizes.length + 1;
@@ -38,6 +45,7 @@ const AwardsList = ({awards}) => {
     setEditing(true);
     setCurrentPrize({ id: prize.id, name: prize.text, value: prize.points });
   };
+  
 
   return (
     <MainBox>
@@ -46,7 +54,8 @@ const AwardsList = ({awards}) => {
         {awards && (
           <StyledUl>
             {prizes.map((el) => {
-              const { name, value, id } = el;
+              const { name, value, id} = el;
+             
               return (
                 <LiElement
                   text={name}

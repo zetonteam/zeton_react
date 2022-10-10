@@ -1,4 +1,6 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
+
 import HomeTemplate from '../components/templates/HomeTemplate';
 import MainBox from '../components/atoms/Sections/MainBox';
 import Navbar from '../components/structures/Navbar/Navbar';
@@ -14,7 +16,8 @@ import {
 import { useAwards } from "../api/useAwards";
 
 const AwardsView = () => {
-  const { awards, isAwardsLoading, isAwardsError } = useAwards("1");
+  let { id } = useParams();
+  const { awards, isAwardsLoading, isAwardsError } = useAwards(id);
 
   return (
     <HomeTemplate>
@@ -28,7 +31,7 @@ const AwardsView = () => {
         {!isAwardsLoading && !isAwardsError &&
           <CustomSelect
             title="Wybierz nagrodę"
-            data={awards}
+            data={awards.filter(award => award.student == id)}
             btnTitle="Przyznaj nagrodę"
           />
           }
