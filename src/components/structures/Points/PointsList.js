@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Heading, Subheading } from '../../atoms/Heading/Heading';
 import { StyledArticle } from '../../atoms/Sections/Article';
 import MainBox from '../../atoms/Sections/MainBox';
-import { tasksData } from '../../../mockyClient';
+
 import LiElement, { StyledUl } from '../../atoms/Lists/Lists';
 import AddPointsForm from './AddPointsForm';
 import EditPointsForm from './EditPointsForm';
 
-const PointsList = () => {
-  const [tasks, setTasks] = useState(tasksData);
+const PointsList = ({tasksList}) => {
+  const [tasks, setTasks] = useState(tasksList);
   const [editing, setEditing] = useState(false);
 
   const initialFormState = { id: null, name: '', value: '' };

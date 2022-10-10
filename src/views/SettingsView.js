@@ -8,15 +8,19 @@ import PointsList from '../components/structures/Points/PointsList';
 import StudentHeader from '../components/structures/StudentHeader/StudentHeader';
 import ButtonBar from '../components/modules/ButtonBar/ButtonBar';
 import MainBox from '../components/atoms/Sections/MainBox';
-import { useStudentById } from '../api/useStudentById';
 import Loading from '../components/atoms/Loading/Loading';
+
+import { useStudentById } from '../api/useStudentById';
+import { useAwards } from '../api/useAwards';
+import { useTasks } from '../api/useTasks';
 
 
 const SettingsView = () => {
   let { id } = useParams();
   
   const {student, isStudentLoading, isStudentError} = useStudentById(id)
-  console.log(student)
+  const { awards, isAwardsLoading, isAwardsError} = useAwards(id)
+  const { tasks, isTasksLoading, isTasksError} = useTasks(id)
   
   const [showPrizes, setShowPrizes] = useState(false);
   const handlePrizes = () => setShowPrizes(!showPrizes);
@@ -29,13 +33,15 @@ const SettingsView = () => {
      <StudentHeader name={student?.first_name}
      points={student?.total_points}
      studentId={id} />
-      }s
+      }
     
       <MainBox>
         <ButtonBar onClick={handlePrizes} text="Nagrody" />
-        {showPrizes && <AwardsList />}
+        {isAwardsLoading && !isAwardsError && <Loading />}
+        {showPrizes && <AwardsList awards={awards} />}
         <ButtonBar onClick={handlePoints} text="Zachowania" />
-        {showPoints && <PointsList />}
+        {isTasksLoading && !isTasksError && <Loading />}
+        {showPoints && <PointsList tasksList={tasks} />}
         <ButtonBar text="Konsekwencje" />
         <ButtonBar text="Informacje o dziecku" />
         <ButtonBar text="Mój profil" />

@@ -17,6 +17,12 @@
       "name": "Godzina gry komputerowej",
       "value": 10,
       "student": 2
+    },
+    {
+      "id": 4,
+      "name": "Nowy komiks",
+      "value": 15,
+      "student": "2"
     }
   ]
 }
