@@ -6,6 +6,7 @@ import MainBox from '../components/atoms/Sections/MainBox';
 import Navbar from '../components/structures/Navbar/Navbar';
 import CustomSelect from '../components/modules/CustomSelect/CustomSelect';
 import Loading from "../components/atoms/Loading/Loading";
+import StudentHeader from '../components/structures/StudentHeader/StudentHeader';
 import { StyledContainer } from '../components/atoms/Sections/Containers';
 import {
   Subheading,
@@ -14,13 +15,21 @@ import {
 } from '../components/atoms/Heading/Heading';
 // funkcje-hooki swr
 import { useAwards } from "../api/useAwards";
+import { useStudentById } from '../api/useStudentById';
 
 const AwardsView = () => {
   let { id } = useParams();
+  const {student, isStudentLoading, isStudentError } = useStudentById(id)
   const { awards, isAwardsLoading, isAwardsError } = useAwards(id);
 
   return (
     <HomeTemplate>
+        {isStudentLoading && !isStudentError && <Loading />}
+      {!isStudentLoading && !isStudentError &&
+     <StudentHeader name={student?.first_name}
+     points={student?.total_points}
+     studentId={id} />
+      }
       <StyledHeader>
         <StyledHeading big>Przyznaj nagrodę</StyledHeading>
       </StyledHeader>
