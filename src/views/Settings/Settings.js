@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import HomeTemplate from '../../templates/HomeTemplate';
-import Navbar from '../../structures/Navbar/Navbar';
-import AwardsList from '../../structures/Awards/AwardsList';
-import PointsList from '../../structures/Points/PointsList';
-import StudentHeader from '../../structures/StudentHeader/StudentHeader';
-import ButtonBar from '../../modules/ButtonBar/ButtonBar';
-import MainBox from '../../atoms/Sections/MainBox';
+import HomeTemplate from '../../components/templates/HomeTemplate';
+import Navbar from '../../components/structures/Navbar/Navbar';
+import AwardsList from '../../components/structures/Awards/AwardsList';
+import PointsList from '../../components/structures/Points/PointsList';
+import StudentHeader from '../../components/structures/StudentHeader/StudentHeader';
+import ButtonBar from '../../components/modules/ButtonBar/ButtonBar';
+import MainBox from '../../components/atoms/Sections/MainBox';
 
 const Settings = (props) => {
   const [showPrizes, setShowPrizes] = useState(false);

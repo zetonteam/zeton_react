@@ -11,7 +11,7 @@ import Student from './views/Student/Student';
 import Info from './components/pages/Info/Info';
 import Awards from './views/Awards/Awards';
 import Consequences from './components/pages/Consequences/Consequences';
-import Settings from './components/pages/Settings/Settings';
+import Settings from './views/Settings/Settings';
 import Head from './Head';
 
 const App = () => {
