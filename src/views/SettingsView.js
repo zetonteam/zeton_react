@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-<<<<<<< HEAD:src/views/Settings/Settings.js
-import HomeTemplate from '../../components/templates/HomeTemplate';
-import Navbar from '../../components/structures/Navbar/Navbar';
-import AwardsList from '../../components/structures/Awards/AwardsList';
-import PointsList from '../../components/structures/Points/PointsList';
-import StudentHeader from '../../components/structures/StudentHeader/StudentHeader';
-import ButtonBar from '../../components/modules/ButtonBar/ButtonBar';
-import MainBox from '../../components/atoms/Sections/MainBox';
-=======
+
 import HomeTemplate from '../components/templates/HomeTemplate';
 import Navbar from '../components/structures/Navbar/Navbar';
 import AwardsList from '../components/structures/Awards/AwardsList';
@@ -16,7 +8,7 @@ import PointsList from '../components/structures/Points/PointsList';
 import StudentHeader from '../components/structures/StudentHeader/StudentHeader';
 import ButtonBar from '../components/modules/ButtonBar/ButtonBar';
 import MainBox from '../components/atoms/Sections/MainBox';
->>>>>>> 30f6a704730e7723e21ab50d2645d5640066245b:src/views/SettingsView.js
+
 
 const SettingsView = (props) => {
   const [showPrizes, setShowPrizes] = useState(false);
