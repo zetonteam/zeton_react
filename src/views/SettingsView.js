@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 
 import HomeTemplate from '../components/templates/HomeTemplate';
 import Navbar from '../components/structures/Navbar/Navbar';
@@ -32,11 +31,4 @@ const SettingsView = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    name: state.student.first_name + ' ' + state.student.last_name,
-    points: state.student.total_points,
-  };
-};
-
-export default connect(mapStateToProps)(SettingsView);
+export default SettingsView
