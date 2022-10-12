@@ -8,13 +8,12 @@ import MainBox from '../../atoms/Sections/MainBox';
 import LiElement from '../../atoms/Lists/Lists';
 import { LiDateElem } from '../../atoms/Lists/Lists';
 import { StyledArticle } from '../../atoms/Sections/Article';
-import { data } from '../../../mockyClient';
 import AddPrizeForm from './AddPrizeForm';
 import EditPrizeForm from './EditPrizeForm';
 import { StyledUl, StyledDate } from '../../atoms/Lists/Lists';
 
-const AwardsList = () => {
-  const [prizes, setPrizes] = useState(data);
+const AwardsList = ({awards}) => {
+  const [prizes, setPrizes] = useState(awards);
   const [editing, setEditing] = useState(false);
 
   const initialFormState = { id: null, name: '', value: '' };
@@ -35,7 +34,7 @@ const AwardsList = () => {
   };
 
   const editPrize = (prize) => {
-    console.log(prize);
+    // console.log(prize);
     setEditing(true);
     setCurrentPrize({ id: prize.id, name: prize.text, value: prize.points });
   };
@@ -44,7 +43,7 @@ const AwardsList = () => {
     <MainBox>
       <StyledArticle>
         <Heading>Lista nagród</Heading>
-        {data && (
+        {awards && (
           <StyledUl>
             {prizes.map((el) => {
               const { name, value, id } = el;
