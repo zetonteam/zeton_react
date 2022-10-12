@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heading, Subheading } from '../../atoms/Heading/Heading';
 import { StyledArticle } from '../../atoms/Sections/Article';
 import MainBox from '../../atoms/Sections/MainBox';
@@ -7,12 +7,19 @@ import LiElement, { StyledUl } from '../../atoms/Lists/Lists';
 import AddPointsForm from './AddPointsForm';
 import EditPointsForm from './EditPointsForm';
 
-const PointsList = ({tasksList}) => {
+const PointsList = ({tasksList, studentId}) => {
   const [tasks, setTasks] = useState(tasksList);
   const [editing, setEditing] = useState(false);
 
   const initialFormState = { id: null, name: '', value: '' };
   const [currentTask, setCurrentTask] = useState(initialFormState);
+
+  const [currentStudent, setCurrentStudent] = useState(studentId)
+
+  useEffect(() => {
+    const filteredTasks = tasks.filter(task => task.student == currentStudent)
+    setTasks(filteredTasks)
+  }, [])
 
   const addTask = (task) => {
     task.id = tasks.length + 1;
