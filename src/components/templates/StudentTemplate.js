@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from '../atoms/Buttons/Button';
 import StudentHeader from '../structures/StudentHeader/StudentHeader';
 import { ROUTE_NAME } from '../../const/routing.const';
+import TasksBar from '../structures/Tasks/TasksBar';
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -21,12 +22,13 @@ const StudentTemplate = ({ name, points, studentId }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <StudentHeader name={name} points={points} />
       <StyledButtonsGroup>
-        <Link to={ROUTE_NAME.tasks.replace(':id', studentId)}>
+        <Button onClick={() => handlePanel('tasks')}>Dodaj punkty</Button>
+        {/* <Link to={ROUTE_NAME.tasks.replace(':id', studentId)}>
           <Button onClick={() => handlePanel('tasks')}>Dodaj punkty</Button>
-        </Link>
+        </Link> */}
         <Link to={ROUTE_NAME.awards.replace(':id', studentId)}>
           <Button outline onClick={() => handlePanel('awards')}>
             Przyznaj nagrodę
@@ -36,7 +38,8 @@ const StudentTemplate = ({ name, points, studentId }) => {
           <Button outline onClick={() => handlePanel('consequences')}>Daj konsekwencję</Button>
         </Link>
       </StyledButtonsGroup>
-    </React.Fragment>
+      <TasksBar panel={actualPanel} handlePanel={handlePanel} />
+    </>
   );
 };
 

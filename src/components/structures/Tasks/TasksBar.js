@@ -8,9 +8,9 @@ import {
 import ActionsTemplate from '../../templates/ActionsTemplate';
 import CustomSelect from '../../modules/CustomSelect/CustomSelect';
 import { StyledContainer } from '../../atoms/Sections/Containers';
-import { tasksData } from '../../../mockyClient';
+import { tasksData } from '../../../mockyClient'; //tu podczepić swr, który da taskdata - z TasksView
 
-const PointsBar = ({ points, handlePanel, panel }) => {
+const TasksBar = ({ points, handlePanel, panel }) => {
   const [activePanel, setActivePanel] = useState(panel);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const PointsBar = ({ points, handlePanel, panel }) => {
   }, [panel]);
 
   return (
-    <ActionsTemplate action={activePanel === 'points' ? 'true' : 'false'}>
+    <ActionsTemplate action={activePanel === 'tasks' ? 'true' : 'false'}>
       <StyledHeader>
         <ReturnButton onClick={() => handlePanel('none')} />
         <StyledHeading big>Dodaj punkty</StyledHeading>
@@ -35,4 +35,4 @@ const PointsBar = ({ points, handlePanel, panel }) => {
   );
 };
 
-export default PointsBar;
+export default TasksBar;
