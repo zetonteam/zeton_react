@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import ReturnButton from '../../atoms/Buttons/ReturnButton';
 import {
   Subheading,
   StyledHeader,
   StyledHeading,
 } from '../../atoms/Heading/Heading';
+import Loading from "../../atoms/Loading/Loading";
 import ActionsTemplate from '../../templates/ActionsTemplate';
 import CustomSelect from '../../modules/CustomSelect/CustomSelect';
 import { StyledContainer } from '../../atoms/Sections/Containers';
-import { tasksData } from '../../../mockyClient'; //tu podczepić swr, który da taskdata - z TasksView
+import { useTasks } from "../../../api/useTasks";
 
 const TasksBar = ({ points, handlePanel, panel }) => {
+  let { id } = useParams();
   const [activePanel, setActivePanel] = useState(panel);
+  const { tasks, isTasksLoading, isTasksError } = useTasks(id);
+  // console.log(tasks);
 
   useEffect(() => {
     setActivePanel(panel);
@@ -25,11 +30,14 @@ const TasksBar = ({ points, handlePanel, panel }) => {
       </StyledHeader>
       <StyledContainer>
         <Subheading>Otrzymane punkty</Subheading>
-        <CustomSelect
-          title="Wybierz zachowanie"
-          data={tasksData}
-          btnTitle="Przyznaj punkty"
-        />
+        {isTasksLoading && !isTasksError && <Loading />}
+        {!isTasksLoading && !isTasksError && (
+          <CustomSelect
+            title="Wybierz zachowanie"
+            data={tasks.filter((task) => task.student == id)}
+            btnTitle="Przyznaj punkty"
+          />
+        )}
       </StyledContainer>
     </ActionsTemplate>
   );
