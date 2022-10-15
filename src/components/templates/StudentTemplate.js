@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Buttons/Button';
@@ -14,12 +14,29 @@ const StyledButtonsGroup = styled.div`
   height: 60vh;
 `;
 
-const StudentTemplate = ({ name, points, studentId }) => {
+const StudentTemplate = ({ name, points, image, studentId }) => {
   const [actualPanel, setActualPanel] = useState('none');
+  const [studentData, setStudentData] = useState({
+    name: null,
+    points: null,
+    image: null
+  })
 
   const handlePanel = (event) => {
     setActualPanel(event);
   };
+
+  useEffect(() => {
+    const obj = {};
+    const newObj = {
+      name: name || null,
+      points: points || null,
+      image: image || null
+    };
+    Object.assign(obj, newObj);
+    console.log(newObj)
+    setStudentData(obj);
+  }, [name, points, image]);
 
   return (
     <>
@@ -38,7 +55,7 @@ const StudentTemplate = ({ name, points, studentId }) => {
           <Button outline onClick={() => handlePanel('consequences')}>Daj konsekwencję</Button>
         </Link>
       </StyledButtonsGroup>
-      <TasksBar panel={actualPanel} handlePanel={handlePanel} />
+      <TasksBar panel={actualPanel} handlePanel={handlePanel} studentData={studentData} />
     </>
   );
 };

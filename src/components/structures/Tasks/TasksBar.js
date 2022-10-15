@@ -13,7 +13,7 @@ import ProfileTopbar from '../Topbar/ProfileTopbar';
 import { StyledContainer } from '../../atoms/Sections/Containers';
 import { useTasks } from "../../../api/useTasks";
 
-const TasksBar = ({ points, handlePanel, panel }) => {
+const TasksBar = ({ handlePanel, panel, studentData }) => {
   let { id } = useParams();
   const [activePanel, setActivePanel] = useState(panel);
   const { tasks, isTasksLoading, isTasksError } = useTasks(id);
@@ -25,7 +25,7 @@ const TasksBar = ({ points, handlePanel, panel }) => {
 
   return (
     <ActionsTemplate action={activePanel === 'tasks' ? 'true' : 'false'}>
-      <ProfileTopbar />
+      <ProfileTopbar studentData={studentData}/>
       <StyledHeader>
         <StyledHeading big>Dodaj punkty</StyledHeading>
       </StyledHeader>

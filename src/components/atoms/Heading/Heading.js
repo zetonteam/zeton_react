@@ -24,7 +24,7 @@ export const StyledHeader = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 `;
 
 export const StyledHeading = styled(Heading)`
