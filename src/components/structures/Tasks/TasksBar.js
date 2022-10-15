@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import ReturnButton from '../../atoms/Buttons/ReturnButton';
+import CloseBarButton from '../../atoms/Buttons/CloseBarButton';
 import {
   Subheading,
   StyledHeader,
@@ -9,6 +9,7 @@ import {
 import Loading from "../../atoms/Loading/Loading";
 import ActionsTemplate from '../../templates/ActionsTemplate';
 import CustomSelect from '../../modules/CustomSelect/CustomSelect';
+import ProfileTopbar from '../Topbar/ProfileTopbar';
 import { StyledContainer } from '../../atoms/Sections/Containers';
 import { useTasks } from "../../../api/useTasks";
 
@@ -24,8 +25,8 @@ const TasksBar = ({ points, handlePanel, panel }) => {
 
   return (
     <ActionsTemplate action={activePanel === 'tasks' ? 'true' : 'false'}>
+      <ProfileTopbar />
       <StyledHeader>
-        <ReturnButton onClick={() => handlePanel('none')} />
         <StyledHeading big>Dodaj punkty</StyledHeading>
       </StyledHeader>
       <StyledContainer>
@@ -38,6 +39,7 @@ const TasksBar = ({ points, handlePanel, panel }) => {
             btnTitle="Przyznaj punkty"
           />
         )}
+      <CloseBarButton closePanel={handlePanel} />
       </StyledContainer>
     </ActionsTemplate>
   );

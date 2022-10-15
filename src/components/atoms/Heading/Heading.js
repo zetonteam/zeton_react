@@ -23,9 +23,10 @@ export const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
+  margin-top: 20px;
 `;
 
 export const StyledHeading = styled(Heading)`
-  margin: 0 0 0 20px;
+  margin: 0 0 0 0;
 `;

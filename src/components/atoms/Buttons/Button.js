@@ -14,7 +14,13 @@ const Button = styled.button`
   font-size: ${({ theme }) => theme.fontSize.xs};
   text-transform: uppercase;
   color: ${({ theme, outline }) => (outline ? theme.primary : 'white')};
-  border: solid 1px ${({ theme }) => theme.primary};
+  border: solid 1px ${({ theme, disabled }) => {
+    if (disabled) {
+      return 'transparent'
+    } else {
+      return theme.primary
+    }
+  }};
   width: 250px;
   height: 50px;
   padding: 17px;
