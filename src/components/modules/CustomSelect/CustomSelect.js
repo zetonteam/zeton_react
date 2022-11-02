@@ -84,7 +84,7 @@ const CustomSelect = ({ title, data, btnTitle }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Subheading>{elemState.value}</Subheading>
       <MainBox>
         <DropdownContainer>
@@ -119,7 +119,7 @@ const CustomSelect = ({ title, data, btnTitle }) => {
           {btnTitle}
         </Button>
       </MainBox>
-    </React.Fragment>
+    </>
   );
 };
 
