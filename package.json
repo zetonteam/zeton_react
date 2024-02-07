@@ -23,6 +23,8 @@
     "swr": "^1.3.0"
   },
   "scripts": {
+    "start4legacy": "react-scripts --openssl-legacy-provider start",
+    "build4legacy": "react-scripts --openssl-legacy-provider build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
