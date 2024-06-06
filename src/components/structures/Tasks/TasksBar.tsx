@@ -13,9 +13,15 @@ import ProfileTopbar from '../Topbar/ProfileTopbar';
 import { StyledContainer } from '../../atoms/Sections/Containers';
 import { useTasks } from '../../../api/useTasks';
 import React from 'react';
+import { StudentData } from '@/components/templates/types.ts';
 
-const TasksBar = ({ handlePanel, panel, studentData }: any) => {
-  let { id } = useParams();
+interface TasksBarProps {
+  panel: string;
+  handlePanel: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  studentData: StudentData;
+}
+const TasksBar = ({ handlePanel, panel, studentData }: TasksBarProps) => {
+  const { id } = useParams();
   const [activePanel, setActivePanel] = useState(panel);
   const { tasks, isTasksLoading, isTasksError } = useTasks(id);
   // console.log(tasks);

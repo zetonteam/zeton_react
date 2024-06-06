@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import React from 'react';
 import Button from '../atoms/Buttons/Button';
 import StudentHeader from '../structures/StudentHeader/StudentHeader';
 import { ROUTE_NAME } from '../../const/routing.const';
 import TasksBar from '../structures/Tasks/TasksBar';
-import React from 'react';
+import { type StudentData } from '@/components/templates/types.ts';
 
 const StyledButtonsGroup = styled.div`
   display: flex;
@@ -15,21 +16,28 @@ const StyledButtonsGroup = styled.div`
   height: 60vh;
 `;
 
-type StudentDataTypes = {
-  name: string | null;
-  points: number | null;
-  image: string | null;
-};
+interface StudentTemplateProps {
+  name?: string;
+}
 
-const StudentTemplate = ({ name, points, image, studentId }: any) => {
+const StudentTemplate = ({
+  name,
+  points,
+  image,
+  studentId,
+}: StudentTemplateProps) => {
   const [actualPanel, setActualPanel] = useState('none');
-  const [studentData, setStudentData] = useState<StudentDataTypes | {}>({
+  const [studentData, setStudentData] = useState<StudentData>({
     name: null,
     points: null,
     image: null,
   });
 
-  const handlePanel = (event: any) => {
+  const handlePanel = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     setActualPanel(event);
   };
   //TODO review

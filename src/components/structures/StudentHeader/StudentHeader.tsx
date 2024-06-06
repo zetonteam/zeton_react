@@ -67,12 +67,11 @@ const StyledIcon = styled.img`
 type ItemsTypes = {
   name?: string;
   points?: number;
-  image?: string;
   studentId?: string;
 };
 
 //{ name, points, image }: Record<string, string | number| undefined>
-const StudentHeader = ({ name, points, image }: ItemsTypes): JSX.Element => {
+const StudentHeader = ({ name, points }: ItemsTypes): JSX.Element => {
   return (
     <StyledStudentHeader>
       <StyledMainGroup>
