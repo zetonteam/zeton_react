@@ -22,8 +22,11 @@ export const StyledContainer = styled.div<StyledContainerInterface>`
     padding: 30px;
   }
 `;
+interface HomeTemplateProps {
+  children: React.ReactNode;
+}
 
-const HomeTemplate = ({ children }: any) => (
+const HomeTemplate = ({ children }: HomeTemplateProps) => (
   <StyledContainer>{children}</StyledContainer>
 );
 

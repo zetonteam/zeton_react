@@ -4,6 +4,12 @@ import ProfileImage from '../../atoms/ProfileImage/ProfileImage';
 import STAR_ICON_SVG from '/star.svg';
 import React from 'react';
 
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    primary: string;
+  }
+}
+
 const StyledProfileTopbar = styled.header`
   position: fixed;
   display: flex;
@@ -56,13 +62,17 @@ type StudentDataTypes = {
   name: string;
   points: number | string;
 };
+
+interface ProfileProps {
+  image: string | null;
+}
 const ProfileTopbar = ({
   studentData,
 }: {
   studentData: StudentDataTypes;
 }): JSX.Element => {
   console.log(studentData);
-  let { image, name, points }: StudentDataTypes = studentData;
+  const { image, name, points }: StudentDataTypes = studentData;
 
   // <StyledProfileImage style={{backgroundImage: image? `url(${image})`:`url(${image})`}} alt=""/>
   return (

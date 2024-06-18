@@ -20,8 +20,13 @@ interface TasksBarProps {
   handlePanel: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   studentData: StudentData;
 }
+
+interface Task {
+  student: number;
+}
+
 const TasksBar = ({ handlePanel, panel, studentData }: TasksBarProps) => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const [activePanel, setActivePanel] = useState(panel);
   const { tasks, isTasksLoading, isTasksError } = useTasks(id);
   // console.log(tasks);
@@ -42,7 +47,7 @@ const TasksBar = ({ handlePanel, panel, studentData }: TasksBarProps) => {
         {!isTasksLoading && !isTasksError && (
           <CustomSelect
             title="Wybierz zachowanie"
-            data={tasks?.filter((task: any) => task.student === id)}
+            data={tasks?.filter((task: Task ) => String(task.student) === id)}
             btnTitle="Przyznaj punkty"
           />
         )}

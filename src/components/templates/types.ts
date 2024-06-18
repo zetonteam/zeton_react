@@ -1,5 +1,5 @@
 export type StudentData = {
-  name: string | null;
-  points: number | null;
-  image: string | null;
+  name: string;
+  points: number;
+  image: string;
 };

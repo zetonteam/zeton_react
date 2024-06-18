@@ -18,6 +18,9 @@ const StyledButtonsGroup = styled.div`
 
 interface StudentTemplateProps {
   name?: string;
+  points?: number;
+  image?: string;
+  studentId?: string;
 }
 
 const StudentTemplate = ({
@@ -42,15 +45,11 @@ const StudentTemplate = ({
   };
   //TODO review
   useEffect(() => {
-    const obj = {};
-    const newObj = {
+    setStudentData({
       name: name || null,
       points: points || null,
       image: image || null,
-    };
-    Object.assign(obj, newObj);
-    console.log(newObj);
-    setStudentData(obj);
+    });
   }, [name, points, image]);
 
   return (
