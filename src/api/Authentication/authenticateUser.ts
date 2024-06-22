@@ -3,7 +3,7 @@ import { type AxiosResponse } from 'axios';
 import axiosInstance from '../axios.ts';
 
 type AuthenticateResponse = {
-  token: string;
+  access: string;
 };
 
 type AuthenticateBody = {

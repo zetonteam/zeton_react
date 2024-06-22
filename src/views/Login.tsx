@@ -34,7 +34,7 @@ const Login = () => {
       password: formData.password,
     });
 
-    setToken(response.data.token, dispatch);
+    setToken(response.data.access, dispatch);
     navigate("/")
   };
 
