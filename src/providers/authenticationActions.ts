@@ -14,6 +14,6 @@ export const setToken = (
 export const clearToken = (dispatch: React.Dispatch<TokenAction>) => {
   dispatch({
     type: 'clear',
-    token: null,
+    token: '',
   });
 };
