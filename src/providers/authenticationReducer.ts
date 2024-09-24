@@ -1,4 +1,5 @@
 import { type Authentication, type TokenAction } from './types.ts';
+import { localStorageKey } from '../constants.ts';
 
 export type AuthenticationReducer = (
   token: Authentication,
@@ -13,7 +14,7 @@ export const authenticationReducer: AuthenticationReducer = (
     case 'set':
       return { token: action.token };
     case 'clear': {
-      localStorage.setItem(localStorageKey);
+      localStorage.setItem(localStorageKey, '');
       return { token: '' };
     }
     default:

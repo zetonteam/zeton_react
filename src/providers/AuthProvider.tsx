@@ -6,6 +6,7 @@ import {
   authenticationReducer,
   type AuthenticationReducer,
 } from './authenticationReducer.ts';
+import { localStorageKey } from '../constants.ts';
 
 export const AuthenticationContext = createContext<Authentication>({
   token: '',
@@ -18,7 +19,6 @@ export const useAuthenticationData = () => useContext(AuthenticationContext);
 export const useTokenDispatch = () => useContext(TokenDispatchContext);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const localStorageKey = 'token';
   const navigate = useNavigate();
 
   const [authentication, dispatch] = useReducer<AuthenticationReducer>(
