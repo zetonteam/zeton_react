@@ -1,4 +1,5 @@
 import { type Authentication, type TokenAction } from './types.ts';
+import { localStorageKey } from '../constants.ts';
 
 export type AuthenticationReducer = (
   token: Authentication,
@@ -12,8 +13,10 @@ export const authenticationReducer: AuthenticationReducer = (
   switch (action.type) {
     case 'set':
       return { token: action.token };
-    case 'clear':
-      return { token: "" };
+    case 'clear': {
+      localStorage.setItem(localStorageKey, '');
+      return { token: '' };
+    }
     default:
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       throw new Error(`Invalid action type ${action.type}`);

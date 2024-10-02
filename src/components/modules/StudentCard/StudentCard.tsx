@@ -40,7 +40,7 @@ const StudentCard = ({ name, studentId, image }: PropTypesStudentCard) => {
   return (
     <StyledStudentCard to={`/${studentId}`}>
       <ProfileImage src={image ? image.toString() : ProfileDefaultImage_SVG} />
-      <StyledName big={true}>{name}</StyledName>
+      <StyledName $big={true}>{name}</StyledName>
     </StyledStudentCard>
   );
 };

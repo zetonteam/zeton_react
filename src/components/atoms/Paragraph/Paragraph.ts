@@ -3,17 +3,17 @@ import type { ThemeTypes } from '../../../theme/appTheme';
 
 interface ParagraphInterface {
   theme: ThemeTypes;
-  big?: boolean;
+  $big?: boolean;
 }
 
 const Paragraph = styled.p<ParagraphInterface>`
-  font-size: ${({ theme, big }) =>
-    big ? theme.fontSize.md : theme.fontSize.sm};
+  font-size: ${({ theme, $big }) =>
+    $big ? theme.fontSize.md : theme.fontSize.sm};
   margin: 0 0 10px;
 
   @media only screen and (max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
-    font-size: ${({ theme, big }) =>
-      big ? theme.fontSize.sm : theme.fontSize.xs};
+    font-size: ${({ theme, $big }) =>
+      $big ? theme.fontSize.sm : theme.fontSize.xs};
   }
 `;
 

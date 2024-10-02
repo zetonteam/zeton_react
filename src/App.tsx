@@ -22,9 +22,10 @@ import GrantAward from './views/Award/GrantAward.tsx';
 
 function App(): React.ReactNode {
   return (
-    <div className="App">
-      <Head />
-      <AuthProvider>
+    <AuthProvider>
+      <div className="App">
+        <Head />
+
         <MainTemplate>
           <Routes>
             <Route path={BASE_ROUTES_NAME.home} element={<HomeView />} />
@@ -65,8 +66,8 @@ function App(): React.ReactNode {
             />
           </Routes>
         </MainTemplate>
-      </AuthProvider>
-    </div>
+      </div>
+    </AuthProvider>
   );
 }
 

@@ -3,18 +3,18 @@ import { ThemeTypes } from '../../../theme/appTheme';
 
 interface HeadingPropsInterface {
   theme: ThemeTypes;
-  big?: boolean;
+  $big?: boolean;
 }
 
 export const Heading = styled.h1<HeadingPropsInterface>`
-  font-size: ${({ theme, big }) =>
-    big ? theme.fontSize.xl : theme.fontSize.lg};
+  font-size: ${({ theme, $big }) =>
+    $big ? theme.fontSize.xl : theme.fontSize.lg};
   font-weight: ${({ theme }) => theme.bold};
   margin: 0 0 10px;
 
   @media only screen and (max-width: ${({ theme }) => theme.mediaMaxSize.xs}) {
-    font-size: ${({ theme, big }) =>
-      big ? theme.fontSize.md : theme.fontSize.sm};
+    font-size: ${({ theme, $big }) =>
+      $big ? theme.fontSize.md : theme.fontSize.sm};
   }
 `;
 

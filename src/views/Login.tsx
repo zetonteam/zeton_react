@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heading } from '../components/atoms/Heading/Heading.ts';
 import MainBox from '../components/atoms/Sections/MainBox.ts';
@@ -12,7 +12,7 @@ import { type User } from '../api/Authentication/userTypes.ts';
 import Button from '../components/atoms/Buttons/Button.ts';
 import useAuthenticateUser from '../api/Authentication/authenticateUser.ts';
 import { useTokenDispatch } from '../providers/AuthProvider.tsx';
-import { setToken } from '../providers/authenticationActions.ts';
+import { clearToken, setToken } from '../providers/authenticationActions.ts';
 
 const Login = () => {
   const [formData, setFormData] = useState<User>({
@@ -25,9 +25,13 @@ const Login = () => {
   const { trigger, isMutating, error } = useAuthenticateUser();
   const navigate = useNavigate();
 
-  const handleSubmit = async (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  useEffect(() => {
+    clearToken(dispatch);
+
+    console.log();
+  }, []);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const response = await trigger({
       username: formData.userName,
@@ -42,13 +46,12 @@ const Login = () => {
     <MainBox>
       <StyledArticle>
         <Heading>Zaloguj się</Heading>
-        <StyledForm onSubmit={() => handleSubmit}>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledLabel htmlFor="userName">Nazwa użytkownika:</StyledLabel>
           <StyledInput
             type="text"
             name="userName"
             id="userName"
-            value={formData.userName}
             onChange={(event) =>
               setFormData({ ...formData, userName: event.target.value })
             }
@@ -56,21 +59,16 @@ const Login = () => {
           />
           <StyledLabel htmlFor="password">Hasło:</StyledLabel>
           <StyledInput
-            type="text"
+            type="password"
             name="password"
             id="password"
-            value={formData.password}
             onChange={(event) =>
               setFormData({ ...formData, password: event.target.value })
             }
             required
           />
           {error && <div>Błąd logowania. Spróbuj ponownie.</div>}
-          <Button
-            type="button"
-            disabled={isMutating}
-            onClick={(event) => handleSubmit(event)}
-          >
+          <Button type="submit" disabled={isMutating}>
             Zaloguj się
           </Button>
         </StyledForm>
