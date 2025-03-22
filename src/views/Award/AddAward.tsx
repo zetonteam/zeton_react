@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SUB_ROUTES_NAME } from '../../const/routing.const.ts';
-import { StyledContainer } from '../../components/templates/HomeTemplate.tsx';
-import MainBox from '../../components/atoms/Sections/MainBox.ts';
+import { SUB_ROUTES_NAME } from '../../const/routing.const';
+import { StyledContainer } from '../../components/templates/HomeTemplate';
+import MainBox from '../../components/atoms/Sections/MainBox';
 import {
   StyledHeader,
   StyledHeading,
-} from '../../components/atoms/Heading/Heading.ts';
+} from '../../components/atoms/Heading/Heading';
 import {
   StyledForm,
   StyledInput,
   StyledLabel,
-} from '../../components/atoms/Form/Form.ts';
-import Button from '../../components/atoms/Buttons/Button.ts';
-import useAddAward from '../../api/Award/useAddAward.ts';
+} from '../../components/atoms/Form/Form';
+import Button from '../../components/atoms/Buttons/Button';
+import useAddAward from '../../api/Award/useAddAward';
 
-import { Award } from './awardTypes.ts';
+import { Award } from './awardTypes';
 
 const AddAward = () => {
   const { id } = useParams();

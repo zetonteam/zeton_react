@@ -1,32 +1,15 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Awards from './views/Award/Awards.tsx';
-import MainTemplate from './components/templates/MainTemplate';
-import HomeView from './views/HomeView';
-import StudentView from './views/StudentView';
-import TasksView from './views/TasksView';
-import InfoView from './views/InfoView';
-import AwardsView from './views/Award/AwardsView.tsx';
-import ConsequencesView from './views/ConsequencesView';
-import SettingsView from './views/SettingsView';
-import Head from './Head';
-import {
-  AWARDS_SUB_ROUTES,
-  BASE_ROUTES_NAME,
-  SUB_ROUTES_NAME,
-} from './const/routing.const';
-import Login from './views/Login.tsx';
-import AuthProvider from './providers/AuthProvider.tsx';
-import AddAward from './views/Award/AddAward.tsx';
-import GrantAward from './views/Award/GrantAward.tsx';
+import { Provider } from 'react-redux';
+import AuthProvider from "./providers/AuthProvider";
+import Routes from "./routes";
+import getStore from './redux/store';
 
 function App(): React.ReactNode {
   return (
-    <div className="App">
-      <Head />
+    <Provider store={getStore()}>
       <AuthProvider>
-        <MainTemplate>
-          <Routes>
+        <Routes />
+          {/* <Routes>
             <Route path={BASE_ROUTES_NAME.home} element={<HomeView />} />
             <Route path={BASE_ROUTES_NAME.login} element={<Login />} />
             <Route path={BASE_ROUTES_NAME.student} element={<StudentView />} />
@@ -63,10 +46,9 @@ function App(): React.ReactNode {
               path={`${BASE_ROUTES_NAME.student}${SUB_ROUTES_NAME.awards}${AWARDS_SUB_ROUTES.list}`}
               element={<Awards />}
             />
-          </Routes>
-        </MainTemplate>
+          </Routes> */}
       </AuthProvider>
-    </div>
+    </Provider>
   );
 }
 

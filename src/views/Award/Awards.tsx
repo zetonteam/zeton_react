@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Loading from '../../components/atoms/Loading/Loading.tsx';
-import { useAwards } from '../../api/Award/useAwards.ts';
-import AwardsContainer from './AwardsContainer.tsx';
-import AwardsList from './AwardsList.tsx';
+import Loading from '../../components/atoms/Loading/Loading';
+import { useAwards } from '../../api/Award/useAwards';
+import AwardsContainer from './AwardsContainer';
+import AwardsList from './AwardsList';
 
 const Awards = () => {
   const { id } = useParams();
@@ -27,10 +27,10 @@ const Awards = () => {
 
   return (
     <AwardsContainer>
-      {awards ? 
-      <AwardsList awards={awards} /> 
-      : 
-      <div> Brak nagród. </div> 
+      {awards ?
+      <AwardsList awards={awards} />
+      :
+      <div> Brak nagród. </div>
       }
     </AwardsContainer>
   );

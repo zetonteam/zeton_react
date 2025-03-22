@@ -3,7 +3,7 @@ const initialState = {
   user: null,
 };
 
-const userReducer = (state = initialState, { payload, type }: any) => {
+const userReducer = (state = initialState, { payload, type }) => {
   switch (type) {
     case 'GET_STUDENTS': {
       return {

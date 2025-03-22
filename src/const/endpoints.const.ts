@@ -21,4 +21,4 @@ const MOCK_ENDPOINTS = {
 export const ENDPOINT =
   process.env.VITE_REACT_APP_MOCK === 'true' ? MOCK_ENDPOINTS : API_ENDPOINTS;
 
-export  const prizesUrl = (studentId: string) => `${BASE_URL}/api/students/${studentId}/prizes/`; 
+export  const prizesUrl = (studentId: string) => `${BASE_URL}/api/students/${studentId}/prizes/`;

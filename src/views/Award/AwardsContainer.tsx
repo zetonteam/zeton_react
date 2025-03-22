@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { StyledContainer } from '../../components/templates/HomeTemplate.tsx';
-import MainBox from '../../components/atoms/Sections/MainBox.ts';
+import { StyledContainer } from '../../components/templates/HomeTemplate';
+import MainBox from '../../components/atoms/Sections/MainBox';
 import {
   StyledHeader,
   StyledHeading,
-} from '../../components/atoms/Heading/Heading.ts';
+} from '../../components/atoms/Heading/Heading';
 
 const AwardsContainer = ({ children }: { children: React.ReactNode }) => {
   return (

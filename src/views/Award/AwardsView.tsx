@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import HomeTemplate from '../../components/templates/HomeTemplate.tsx';
-import StudentHeader from '../../components/structures/StudentHeader/StudentHeader.tsx';
-import Loading from '../../components/atoms/Loading/Loading.tsx';
-import Navbar from '../../components/structures/Navbar/Navbar.tsx';
-import { useStudentById } from '../../api/useStudentById.ts';
-import Button from '../../components/atoms/Buttons/Button.ts';
-import { AWARDS_SUB_ROUTES } from '../../const/routing.const.ts';
+import HomeTemplate from '../../components/templates/HomeTemplate';
+import StudentHeader from '../../components/structures/StudentHeader/StudentHeader';
+import Loading from '../../components/atoms/Loading/Loading';
+import Navbar from '../../components/structures/Navbar/Navbar';
+import { useStudentById } from '../../api/useStudentById';
+import Button from '../../components/atoms/Buttons/Button';
+import { AWARDS_SUB_ROUTES } from '../../const/routing.const';
 
 const AwardsView = () => {
   const { id } = useParams();

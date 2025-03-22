@@ -10,7 +10,6 @@ import HomeTemplate from '../components/templates/HomeTemplate';
 import { useStudents } from '../api/useStudents';
 //import StarSVG from "../images/icons/star.svg";
 import ProfileDefaultImage_SVG from '/profile-user.svg';
-import { useUser } from '../api/useUser.ts';
 
 const StyledHeadingWrapper = styled.header`
   width: 100%;
@@ -28,25 +27,12 @@ const StyledHeading: any = styled(Heading)``;
 
 const StyledUsersWrapper = styled(StyledHeadingWrapper)``;
 
-const StyledVisibleForTest = styled.p`
-  position: absolute;
-  height: 0;
-  margin: 0;
-  color: transparent;
-  bottom: 0;
-  width: 0;
-  padding: 0;
-  line-height: 0;
-`;
-
-const HomeView = (): JSX.Element => {
-  const { user, isUserLoading } = useUser();
+const HomeView = () => {
   const { students, isStudentsLoading, isStudentsError } = useStudents();
 
   return (
     <>
-      {user && (
-        <HomeTemplate>
+      <HomeTemplate>
           <StyledHeadingWrapper>
             <StyledHeading>Cześć, {user ? user : 'Nieznajomy'}</StyledHeading>
             <StyledHeading>wybierz podopiecznego</StyledHeading>
@@ -68,7 +54,7 @@ const HomeView = (): JSX.Element => {
           </StyledUsersWrapper>
           <AddButton>Dodaj podopiecznego</AddButton>
           {/* {
-        choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} /> 
+        choosenUser ? <Profile data={choosenUser} /> : <Home data={props.users && props.users} />
       } */}
         </HomeTemplate>
       )}
@@ -76,7 +62,6 @@ const HomeView = (): JSX.Element => {
       {
         // isError && <Error />
       }
-      <StyledVisibleForTest>wybierz podopiecznego</StyledVisibleForTest>
     </>
   );
 };

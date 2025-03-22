@@ -1,7 +1,7 @@
-import axios, { type AxiosInstance } from 'axios';
+import axios from 'axios';
 import { mockyClient } from './mockyClient';
 
-const apiClient: AxiosInstance = axios.create({});
+const apiClient = axios.create({});
 
 if (process.env.VITE_REACT_APP_API_URL) {
   apiClient.defaults.baseURL = process.env.VITE_REACT_APP_API_URL;

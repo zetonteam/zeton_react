@@ -1,11 +1,11 @@
 import React, { SetStateAction, useState } from 'react';
 import styled from 'styled-components';
-import Button from '../../atoms/Buttons/Button.ts';
-import SelectHeader from '../../atoms/Heading/SelectHeader.tsx';
-import CustomArrow from '../../atoms/Buttons/CustomArrow.ts';
-import { ThemeTypes } from '../../../theme/appTheme.ts';
-import { Subheading } from '../../atoms/Heading/Heading.ts';
-import MainBox from '../../atoms/Sections/MainBox.ts';
+import Button from '../../atoms/Buttons/Button';
+import SelectHeader from '../../atoms/Heading/SelectHeader';
+import CustomArrow from '../../atoms/Buttons/CustomArrow';
+import { ThemeTypes } from '../../../theme/appTheme';
+import { Subheading } from '../../atoms/Heading/Heading';
+import MainBox from '../../atoms/Sections/MainBox';
 
 interface ListItemInterface {
   theme: ThemeTypes;

@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import type { AxiosResponse } from 'axios';
 import { ENDPOINT } from '../const/endpoints.const';
-import axiosInstance from './axios.ts';
+import axiosInstance from './axios';
 
 type StudentByIdObject = {
   pk: number;
