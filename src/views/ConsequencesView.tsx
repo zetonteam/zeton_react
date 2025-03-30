@@ -4,12 +4,12 @@ import HomeTemplate from '../components/templates/HomeTemplate';
 import Navbar from '../components/structures/Navbar/Navbar';
 import StudentHeader from '../components/structures/StudentHeader/StudentHeader';
 import Loading from '../components/atoms/Loading/Loading';
-import { useStudentById } from '../api/useStudentById';
+import { useStudent } from '../api/getStudent';
 
 const ConsequencesView = () => {
-  let { id } = useParams();
+  const { id } = useParams();
 
-  const { student, isStudentLoading, isStudentError } = useStudentById(id);
+  const { student, isStudentLoading, isStudentError } = useStudent(id);
   return (
     <HomeTemplate>
       {isStudentLoading && !isStudentError && <Loading />}

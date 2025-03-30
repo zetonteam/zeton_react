@@ -8,14 +8,14 @@ import StudentHeader from '../components/structures/StudentHeader/StudentHeader'
 import ButtonBar from '../components/modules/ButtonBar/ButtonBar';
 import MainBox from '../components/atoms/Sections/MainBox';
 import Loading from '../components/atoms/Loading/Loading';
-import { useStudentById } from '../api/useStudentById';
+import { getStudent } from '../api/getStudent';
 import { useAwards } from '../api/Award/useAwards';
-import { useTasks } from '../api/useTasks';
+import { useTasks } from '../api/getTasks';
 
 const SettingsView = () => {
   const { id } = useParams();
 
-  const { student, isStudentLoading, isStudentError } = useStudentById(id);
+  const { student, isStudentLoading, isStudentError } = useStudent(id);
   const { awards, isAwardsLoading, isAwardsError } = useAwards(id);
   const { tasks, isTasksLoading, isTasksError } = useTasks(id);
 

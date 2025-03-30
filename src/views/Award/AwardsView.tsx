@@ -4,13 +4,13 @@ import HomeTemplate from '../../components/templates/HomeTemplate';
 import StudentHeader from '../../components/structures/StudentHeader/StudentHeader';
 import Loading from '../../components/atoms/Loading/Loading';
 import Navbar from '../../components/structures/Navbar/Navbar';
-import { useStudentById } from '../../api/useStudentById';
+import { useStudent } from '../../api/getStudent';
 import Button from '../../components/atoms/Buttons/Button';
 import { AWARDS_SUB_ROUTES } from '../../const/routing.const';
 
 const AwardsView = () => {
   const { id } = useParams();
-  const { student, isStudentLoading, isStudentError } = useStudentById(id);
+  const { student, isStudentLoading, isStudentError } = useStudent(id);
 
   const navigate = useNavigate();
 

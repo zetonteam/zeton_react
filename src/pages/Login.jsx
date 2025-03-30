@@ -1,52 +1,50 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../providers/AuthProvider";
-import useAuthenticateUser from "../api/authenticateUser";
+import getToken from "../api/getToken";
 
-const Login = () => {
+function Login() {
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
-  const { trigger, isMutating, error } = useAuthenticateUser();
+  const { trigger, isMutating, error } = getToken();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    e.stopPropagation();
 
-    const {
-      username: { value: username },
-      password: { value: password }
-    } = e.target.elements;
+    const { access } = await trigger(new FormData(e.target));
 
-    const response = await trigger({
-      username,
-      password,
-    });
+    setToken(access);
 
-    setToken(response.data.access);
     navigate('/', { replace: true });
-
-    return false
   };
 
   return (
-    <form action="#" method="post" id="signin" className="modal" onSubmit={handleSubmit}>
-      <div>
-        <h2>Zaloguj się</h2>
-        <label>Nazwa użytkownika:
-          <input type="text" name="username" required />
-        </label>
-        <label>Hasło:
-          <input type="password" name="password" required />
-        </label>
-        {error ? <p>Błąd logowania. Spróbuj ponownie.</p> : null}
-        <ul className="actions">
-          <li>
-            <button type="submit" className="featured">Zaloguj się</button>
-          </li>
-        </ul>
-      </div>
-    </form>
+    <>
+      <header hidden>
+        <h1 >Żeton</h1>
+      </header>
+      <form action="#" method="post" id="signin" className="modal" onSubmit={handleSubmit}>
+        <div>
+          <h2>Zaloguj się</h2>
+          <label>Nazwa użytkownika:
+            <input type="text" name="username" required />
+          </label>
+          <label>Hasło:
+            <input type="password" name="password" required />
+          </label>
+          {error ? <p>Błąd logowania. Spróbuj ponownie.</p> : null}
+          <ul className="actions">
+            <li>
+              <button type="submit" className="featured">Zaloguj się</button>
+            </li>
+          </ul>
+        </div>
+      </form>
+      <footer hidden>
+        <p>&copy;Żeton</p>
+      </footer>
+    </>
   );
 };
 

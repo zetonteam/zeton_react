@@ -1,30 +1,35 @@
-import { createContext, useContext, useEffect, useLayoutEffect, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import axios from 'axios';
+import { createContext, useContext, useEffect, useState, useMemo } from "react";
 
-import { clearToken, setToken } from "../redux/reducers/token";
-
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const dispatch = useDispatch();
-  const token = useSelector(({ token }) => token);
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", token);
+    } else {
+      localStorage.removeItem("token");
+    }
+  }, [token]);
 
   const contextValue = useMemo(
     () => ({
       token,
-      setToken: (newToken) => {
-        dispatch(setToken(newToken));
-      },
-      clearToken: () => {
-        dispatch(clearToken());
+      setToken(newToken) {
+        setToken(newToken);
+      } ,
+      clearToken() {
+        setToken("");
       }
     }),
     [token]
   );
 
   return (
-    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={contextValue}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
