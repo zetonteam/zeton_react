@@ -14,8 +14,6 @@ function StudentsSettingsLayout() {
           <Link to={`/students/${student?.pk}/settings/listtasks`}>Zadania</Link>
         </li>
       </ul>
-
-      <Outlet />
     </>
   );
 }

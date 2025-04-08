@@ -8,6 +8,9 @@ import Student from "./pages/students/Student";
 import Tasks from "./pages/students/Tasks";
 import StudentLayout from "./pages/students/StudentLayout";
 import StudentsSettingsLayout from "./pages/students/settings/StudentsSettingsLayout";
+import ListPrizes from "./pages/students/settings/ListPrizes";
+import ListTasks from "./pages/students/settings/ListTasks";
+
 const Routes = () => {
   let { token } = useAuth();
 
@@ -45,13 +48,12 @@ const Routes = () => {
             }, {
               path: ":student_id/settings",
               Component: StudentsSettingsLayout,
-              children: [{
-                path: "listprizes",
-                Component: () => <div>LIST PRIZES</div>
-              }, {
-                path: "listtasks",
-                Component: () => <div>LIST TASKS</div>
-              }]
+            }, {
+              path: ":student_id/settings/listprizes",
+              Component: ListPrizes
+            }, {
+              path: ":student_id/settings/listtasks",
+              Component: ListTasks
             }
           ]
         }, {
