@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Student from "./pages/students/Student";
 import Tasks from "./pages/students/Tasks";
 import StudentLayout from "./pages/students/StudentLayout";
-
+import StudentsSettingsLayout from "./pages/students/settings/StudentsSettingsLayout";
 const Routes = () => {
   let { token } = useAuth();
 
@@ -41,10 +41,17 @@ const Routes = () => {
               element: (<div>consequences</div>)
             }, {
               path: ":student_id/info",
-              element: (<div>info</div>)
+              element: <div>info</div>
             }, {
               path: ":student_id/settings",
-              element: (<div>settings</div>)
+              Component: StudentsSettingsLayout,
+              children: [{
+                path: "listprizes",
+                Component: () => <div>LIST PRIZES</div>
+              }, {
+                path: "listtasks",
+                Component: () => <div>LIST TASKS</div>
+              }]
             }
           ]
         }, {

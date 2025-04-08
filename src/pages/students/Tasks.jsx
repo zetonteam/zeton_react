@@ -15,7 +15,7 @@ function Tasks() {
     const task = tasks[ix];
 
     const formData = new FormData();
-
+// bedzie mozna wyslac kolekcje
     formData.set("object_id", task.pk);
     formData.set("value", task.value);
     formData.set("assigner", 2);
