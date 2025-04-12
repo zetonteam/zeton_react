@@ -1,40 +1,39 @@
-import { useTasks } from '../../api/getTasks';
+import { getPrizes } from '../../api/getPrizes';
 import { postPoints } from '../../api/postPoints';
 import { useStudentContext } from './StudentLayout';
 
-function Tasks() {
+function Prizes() {
   const { student, refresh } = useStudentContext();
-  const { tasks = [] } = useTasks(student.pk);
+  const { prizes = [] } = getPrizes(student.pk);
 
   // const { trigger } = postPoints(student.pk);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const ix = e.target.elements.task.value;
-    const task = tasks[ix];
+    const ix = e.target.elements.prize.value;
+    const prize = prizes[ix];
 
     const formData = new FormData();
-// bedzie mozna wyslac kolekcje
-    formData.set("object_id", task.pk);
-    formData.set("value", task.value);
+    // bedzie mozna wyslac kolekcje
+    formData.set("object_id", prize.pk);
+    formData.set("value", prize.value);
     formData.set("assigner", 2);
-    formData.set("content_type", "task");
+    formData.set("content_type", "prize");
 
     const data = await postPoints(student.pk, formData);
-
     e.target.reset();
     refresh(); // nie wiem czy nie powinno to byc na poziomie postPoints
   };
 
   return (
     <form action="#" method="post" onSubmit={onSubmit}>
-      <h2>Dodawanie punktów</h2>
+      <h2>Przyznaj nagrodę</h2>
       <label>
         Wybierz:<br />
-        <select name="task">
+        <select name="prize">
           <option value="">--</option>
-          {tasks?.map?.(({ pk, name, value}, index) => (
+          {prizes?.map?.(({ pk, name, value }, index) => (
             <option value={index}>{name} - {value}</option>
           ))}
         </select>
@@ -48,4 +47,4 @@ function Tasks() {
   );
 };
 
-export default Tasks;
+export default Prizes;

@@ -6,6 +6,7 @@ import Logout from "./pages/Logout";
 import Home from './pages/Home';
 import Student from "./pages/students/Student";
 import Tasks from "./pages/students/Tasks";
+import Prizes from "./pages/students/Prizes";
 import StudentLayout from "./pages/students/StudentLayout";
 import StudentsSettingsLayout from "./pages/students/settings/StudentsSettingsLayout";
 import ListPrizes from "./pages/students/settings/ListPrizes";
@@ -36,6 +37,9 @@ const Routes = () => {
             }, {
               path: ":student_id/tasks",
               Component: Tasks
+            }, {
+              path: ":student_id/prizes",
+              Component: Prizes
             }, {
               path: ":student_id/awards",
               element: (<div>awards</div>)

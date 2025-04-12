@@ -12,7 +12,7 @@ function Student() {
             <Link to={`/students/${student?.pk}/tasks`}>Dodaj punkty</Link>
           </li>
           <li>
-            <Link to={''}>Przyznaj nagrodę</Link>
+            <Link to={`/students/${student?.pk}/prizes`}>Przyznaj nagrodę</Link>
           </li>
           <li>
             <Link to="">Daj konsekwencję</Link>
