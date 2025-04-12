@@ -6,7 +6,7 @@ export const student = `${students}/:student_id`
 export const studentPoints = `${student}/points/`; // tylko api
 export const studentPrizes = `${student}/prizes/`;
 export const studentPrize = `${student}/prize/:prize_id/`;
-export const studentTask = `${student}/task/:task_id`;
+export const studentTask = `${student}/task/:task_id/`;
 export const studentTasks = `${student}/tasks/`;
 export const token = `${baseUrl}/api/token-auth/`;
 

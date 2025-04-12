@@ -83,6 +83,7 @@ function ListPrizes() {
       </ul>
 
       <form action="#" onSubmit={handleSubmit}>
+        <h2>Dodawanie</h2>
         <label>
           Nazwa<br />
           <input name="name"></input>
@@ -96,6 +97,7 @@ function ListPrizes() {
 
 
       <form action="#edit" onSubmit={handleSubmitUpdate} ref={updateForm} style={{ position: "fixed", inset: "10rem 1rem auto auto" }}>
+        <h2>Edycja</h2>
         <label>
           Nazwa<br />
           <input name="name"></input>
