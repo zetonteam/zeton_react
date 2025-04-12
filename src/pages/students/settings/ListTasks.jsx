@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import { useTasks } from "../../../api/getTasks";
 import { useStudentContext } from "../StudentLayout";
+import { postNewTask } from "../../../api/postNewTask";
+
 
 function ListTasks() {
   const { student } = useStudentContext();
-  const { tasks } = useTasks(student.pk);
+  const { tasks, refresh } = useTasks(student.pk);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = await postNewTask(student.pk, formData);
+
+    refresh();
+  };
 
   return (
     <>
@@ -17,8 +28,8 @@ function ListTasks() {
           </li>
         ))}
       </ul>
-      <form style={{ border: "1px solid red", padding: "1rem"}}>
-        x
+
+      <form action="#" onSubmit={handleSubmit}>
         <label>
           Nazwa<br />
           <input name="name"></input>
