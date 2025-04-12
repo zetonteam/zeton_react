@@ -21,6 +21,14 @@ const get = (url) => fetch(url, {
   }
 }).then(res => res.json());
 
+const remove = (url) => fetch(url, {
+  method: "DELETE",
+  headers: {
+    ...defaultHeaders,
+    ...getAuthToken()
+  }
+}).then(res => res.ok);
+
 const post = async (url, data) => {
   return fetch(url, {
     method: "POST",
@@ -34,5 +42,6 @@ const post = async (url, data) => {
 
 export default Object.freeze({
   get,
-  post
+  post,
+  remove
 })

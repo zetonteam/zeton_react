@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTasks } from "../../../api/getTasks";
 import { useStudentContext } from "../StudentLayout";
 import { postNewTask } from "../../../api/postNewTask";
+import { deleteTask } from "../../../api/deleteTask";
 
 
 function ListTasks() {
@@ -17,13 +18,28 @@ function ListTasks() {
     refresh();
   };
 
+  const handlerDelete = (task_id) => {
+
+    return async (e) => {
+      e.stopPropagation();
+
+      await deleteTask({
+        student_id: student.pk,
+        task_id
+      });
+
+      console.log("-----")
+      refresh();
+    }
+  }
+
   return (
     <>
       <ul>
         {tasks?.map((item, index) => (
           <li key={`prizes-${index}`}>
             {item.name} - punkty: {item.value}
-            <button type="button" name="del-prizes" value={item.pk}>usuń</button>
+            <button type="button" name="del-prizes" value={item.pk} onClick={handlerDelete(item.pk)}>usuń</button>
             <Link to={""}>Edytuj</Link>
           </li>
         ))}
