@@ -15,11 +15,12 @@ function ListTasks() {
     const formData = new FormData(e.target);
     const data = await postNewTask(student.pk, formData);
 
+    e.target.reset();
+
     refresh();
   };
 
   const handlerDelete = (task_id) => {
-
     return async (e) => {
       e.stopPropagation();
 
@@ -28,18 +29,20 @@ function ListTasks() {
         task_id
       });
 
-      console.log("-----")
       refresh();
     }
   }
 
   return (
     <>
+      <h2>[Settings] Lista Zadań</h2>
       <ul>
         {tasks?.map((item, index) => (
           <li key={`prizes-${index}`}>
             {item.name} - punkty: {item.value}
-            <button type="button" name="del-prizes" value={item.pk} onClick={handlerDelete(item.pk)}>usuń</button>
+            <button type="button" name="del-prizes" value={item.pk} onClick={handlerDelete(item.pk)}>
+              <span>usuń</span>
+            </button>
             <Link to={""}>Edytuj</Link>
           </li>
         ))}

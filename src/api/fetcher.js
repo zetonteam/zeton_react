@@ -40,8 +40,20 @@ const post = async (url, data) => {
   }).then(res => res.json());
 }
 
+const patch = async (url, data) => {
+  return fetch(url, {
+    method: "PATCH",
+    headers: {
+      ...defaultHeaders,
+      ...getAuthToken()
+    },
+    body: JSON.stringify(Object.fromEntries(data.entries()))
+  }).then(res => res.json());
+}
+
 export default Object.freeze({
   get,
+  patch,
   post,
   remove
 })
