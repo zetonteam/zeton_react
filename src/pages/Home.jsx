@@ -7,34 +7,46 @@ function HomeView() {
   const { students } = getStudents();
 
   return (
-    <section id="">
-      <h2>Czesc, {user?.username}</h2>
-
+    <section id="home">
+      <h2>Wybór podopiecznego</h2>
+      <form action="#" method="get">
+        <label>
+          <visually-hidden>Wyszukaj podopiecznego</visually-hidden>
+          <input type="search" name="search" inputMode="search" placeholder="Wyszukaj..." />
+        </label>
+        <visually-hidden>
+        <button type="submit">
+          <span className="icon-search"></span>
+          Szukaj
+        </button>
+        </visually-hidden>
+      </form>
       {students?.length > 0 ? (
         <div className="cards">
           <StudentsList list={students} />
         </div>
       ) : null}
 
-      <ul className="userAction">
+      {/* <ul className="userAction">
         <li>
           <button type="button">
             Dodaj podopiecznego
           </button>
         </li>
-      </ul>
+      </ul> */}
     </section>
   );
 };
 
-const StudentsList = ({ list }) => {
-  return list.map(({ first_name, last_name, pk }, index) => (
-    <article key={`${first_name}-${pk}-${index}`}>
-      <h3>
-        <Link to={`/students/${pk}`}>{first_name}</Link>
-      </h3>
-      <img src="" alt={`${first_name} ${last_name}`}></img>
+const hue = [214, 319, 286, 108];
 
+const StudentsList = ({ list }) => {
+  list = [...list, ...list, ...list, ...list, ...list, ...list];
+  return list.map(({ first_name, last_name, pk }, index) => (
+    <article key={`${first_name}-${pk}-${index}`} style={{ "--avatarHue": hue[(index % hue.length)] }}>
+      <h3>
+        <Link to={`/students/${pk}`}>{first_name}<br />{last_name}</Link>
+      </h3>
     </article>
   ));
 };

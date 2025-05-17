@@ -1,4 +1,44 @@
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-flex;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-pencil:before {
+  content: '\e800';
+}
+
 body {
+  --icon-fontFamily: 'icons';
+  --icon-pencil: '\e800';
   --icon-home: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="%23fff"/></svg>');
   --icon-trophy: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M445.592 76.713h-62.836V56.311H131.413v20.402H68.578c-12.567 0-20.945 8.162-20.945 20.403v48.967c0 46.927 35.606 85.692 83.78 91.813v2.04c0 59.168 41.89 108.135 98.443 120.377l-14.662 42.846H167.02c-8.378 0-16.756 6.12-18.85 14.282l-16.757 46.926h251.343L366 417.441c-2.095-8.161-10.473-14.282-18.85-14.282h-48.175l-14.661-42.846c56.552-12.242 98.442-61.209 98.442-120.377v-2.04c48.174-6.121 83.78-44.886 83.78-91.813V97.116c0-12.241-8.377-20.403-20.944-20.403zM131.413 197.09c-23.04-6.12-41.89-26.524-41.89-51.007V117.52h41.89zm167.562 63.249l-41.89-22.443-41.89 22.443 10.472-40.806-31.418-40.805h43.985l18.85-40.806 18.851 40.806h43.985l-31.417 40.805zm125.671-114.256c0 24.483-18.85 46.927-41.89 51.007v-79.57h41.89z" fill="%23fff"/></svg>');
   --icon-dissatisfied: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><circle cx="15.5" cy="9.5" r="1.5" fill="%23fff"/><circle cx="8.5" cy="9.5" r="1.5" fill="%23fff"/><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-6c-2.33 0-4.32 1.45-5.12 3.5h1.67c.69-1.19 1.97-2 3.45-2s2.75.81 3.45 2h1.67c-.8-2.05-2.79-3.5-5.12-3.5z" fill="%23fff"/></svg>');
@@ -10,4 +50,6 @@ body {
   content: "";
   display: inline-flex;
   justify-content: center;
-} */
+  bacground-size: 1.5em
+}
+*/

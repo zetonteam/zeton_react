@@ -1,0 +1,2 @@
+
+.icon-frown { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf119;&nbsp;'); }
