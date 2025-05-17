@@ -27,17 +27,14 @@ function Login() {
       <form action="#" method="post" id="signin" className="modal" onSubmit={handleSubmit}>
         <div>
           <h2 hidden>Zaloguj się</h2>
-          <label>Nazwa użytkownika:
+          <label>Nazwa użytkownika
             <input type="text" name="username" placeholder="Wpisz login" required />
           </label>
-          <label>Hasło:
+          <label>Hasło
             <input type="password" name="password" placeholder="Wpisz hasło" required />
           </label>
           {error ? <p>Błąd logowania. Spróbuj ponownie.</p> : null}
-          <ul className="actions">
-            <li>
-              <button type="reset" style={{ "--btnFontSize": "48px" }}>reset</button>
-            </li>
+          <ul className="userActions">
             <li>
               <button type="submit" className="featured">Zaloguj się</button>
             </li>
