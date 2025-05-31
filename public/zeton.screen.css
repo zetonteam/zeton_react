@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'icons';
-  src: url('/icons.woff2?69033028') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 :root {
   --huePurple: 286;
   --hueBlue: 214;
@@ -297,7 +290,7 @@ input[type=checkbox]:checked {
 
 input[type=checkbox]:checked::before {
   content: var(--input-icon);
-  font-family: var(--icon-fontFamily);
+  font-family: var(--icons);
   color: var(--color-white);
   font-size: 1.5em;
 }
