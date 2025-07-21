@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "icons";
+  src: url("/icons.woff2?1c9507a2")
+  format("woff2");
+  font-display: fallback;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before,
+[style*="--icon"]::before,
+[style*="--iconAfter"]::after,
+[data-icon]::before,
+[data-iconAfter]::after {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-flex;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+[style*="--icon"]::before,
+[data-icon]::before {
+  content: attr(data-icon, var(--icon));
+}
+
+[style*="--iconAfter"]::after,
+[data-iconAfter]::after {
+  content: attr(data-iconAfter, var(--iconAfter));
+}
+
+.icon-pencil:before {
+  content: "\e800";
+}
+
+.icon-smile:before {
+  content: "\e801";
+}
+
+.icon-trash:before {
+  content: "\e802";
+}
+
+.icon-gem:before {
+  content: "\e803";
+}
+
+.icon-trophy:before {
+  content: "\e804";
+}
+
+.icon-user:before {
+  content: "\e805";
+}
+
+.icon-calendar:before {
+  content: "\e806";
+}
+
+.icon-settings:before {
+  content: "\e807";
+}
+
+.icon-angle-left:before {
+  content: "\e808";
+}
+
+.icon-plus:before {
+  content: "\e809";
+}
+
+.icon-heart:before {
+  content: "\e80a";
+}
+
+body {
+  --icons: "icons";
+  --icon-pencil: "\e800";
+  --icon-smile: "\e801";
+  --icon-trash: "\e802";
+  --icon-gem: "\e803";
+  --icon-trophy: "\e804";
+  --icon-user: "\e805";
+  --icon-calendar: "\e806";
+  --icon-settings: "\e807";
+  --icon-angle-left: "\e808";
+  --icon-plus: "\e809";
+  --icon-heart: "\e80a";
+}

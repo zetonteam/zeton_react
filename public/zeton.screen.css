@@ -1,0 +1,357 @@
+:root {
+  --huePurple: 286;
+  --hueBlue: 214;
+  --hueGreen: 108;
+  --huePink: 319;
+
+  --color-bg: hsl(286, 100%, 91%);
+  /* Neon Purple */
+  --color-btn-bg: hsl(286, 84%, 50%);
+
+  /* Hawkes Blue */
+  --color-bg-1: hsl(214, 100%, 91%);
+  --color-btg-1: hsl(214, 84%, 50%);
+
+  /* Light Jade */
+  --color-bg-2: hsl(108, 100%, 91%);
+  /* Leafy Green*/
+  --color-btn-bg1: hsl(108, 84%, 50%);
+
+  /* Classic Rose */
+  --color-bg-3: hsl(319, 100%, 91%);
+  /* ArtyClick Warm Magenta / Hot Magenta */
+  --color-btn-bg3: hsl(319, 84%, 50%);
+
+  /* Carbon Gray */
+  --color-txt-1: hsl(0, 0%, 38%);
+
+  --flowtext: system-ui, sans-serif;
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+
+  --fluid-18-24: clamp(1.125rem, 0.9rem + 1vw, 1.5rem);
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(0, 0%, 4%);
+    --foreground: hsl(0, 0%, 93%);
+
+    --backdrop: hsl(0, 0%, 93%, 0.2);
+  }
+} */
+
+html,
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+figure,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+fieldset,
+caption,
+legend,
+table,
+tr,
+td,
+th,
+address,
+blockquote,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+fieldset {
+  border: none;
+}
+
+legend {
+  appearance: none;
+  display: block;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+body *,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+button,
+label,
+summary {
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+button,
+input,
+table,
+textarea,
+select {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: var(--flowtext);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  --backgroundHue: var(--huePurple);
+  --backgroundLightness: 91%;
+  --foregroundLightness: 0%;
+
+  --background: hsl(var(--backgroundHue), 100%, 91%);
+  --foreground: hsl(0, 0%, var(--foregroundLightness));
+  --foregroundSecondary: hsl(0, 0%, 38%);
+
+  --backgroundActive: hsl(var(--backgroundHue), 84%, 50%);
+  --foregroundActive: var(--color-white);
+
+  --backdrop: hsla(0, 0%, 0%, var(--backdropOpacity, 0.4));
+
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  scroll-behavior: smooth;
+}
+
+button {
+  --btnFontSize: 1em;
+  --btnBackground: var(--backgroundActive);
+  --btnForeground: var(--foregroundActive);
+  --btnBorderRadius: 1em;
+  --btnPadding: 0.875em;
+
+  align-items: center;
+  appearance: none;
+  background-color: var(--btnBackground);
+  border-radius: var(--btnBorderRadius);
+  border: 0;
+  color: var(--btnForeground);
+  display: inline-flex;
+  font-size: var(--btnFontSize);
+  justify-content: center;
+  margin: 0;
+  outline: none;
+  padding: var(--btnPadding);
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button[type=submit] {
+  font-weight: 700;
+  min-width: 12em;
+}
+
+input:not([type=number], [type=checkbox]) {
+  --inputTextColor: var(--foreground);
+  --inputTextBackground: var(--color-white);
+  --inputTextBorderColor: transparent;
+  --inputTextFontSize: var(--fluid-18-24);
+  background: var(--inputTextBackground);
+  border: .125em solid var(--inputTextBorderColor);
+  border-radius: 1em;
+  color: var(--inputTextColor);
+  font-size: var(--inputTextFontSize);
+  padding: 0.25em 0.5em;
+  outline: none
+}
+
+input:not([type=number], [type=checkbox]):focus {
+  --inputTextBorderColor: var(--backgroundActive);
+}
+
+input[name=search] {
+  font-size: 1rem;
+  width: 100%;
+}
+
+input::placeholder {
+  font-size: 0.875em;
+  color: var(--foregroundSecondary);
+}
+
+visually-hidden {
+  position: fixed;
+  left: -999em;
+}
+
+#root > section {
+  width: min(100% - 3rem, 30rem);
+  margin-inline: auto;
+}
+
+/* .visuallyhidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.visuallyhidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+} */
+
+.userActions {
+  list-style: none
+}
+
+.userActions li {
+  text-align: center;
+}
+.userActions button {
+  margin-inline: auto;
+}
+
+#signin {
+  margin-inline: auto;
+  width: min(100% - 2em, 40rem);
+}
+
+#signin label {
+  display: flex;
+  flex-direction: column;
+
+  margin-block: 1rem;
+
+  font-size: var(--fluid-18-24);
+  font-weight: 700;
+  gap: .67em;
+
+  margin-block-end: 1.23em;
+}
+
+input[type=checkbox] {
+  appearance: none;
+  width: 2.5em;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--color-white);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=checkbox]:checked {
+  --input-icon: var(--icon-pencil);
+  background-color: var(--backgroundActive);
+}
+
+input[type=checkbox]:checked::before {
+  content: var(--input-icon);
+  font-family: var(--icons);
+  color: var(--color-white);
+  font-size: 1.5em;
+}
+
+a:hover {
+  text-decoration: none;
+
+  color: blue;
+}
+
+.cards article {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  padding: .875em 1.3125em;
+  border-radius: 1em;
+
+  margin-block: 2em;
+  background-color: var(--color-white);
+}
+
+.cards article a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+}
+
+.cards article::before {
+  content: "";
+
+  display: inline-flex;
+
+  width: 4.5em;
+  height: 4.5em;
+  border-radius: 50%;
+  background-color: hsl(var(--avatarHue, 286), 84%, 50%)
+}
+
+@media (hover: hover) {
+
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: light;
+  }
+} */
+
+@media (max-width: 62.625rem) {
+
+}

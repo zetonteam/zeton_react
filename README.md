@@ -97,24 +97,6 @@ Install the package of styled-components in your project directory with:
 
 ---
 
-## Store container
-
-For keeping state we use [Redux](https://redux.js.org/).
-
-<!-- Install Redux Toolkit in your project directory with:
-
-`npm install @reduxjs/toolkit` -->
-
-Next install Redux core library:
-
-`npm install redux`
-
-And..
-
-`npm install react-redux`
-
----
-
 ## Learn More
 (We changed create-react-app to vite react by recomendations and because of vulnerabilities from "react-script" package)
 # React + Vite
